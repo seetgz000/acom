@@ -5,7 +5,7 @@
 </ul>
 <div class="row" id="refresh-box">
     <!--Middle Part Start-->
-    <div id="content" class="col-sm-12">
+    <div id="content" style="padding-left:20%;padding-right:20%;" class="col-sm-12">
         <h1 class="title">Shopping Cart</h1>
         <div class="table-responsive">
             <table class="table table-bordered">
@@ -149,6 +149,7 @@
         ?>
     </div>
     <!--Middle Part End -->
+</div>
 </div>
 <script>
     $(document).on('submit', '.edit-cart-item-form', function (e) {
