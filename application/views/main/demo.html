@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <title>ACOM</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="<?php echo site_url(); ?>/css/acom.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo site_url(); ?>/js/plugins/slick/slick.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo site_url(); ?>/js/plugins/slick/slick-theme.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+    </head>
+    <body>
+        <div class="row clearfix">
+            <div class="header-upper-container col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                <div class="inner-container">
+                    <a href="#"><p class="header-upper-fonts pull-right">Sign Up</p></a>
+                    <a href="#"><p class="header-upper-fonts pull-right">Login</p></a>
+                </div>
+            </div>
+            <div class ="header-center-container col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                <div class="inner-container">
+                    <div class="row">
+                        <div class="logo-container full-height col-md-3 col-lg-3">
+
+                        </div><div class="search-bar-container full-height col-md-9 col-lg-9">
+                            <div class="col-md-10 col-lg-10">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search for...">
+                                    <span class="input-group-addon search-bar-button"><i class="fa fa-search"></i></span>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <a href="#"><i class="fa fa-shopping-cart cart-button"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-lower-container col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                <div class="inner-container">
+                    <nav class="header-navbar">
+                        <div class="dropdown header-navbar-font inline">
+                            <a class="header-navbar-font dropdown-toggle" id="furnitures" data-toggle="dropdown">Furnitures</a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="furnitures">
+
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <div class="content-container col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                <div class="inner-container">
+                    <div class="carousel-container">
+                    </div>
+                    <h1 class="content-title-font">Latest</h1>
+                </div>
+            </div>
+            <footer class="footer-container col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                <div class="inner-container">
+                </div>
+            </footer>
+        </div>
+        <script src="<?= base_url() ?>js/plugins/slick/slick.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('.carousel-container').slick({
+                    dots: false,
+                    infinite: true,
+                    speed: 500,
+                    fade: true,
+                    cssEase: 'linear'
+                });
+
+                $('.multi-carousel-container').slick({
+                    slidesToShow: 5,
+                    slidesToScroll: 3,
+                    dots: false,
+                    infinite: true,
+                });
+            });
+        </script>
+    </body>
+</html>

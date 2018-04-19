@@ -1,0 +1,38 @@
+.product_box_wrapper{
+   width : 100%;
+   height : 100%;
+   
+}
+
+.product_box_wrapper .item_half{
+    display : inline-block;
+    width : 50%;
+    vertical-align: top;
+    padding : 1%;
+    max-height : 50vh;
+    position : relative;
+}
+
+.product_box_wrapper .item_full{
+    display : inline-block;
+    width  : 100%;
+    vertical-align : top;
+}
+
+.large_thumbnail{
+    max-width : 100%;
+    max-height : 100%;
+}
+.thumbnail_wrapper{
+    width : 150px;
+    display : inline-block;
+    vertical-align : top;
+    margin : 1%;
+}
+
+.thumbnail{
+    max-width : 100%;
+    max-height : 100%;
+}
+
+

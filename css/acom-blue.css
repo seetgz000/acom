@@ -1,0 +1,232 @@
+* {
+    padding : 0;
+    margin : 0;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    overflow-x : hidden;
+    background-color : #f1f1f1;
+}
+
+a {
+    cursor : pointer;
+}
+
+.inner-container {
+    width : 1200px;
+    margin : 0 auto;
+    display : block;
+    vertical-align : top;
+    height : 100%;
+}
+
+.header-upper-container {
+    height : 35px;
+    background-color :#202f44;
+    padding : 0.25%;
+}
+
+.header-upper-fonts {
+    font-size : 1em;
+    margin-left : 1.5%;
+    margin-right : 1.5%;
+    color : #ff4d4d;
+}
+
+.header-center-container {
+    height : 85px;
+    border-bottom : solid 1px #202f44;
+    background-color : #375682;
+}
+
+.full-height {
+    height : 100%;
+}
+
+.padding {
+    padding : 2.5%;
+}
+
+.search-bar-container {
+    padding : 1.75%;
+}
+
+.search-bar-button {
+    background-color : #ff4d4d;
+    color : #375682;
+    border : none;
+}
+
+.header-lower-container {
+    height : 35px;
+    background-color : #375682;
+    padding-top : 0.25%;
+}
+
+.header-navbar-font {
+    font-size : 1.1em;
+    color : #ffffff;
+    margin-right : 2.5%;
+}
+
+.header-navbar-font:focus {
+    color : #ff4d4d;
+}
+
+.header-navbar-font:hover {
+    color : #ff4d4d;
+}
+
+.cart-button {
+    font-size : 30px;
+    color : #ff4d4d;
+}
+
+.content-container {
+    min-height: 78vh;
+}
+
+.carousel-container {
+    width : 100%;
+    height : 550px;
+    margin-top : 1%;
+}
+
+.carousel-content {
+    width : 100%;
+    height : 100%;
+}
+
+.carousel-image, .cropped {
+    height : 100%;
+    width : 100%;
+    object-fit : cover;
+}
+
+.slick-cover {
+    width : 100%;
+    height : 100%;
+}
+
+.product-container {
+    height : 250px;
+    border : solid 1px #e0e0e0;
+    background-color : #ffffff;
+}
+
+.no-padding {
+    padding : 0;
+}
+
+.no-margin {
+    margin : 0;
+}
+
+.content-title-font {
+    font-size : 1.5em;
+}
+
+.product-thumbnail-container {
+    width : 100%;
+    height : 150px;
+}
+
+.product-details-container {
+    width : 100%;
+    height : 100px;
+    padding : 1.5%;
+}
+
+.product-name-font {
+    font-size : 15px;
+    margin-top : 10px;
+}
+
+.ellipsis {
+    overflow : hidden;
+    white-space: nowrap;
+    text-overflow : ellipsis;
+}
+
+.product-description-font {
+    font-size : 12px;
+}
+
+.current-price-font {
+    font-size : 20px;
+    font-weight : bold;
+    color : #ff4d4d;
+    display : inline-block;
+    vertical-align : top;
+}
+
+.full-price-font {
+    font-size : 12px;
+    text-decoration : line-through;
+    display : inline-block;
+    vertical-align : top;
+    margin-left : 1.5%;
+}
+
+.discount-percentage-font {
+    font-size : 12px;
+    display : inline-block;
+    vertical-align : top;
+    margin-left : 1.5%;
+}
+
+.category-group-container {
+    width : 100%;
+}
+
+.multi-carousel-container {
+    height : 250px;
+    width : 100%;
+    background-color : #ffffff;
+}
+
+.multi-carousel-content {
+    height : 100%;
+    border : solid 1px #e0e0e0;
+}
+
+.footer-container {
+    height : 250px;
+    background-color : #202f44;
+    margin-top : 5%;
+}
+
+.inline {
+    display : inline;
+}
+
+.subcategory-font {
+    color : #ff4d4d;
+    font-size : 1.2em;
+}
+
+.subcategory-font:hover {
+    color : #ff4d4d;
+}
+
+.subcategory-content-font {
+    color : #000000;
+    font-size : 1em;
+}
+
+.subcategory-content-font:hover {
+    color : #000000;
+}
+
+.no-bullet {
+    list-style: none;
+}
+
+.logo-container {
+    padding: 1%;
+}
+
+.logo {
+    height : 100%;
+}
