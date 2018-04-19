@@ -54,9 +54,10 @@ class Order_model extends CI_Model {
     }
     
     public function get_order_products($where){
-        $this->db->select('*');
+        $this->db->select('*, product.name AS product_name, (order_details.quantity * order_details.price) AS total');
         $this->db->from('order_details');
         $this->db->join('product', 'order_details.product_id = product.product_id', 'left');
+        $this->db->join('product_model', 'order_details.model_id = product_model.model_id', 'left');
         $this->db->where($where);
         
         $query = $this->db->get();

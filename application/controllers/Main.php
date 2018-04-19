@@ -32,6 +32,8 @@ class Main extends CI_Controller {
             $i++;
         }
         $this->page_data['category'] = $category;
+
+//        die(var_dump($this->session->userdata('cart')));
     }
 
     public function index() {
@@ -41,7 +43,7 @@ class Main extends CI_Controller {
 
         $category = $this->Product_model->get_category_by_product();
         $category_types = array();
-       
+
         foreach ($category as $row) {
             array_push($category_types, $row['category_id']);
         }
@@ -52,7 +54,7 @@ class Main extends CI_Controller {
                 'deleted' => 0
             );
             $category_details = $this->Category_model->get_where($where);
-          
+
             $category_products['name'] = $category_details[0]['name'];
             $where = array(
                 'product.category_id' => $row
@@ -63,7 +65,7 @@ class Main extends CI_Controller {
         }
         $this->page_data['category_group'] = $category_group;
 
-      
+
         $this->load->view('main/header', $this->page_data);
         $this->load->view('main/index');
         $this->load->view('main/footer');
@@ -125,7 +127,7 @@ class Main extends CI_Controller {
 
         $this->page_data['promotion'] = $this->Product_model->get_promotion($product_id);
 
-       
+
         $this->load->view('main/header', $this->page_data);
         $this->load->view('main/product');
         $this->load->view('main/footer');
@@ -611,6 +613,22 @@ class Main extends CI_Controller {
     }
 
     public function payment($order_id) {
+
+        $where = array(
+            "order_id" => $order_id
+        );
+
+        $product_item = $this->Order_model->get_order_products($where);
+        
+        $subtotal = 0;
+        foreach($product_item as $row){
+            $subtotal += $row["total"];
+        }
+            
+        $this->page_data["product_item"] = $product_item;
+        $this->page_data["subtotal"] = $subtotal;
+        $this->page_data["total"] = $subtotal;
+        
         $this->load->view('main/header', $this->page_data);
         $this->load->view('main/payment');
         $this->load->view('main/footer');
