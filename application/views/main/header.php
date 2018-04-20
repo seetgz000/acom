@@ -36,7 +36,6 @@
         <link rel="stylesheet" href="<?= site_url(); ?>css/responsive.css">
         <!-- modernizr css -->
         <script src="<?= site_url(); ?>js/vendor/modernizr-2.8.3.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
     </head>
 
     <body>
@@ -57,7 +56,7 @@
                                             </li>
                                         <?php } ?>
 
-                                        <li><a href="<?= base_url() ?>main/cart">Checkout</a>
+                                        <li><a href="<?= site_url("main/cart"); ?>">Checkout</a>
                                         </li>
                                         <li><a href="<?= site_url("access/login"); ?>">Login</a>
                                         </li>
@@ -82,7 +81,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="col-md-9 col-sm-9 hidden-xs">
+                            <div class="col-md-8 col-sm-8 hidden-xs">
                                 <nav>
                                     <ul class="main-menu">
                                         <li class="active"><a href="<?= site_url("Main"); ?>" target="_blank">Home </a>
@@ -104,15 +103,15 @@
                                             </div>
 
                                         </li>
-                                        <li class="mega-parent"><a href="#">About us</a>
+                                        <li class="mega-parent"><a href="<?= site_url("Main/about"); ?>">About us</a>
                                         </li>
 
-                                        <li><a href="#">Contact us</a>
+                                        <li><a href="<?= site_url("Main/contact"); ?>">Contact us</a>
                                         </li>
                                     </ul>
                                 </nav>
                             </div>
-                            <div class="col-md-1 col-sm-1 col-xs-12" id="header-button">
+                            <div class="col-md-2 col-sm-2 col-xs-12">
                                 <div class="main-cart-area home2-main-cart posr">
                                     <div class="header-search header-search-style2 header-search-position hps2 hps3 posr">
                                         <form action="#">
@@ -127,34 +126,32 @@
                                                 <i class="fa fa-shopping-bag"></i>
                                             </div>
                                             <div class="cartpoint-shopping-qty">
-                                                <span><?= ($this->session->has_userdata('cart')) ? count($this->session->userdata("cart")) : 0 ?></span>
+                                                <span><?= count($this->session->userdata('cart')) ?></span>
                                             </div>
                                         </div>
                                         <!-- Cart box start-->
                                         <div class="header-cart-box-wrapper cart-position-style2">
                                             <?php $cart_total = 0; ?>
-
-
                                             <?php
                                             if ($this->session->has_userdata("cart")) {
-                                                foreach ($this->session->userdata("cart") as $cart_row) {
+                                                foreach ($this->session->userdata("cart") as $row) {
                                                     ?>
                                                     <div class="single-cart-box">
                                                         <div class="cart-image">
-                                                            <a href="<?= site_url() ?>main/product/<?= $cart_row["product_id"] ?>"><img src="<?= site_url() . $cart_row["thumbnail"] ?>" alt="" />
+                                                            <a href="<?= site_url() ?>main/product/<?= $row["product_id"] ?>"><img src="<?= site_url() . $row["thumbnail"] ?>" alt="" />
                                                             </a>
                                                         </div>
                                                         <div class="cart-content">
 
                                                             <div class="cart-heading">
-                                                                <a href="<?= site_url() ?>main/product/<?= $cart_row["product_id"] ?>"> <span class="cart-qty"><?= $cart_row["quantity"] ?> x</span> <?= $cart_row["product_name"] ?></a>
+                                                                <a href="<?= base_url() ?>main/product/<?= $row["product_id"] ?>>"> <span class="cart-qty"><?= $row["quantity"] ?> x</span> <?= $row["product_name"] ?></a>
                                                             </div>
-                                                            <div class="cart-dress-color"><span><?= $cart_row["model"] ?></span>
+                                                            <div class="cart-dress-color"><span><?= $row["model"] ?></span>
                                                             </div>
-                                                            <div class="cart-price">RM<?= number_format($cart_row["total"], 2) ?></div>
+                                                            <div class="cart-price">RM<?= number_format($row["price"], 2) ?></div>
                                                         </div>
                                                         <div class="cart-remove deft-remove-icon">
-                                                            <a href="#" class="delete-cart-item-button" data-product="<?= $cart_row["product_id"] ?>" data-model="<?= $cart_row["model_id"] ?>"><i class="zmdi zmdi-close"></i></a>
+                                                            <a href="#" class="delete-cart-item-button" data-product="<?= $row["product_id"] ?>" data-model="<?= $row["model_id"] ?>"><i class="zmdi zmdi-close"></i></a>
                                                         </div>
                                                         <!--                                                        <div class="cart-shipping-cost">
                                                                                                                     <span class="shipping-text">Shipping</span>
@@ -162,7 +159,7 @@
                                                                                                                 </div>-->
                                                     </div>
                                                     <?php
-                                                    $cart_total += $cart_row["total"];
+                                                    $cart_total += $row["total"];
                                                 }
                                             }
                                             ?>
@@ -175,7 +172,7 @@
                                             </div>
 
                                             <div class="cart-checkout-btn btn-def-checkout">
-                                                <a href="<?= base_url() ?>main/cart">Checkout <i class="checkout-dir-icon zmdi zmdi-chevron-right "></i></a>
+                                                <a href="<?= site_url("main/cart"); ?>">Checkout <i class="checkout-dir-icon zmdi zmdi-chevron-right "></i></a>
                                             </div>
                                         </div>
 

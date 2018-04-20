@@ -243,7 +243,7 @@ class Product_model extends CI_Model {
         $this->db->where('product.deleted = 0');
         $this->db->where('product.category_id', $category_id);
         $this->db->where('product.product_id !=', $product_id);
-        $this->db->limit('6');
+        $this->db->limit('3');
 
         $query = $this->db->get();
 
@@ -257,7 +257,7 @@ class Product_model extends CI_Model {
         $this->db->where('product.deleted = 0');
         $this->db->where('product.discount_price != 0');
         $this->db->where('product.product_id !=', $product_id);
-        $this->db->limit('5');
+        $this->db->limit('3');
 
         $query = $this->db->get();
 
