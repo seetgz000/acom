@@ -588,11 +588,6 @@ li.active a {
 .header_login_wrapper {
     float: right;
 }
-
-.btn_login {
-    color: #000;
-    font-size: 30px;
-}
 /*Mobile menu*/
 
 .mobile-menu-area {
@@ -675,7 +670,7 @@ nav ul.main-menu {
     color: #333;
     border: 1px solid #fff;
     float: inherit;
-    right: 34px;
+    right: 22px;
     width: 40px;
     position: relative;
     font-size: 20px;
@@ -5489,4 +5484,10 @@ p.error {
 }
 .xs-thumbnail {
     max-width: 200px;
+}
+.btn_login,
+.btn_logout {
+    color: #000;
+    font-size: 30px;
+    cursor: pointer;
 }

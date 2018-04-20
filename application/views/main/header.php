@@ -58,7 +58,7 @@
 
                                         <li><a href="<?= site_url("main/cart"); ?>">Checkout</a>
                                         </li>
-                                        <li><a href="<?= site_url("access/login"); ?>">Login</a>
+                                        <li><a data-toggle="modal" data-target="#login-modal" style="cursor:pointer;">Login</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -126,7 +126,7 @@
                                                 <i class="fa fa-shopping-bag"></i>
                                             </div>
                                             <div class="cartpoint-shopping-qty">
-                                                <span><?= count($this->session->userdata('cart')) ?></span>
+                                                <span><?= ($this->session->has_userdata("cart"))? count($this->session->userdata("cart")) : 0 ?></span>
                                             </div>
                                         </div>
                                         <!-- Cart box start-->
@@ -179,9 +179,21 @@
                                         <!-- Cart box end-->
                                     </div>
                                     <div class="header_login_wrapper">
-                                        <a href="<?= site_url("access/login"); ?>"class="btn_login">
+                                    <?php
+                                    if ($this->session->has_userdata('user_id')) {
+                                    ?>
+                                        <a href="<?= site_url("main/logout"); ?>" class="btn_logout">
+                                            <i class="fa fa-sign-out"></i>
+                                        </a>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <a data-toggle="modal" data-target="#login-modal" class="btn_login">
                                             <i class="fa fa-sign-in"></i>
                                         </a>
+                                    <?php
+                                    }
+                                    ?>
                                     </div>   
                                 </div> 
                             </div>
