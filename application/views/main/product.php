@@ -9,7 +9,7 @@
                             <ul>
                                 <li>
                                     <div class="breadcrumbs-icon1">
-                                        <a href="index.html" target="_blank" title="Return to home"><i class="fa fa-home"></i></a>
+                                        <a href="<?= site_url("Main"); ?>" target="_blank" title="Return to home"><i class="fa fa-home"></i></a>
                                     </div>
                                 </li>
                                 <li><?= $product['name']; ?></li>
@@ -117,11 +117,12 @@
                         </div>
                         <div class="clearfix"></div>
                         <div class="featured-product-wrapper">
-                            <div class="active-featured-owl def-owl">
+                            <!-- <div class="active-featured-owl def-owl"> -->
+                                <!-- will not show any images if not product has discount -->
                                 <?php foreach($promotion as $row){ ?>
                                     <?php $this->Product_model->to_html($row); ?>
                                 <?php } ?>
-                            </div>
+                            <!-- </div> -->
                         </div>
                     </div>
                 </div>
@@ -145,11 +146,11 @@
                         </div>
                         <div class="clearfix"></div>
                         <div class="featured-product-wrapper">
-                            <div class="active-featured-owl def-owl">
+                            <!-- <div class="active-featured-owl def-owl"> -->
                                 <?php foreach($related as $row){ ?>
                                     <?php $this->Product_model->to_html($row); ?>
                                 <?php } ?>
-                            </div>
+                            <!-- </div> -->
                         </div>
                     </div>
                 </div>

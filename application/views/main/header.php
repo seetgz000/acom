@@ -56,7 +56,7 @@
                                     </li>
                                     <?php } ?>
                                     
-                                    <li><a href="checkout.html">Checkout</a>
+                                    <li><a href="<?= site_url("main/cart"); ?>">Checkout</a>
                                     </li>
                                     <li><a href="<?= site_url("access/login"); ?>">Login</a>
                                     </li>
@@ -81,7 +81,7 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="col-md-9 col-sm-9 hidden-xs">
+                        <div class="col-md-8 col-sm-8 hidden-xs">
                             <nav>
                                 <ul class="main-menu">
                                     <li class="active"><a href="<?= site_url("Main"); ?>" target="_blank">Home </a>
@@ -111,7 +111,7 @@
                                 </ul>
                             </nav>
                         </div>
-                        <div class="col-md-1 col-sm-1 col-xs-12">
+                        <div class="col-md-2 col-sm-2 col-xs-12">
                             <div class="main-cart-area home2-main-cart posr">
                                 <div class="header-search header-search-style2 header-search-position hps2 hps3 posr">
                                     <form action="#">
@@ -137,7 +137,7 @@
                                     <?php if($this->session->has_userdata("cart")){ ?>
                                         <div class="single-cart-box">
                                             <div class="cart-image">
-                                                <a href="<?= site_url('Main/cart'); ?>"><img src="<?= site_url(); ?>images/product/saving-tool.jpg" alt="" />
+                                                <a href="<?= site_url('main/cart'); ?>"><img src="<?= site_url(); ?>images/product/saving-tool.jpg" alt="" />
                                                 </a>
                                             </div>
                                             <div class="cart-content">
@@ -167,7 +167,7 @@
                                         </div>
 
                                         <div class="cart-checkout-btn btn-def-checkout">
-                                            <a href="checkout.html">Checkout <i class="checkout-dir-icon zmdi zmdi-chevron-right "></i></a>
+                                            <a href="<?= site_url("main/cart"); ?>">Checkout <i class="checkout-dir-icon zmdi zmdi-chevron-right "></i></a>
                                         </div>
                                     </div>
 

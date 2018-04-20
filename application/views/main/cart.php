@@ -151,7 +151,10 @@
     <!--Middle Part End -->
 </div>
 </div>
+<!-- jquery latest version -->
+<script src="http://localhost/acom/js/vendor/jquery-1.12.0.min.js"></script>
 <script>
+    
     $(document).on('submit', '.edit-cart-item-form', function (e) {
         e.preventDefault();
         var quantity = $(this).find('[name=quantity]').val();

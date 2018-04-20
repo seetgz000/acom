@@ -493,7 +493,7 @@
         right: 0;
     }
     .sticky {
-        border-bottom: 1px solid #eeeee;
+        border-bottom: 1px solid #EEEEEE;
     }
     .discount-right-text-top h4 {
         font-size: 13px;
@@ -1755,6 +1755,9 @@
     }
     .header-search.header-search-style2 {
         width: 0;
+        display: none;
+    }
+    .header_login_wrapper {
         display: none;
     }
     .cartpoint-shopping-bag {

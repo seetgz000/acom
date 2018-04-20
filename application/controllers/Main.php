@@ -35,7 +35,6 @@ class Main extends CI_Controller {
     }
 
     public function index() {
-
         $this->page_data['banner'] = $this->Banner_model->get_all();
         $this->page_data['latest'] = $this->Product_model->get_latest();
 
@@ -98,7 +97,6 @@ class Main extends CI_Controller {
             $this->page_data['category_id'] = $category_details[0]['category_id'];
             $this->page_data['selected_parent'] = $parent_details[0]['name'];
         }
-
         $this->load->view('main/header', $this->page_data);
         $this->load->view('main/products');
         $this->load->view('main/footer');
@@ -125,7 +123,6 @@ class Main extends CI_Controller {
 
         $this->page_data['promotion'] = $this->Product_model->get_promotion($product_id);
 
-       
         $this->load->view('main/header', $this->page_data);
         $this->load->view('main/product');
         $this->load->view('main/footer');

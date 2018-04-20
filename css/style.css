@@ -582,7 +582,9 @@ li.active a {
 .sticky .shop-bag.home2-shopbag {
 	display: none;
 }
-
+.sticky .header_login_wrapper {
+    display: none;
+}
 .header_login_wrapper {
     float: right;
 }
@@ -630,6 +632,7 @@ nav ul.main-menu {
 .header-search {
     width: 10%;
     float: left;
+    margin-right: 20%;
 }
 .header-cart-area {
     width: 90%;
@@ -5479,4 +5482,11 @@ p.error {
 .product-img{
     height : 50vh;
     width : 100%;
+    text-align: center;
+}
+.product-img img {
+    max-height: 80%;
+}
+.xs-thumbnail {
+    max-width: 200px;
 }

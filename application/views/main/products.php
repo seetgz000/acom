@@ -12,7 +12,7 @@
                             <ul>
                                 <li>
                                     <div class="breadcrumbs-icon1">
-                                        <a href="index.html" title="Return to home"><i class="fa fa-home"></i></a>
+                                        <a href="<?= site_url("Main"); ?>" title="Return to home"><i class="fa fa-home"></i></a>
                                     </div>
                                 </li>
                                 <li>Shop</li>

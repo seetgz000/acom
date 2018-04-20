@@ -1,6 +1,6 @@
 
         <!--slider area are start-->
-        <div class="slider-container slider2-container hp3-slider">
+        <div class="slider-container slider2-container hp3-slider" style="height: 100%;">
             <!-- Slider Image -->
             <div id="home3-slider" class="nivoSlider slider-image">
                 <?php foreach($banner as $row){ ?>
@@ -52,39 +52,6 @@
         </div>
         <!--slider area are end-->
 
-        <!--Banner3 top area start-->
-        <div class="banner3-top hp3-banner-area hp3ba">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <div class="banner-content">
-                            <div class="banner-sstitle">
-                                <h5>See more about us!</h5>
-                            </div>
-                            <div class="banner-stitle">
-                                <h3>Hello! welcome to</h3>
-                            </div>
-                            <div class="banner-btitle">
-                                <h2><span class="text-color">Lueur</span> store.</h2>
-                            </div>
-                            <div class="banner-text btext">
-                                <p>Lorem ipsum dolor sit amet, consec tetuer adipis elit, aliquam eget nibh etlibura. Aenean commodo ligula eget dolor Aenean massa. Portals seize data-driven, tag expedite. Aenean commodo ligula eget dolor Aenean massa. Portals seize data-driven, tag expedite.</p>
-                            </div>
-                            <div class="banner-button">
-                                <a class="banner-bbtn" href="index.html">Continue Reading</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <div class="banner-image text-right">
-                            <img src="<?= site_url(); ?>images/banner/h3b1.jpg" alt="Lueur" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--Banner3 top area end-->
-
         <!--Product banner area start-->
 
         <div class="product-banner-area">
@@ -104,13 +71,9 @@
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="product-banner-right">
-                            <div class="img-banner">
-                                <div class="pbanner-image hvreff-defm10 posr">
-                                    <!-- InstaWidget -->
-                                    <a href="https://instawidget.net/v/user/olay" id="link-526d6e0339d3bc643f2ab2f57d7de681bb280feaaeb93c1214f6af3399197dd8">@olay</a>
-                                    <script src="https://instawidget.net/js/instawidget.js?u=526d6e0339d3bc643f2ab2f57d7de681bb280feaaeb93c1214f6af3399197dd8&width=100%"></script>
-                                </div>
-                            </div>
+                            <!-- InstaWidget -->
+                            <a href="https://instawidget.net/v/tag/cosmetic" id="link-cb34915df086337386db6abf59bbec0fe2b461c075f5c88322bb9055401eb9e0">#cosmetic</a>
+                            <script src="https://instawidget.net/js/instawidget.js?u=cb34915df086337386db6abf59bbec0fe2b461c075f5c88322bb9055401eb9e0&width=100%"></script>
                             <div class="img-banner">
                                 <div class="pbanner-image hvreff-defm10 posr">
                                     <div class="product-banner-caption">
