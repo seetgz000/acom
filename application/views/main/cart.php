@@ -5,7 +5,7 @@
 </ul>
 <div class="row" id="refresh-box">
     <!--Middle Part Start-->
-    <div id="content" style="padding-left:20%;padding-right:20%;" class="col-sm-12">
+    <div id="content" style="padding-left:20%;padding-right:20%; margin-bottom : 10vh;" class="col-sm-12">
         <h1 class="title">Shopping Cart</h1>
         <div class="table-responsive">
             <table class="table table-bordered">
@@ -31,7 +31,7 @@
                                 <td class="text-left">
                                     <form class="edit-cart-item-form" method="POST" action="<?= base_url() ?>main/edit_cart_item/<?= $row['product_id'] ?>/<?= $row['model_id'] ?>">
                                         <div class="input-group btn-block quantity">
-                                            <input type="number" name="quantity" value="<?= $row['quantity'] ?>" class="form-control" />
+                                            <input type="number" name="quantity" value="<?= $row['quantity'] ?>" class="form-control" style="width:5vw;"/>
                                             <span class="input-group-btn">
                                                 <button type="submit" data-toggle="tooltip" title="Update" class="btn btn-primary"><i class="fa fa-refresh"></i></button>
                                                 <a class="delete-cart-item-button" data-product="<?= $row['product_id'] ?>" data-model="<?= $row['model_id'] ?>" href="<?= base_url() ?>main/delete_cart_item/<?= $row['product_id'] ?>/<?= $row['model_id'] ?>"><button type="button" data-toggle="tooltip" title="Remove" class="btn btn-danger"><i class="fa fa-times-circle"></i></button></a>
@@ -138,8 +138,9 @@
                     <?php
                 } else {
                     ?>
-                    <a data-toggle="modal" data-target="#login-modal" class="btn btn-primary">Login</a>
-                    <a data-toggle="modal" data-target="#register-modal" class="btn btn-primary">Register</a>
+                    <br>
+                    <a data-toggle="modal" data-target="#login-modal" class="btn btn-primary" style="margin-top:1%">Login</a>
+                    <a data-toggle="modal" data-target="#register-modal" class="btn btn-primary" style="margin-top:1%">Register</a>
                     <?php
                 }
                 ?>
@@ -181,44 +182,6 @@
         });
     });
 
-    $(document).on('click', '.delete-cart-item-button', function (e) {
-        e.preventDefault();
-        var product_id = $(this).data('product');
-        var model_id = $(this).data('model');
-
-        $.confirm({
-            title: 'Delete cart item.',
-            content: 'Are you sure you want to delete this item from your cart? Deleted items will be permanetly deleted',
-            buttons: {
-                confirm: function () {
-
-                    postParam = {
-                        product_id: product_id,
-                        model_id: model_id
-                    }
-
-                    $.ajax({
-                        type: "POST",
-                        url: '<?php echo base_url() ?>main/delete_cart_item/' + product_id + '/' + model_id,
-                        data: postParam,
-                        success: function (data) {
-                            $("#refresh-box").load(location.href + " #refresh-box");
-                            $.alert({
-                                title: 'Cart item deleted',
-                                content: 'Click ok to continue',
-                            });
-                        }, error: function () {
-                            alert('delete failed');
-                        }
-                    });
-                },
-                cancel: function () {
-                    $.alert('Canceled!');
-                }
-            }
-        });
-    });
-
     $(document).on('submit', '#add-discount-form', function (e) {
         e.preventDefault();
         var code = $(this).find('[name=code]').val();
@@ -232,7 +195,7 @@
             url: '<?php echo base_url() ?>main/add_discount/',
             data: postParam,
             success: function (data) {
-                $("#refresh-box").load(location.href + " #refresh-box");
+                $("#header-button").load(location.href + " #header-button");
                 $.alert({
                     title: 'Discount added',
                     content: 'Click ok to continue',

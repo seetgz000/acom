@@ -1,5 +1,4 @@
-
-    <!--Breadcrumb start-->
+<!--Breadcrumb start-->
     <div class="subpage-main-wrapper about-full">
         <div class="breadcrumbs-wrapper breadcumbs-bg1">
             <div class="container">
@@ -166,6 +165,7 @@
         var data = $("#product_form").serialize();
         $.post("<?= site_url('Main/add_to_cart/'); ?>"+ id,data,function(response){
             if(response.status){
+                $("#sticky-header").load(location.href + " #sticky-header");
                 alert("added to cart");
             }else{
                 alert("something went wrong");

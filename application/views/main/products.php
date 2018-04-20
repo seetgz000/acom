@@ -65,9 +65,9 @@
                                                             <div class="product-inner-text">
                                                                 <div class="product-social-icon social-icon">
                                                                     <ul>
-                                                                        <li><a href="cart.html"><i class="fa fa-shopping-cart"></i></a>
+                                                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a>
                                                                         </li>
-                                                                        <li><a href="index.html"><i class="fa fa-heart-o"></i></a>
+                                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a>
                                                                         </li>
                                                                         <li><a href="<?= site_url('Main/product/'.$row['product_id']); ?>"><i class="fa fa-refresh"></i></a>
                                                                         </li>
