@@ -15,6 +15,16 @@ class Category_model extends CI_Model {
 
         return $query->result_array();
     }
+    public function get_child() {
+        $this->db->select('*');
+        $this->db->from('category');
+        $this->db->where('deleted = 0');
+        $this->db->where('parent_id != 0');
+
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
 
     public function get_where($where) {
         $this->db->select('*');

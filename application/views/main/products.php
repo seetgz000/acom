@@ -62,7 +62,11 @@
                                                                 <a href="<?= site_url('Main/product/'.$row['product_id']); ?>"><img src="<?= site_url().$row['thumbnail']; ?>" alt="" />
                                                                 </a>
                                                             </div>
-                                                            <div class="product-inner-text">
+                                                            <div class="product-hover-img">
+                                                                <a href="<?= site_url('Main/product/'. $row['product_id']); ?>"><img src="<?= site_url().$row['thumbnail2']; ?>" alt="" />
+                                                                </a>
+                                                            </div>
+                                                            <!-- <div class="product-inner-text">
                                                                 <div class="product-social-icon social-icon">
                                                                     <ul>
                                                                         <li><a href="#"><i class="fa fa-shopping-cart"></i></a>
@@ -75,11 +79,12 @@
                                                                 </div>
                                                                 <div class="product-btn">
                                                                     <div class="product-qview-search">
-                                                                        <a class="btn-def btn-product-qview q-view" data-toggle="modal" data-target=".modal" href="#"><i class=" product-search fa fa-search" ></i> quick View</a>
+                                                                        <a class="btn-def btn-product-qview q-view" data-toggle="modal" data-target="<?= '#productModal'.$row['product_id'] ?>" href="#">
+                                                                        <i class=" product-search fa fa-search" ></i> quick View</a>
                                                                     </div>
 
                                                                 </div>
-                                                            </div>
+                                                            </div> -->
                                                         </div>
                                                         <div class="product-review">
                                                             <ul>
@@ -102,9 +107,106 @@
                                                             <div class="product-bottom-price">
                                                                 <?= $row['price']; ?>
                                                             </div>
+                                                            <div class="product-btn">
+                                                                <div class="product-qview-search">
+                                                                    <a class="btn-def btn-product-qview q-view" data-toggle="modal" data-target="<?= '#productModal'.$row['product_id'] ?>" href="#">
+                                                                    <i class=" product-search fa fa-shopping-cart" > &nbsp </i>Add to cart</a>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </div>
+
+                                            <!-- QUICKVIEW PRODUCT -->
+                                            <div id="quickview-wrapper">
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="<?= 'productModal'.$row['product_id'] ?>" tabindex="-1" role="dialog">
+                                                    <div class="modal-dialog modal-lg" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="modal-product">
+                                                                    <div class="product-images">
+                                                                        <!--modal tab start-->
+                                                                        <div class="portfolio-thumbnil-area-2">
+                                                                            <div class="tab-content active-portfolio-area-2">
+
+                                                                                <?php 
+                                                                                    $where = array(
+                                                                                        'product_id' => $row['product_id']
+                                                                                    );
+                                                                                    $images = $this->Product_model->get_product_images_where($where);
+                                                                                    $i = 0; foreach($images as $image){ 
+                                                                                    ?>
+                                                                                    
+                                                                                <div role="tabpanel" class="tab-pane <?= $i==0?'active':''; ?>" id="tab-<?= $row['product_id'].'-'.$i; ?>">
+                                                                                    <div class="tab-single-image">
+                                                                                        <img src="<?= site_url().$image['url']; ?>" alt="" />
+                                                                                    </div>
+                                                                                </div>
+                                                                                <?php $i++; } ?>
+                                                                            </div>
+                                                                            <div class="product-more-views-2">
+                                                                                <div class="thumbnail-carousel-modal-2" data-tabs="tabs">
+
+                                                                                    <?php $i=0; foreach($images as $image){ ?>
+                                                                                        <a href="#tab-<?= $row['product_id'].'-'.$i; ?>" aria-controls="tab-1" role="tab" data-toggle="tab">
+                                                                                            <img src="<?= site_url().$image['url']; ?>" alt="" />
+                                                                                        </a>
+                                                                                    <?php $i++; } ?>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--modal tab end-->
+                                                                    <!-- .product-images -->
+                                                                    <div class="product-info">
+                                                                        <h1><?= $row['product_name']; ?></h1>
+                                                                        <div class="price-box-3">
+                                                                            <?php if ($row['discount_price'] > 0) { ?>
+                                                                                <div class="s-price-box"> <span class="new-price"><?= $row['discount_price']; ?></span> 
+                                                                                <span class="old-price"><?= $row['price']; ?></span> </div>
+                                                                            <?php } else { ?>
+                                                                                <div class="s-price-box"> <span class="new-price"><?= $row['price']; ?></span> 
+                                                                            <?php } ?>
+                                                                        </div>
+                                                                        <hr/>
+                                                                        <div class="quick-add-to-cart">
+                                                                            <form id="product_form" method="post" class="cart">
+                                                                                <div class="skill-checklist">
+                                                                                    <label for="skillc"><span class="italic">Size</span>
+                                                                                    </label>
+                                                                                    <select id="skillc" name="model_id" class="form-control" style="margin-bottom:5%; width:62%; height:34px;">
+                                                                                        <?php 
+                                                                                        $models = $this->Product_model->get_product_models_where($where);
+                                                                                        foreach($models as $modelRow){ ?>
+                                                                                        <option value="<?= $modelRow['model_id']; ?>"><?= $modelRow['model']; ?></option>
+                                                                                        <?php } ?>
+                                                                                    </select>
+                                                                                </div>
+                                                                                <div class="numbers-row">
+                                                                                    <h4 class="qty_label">QTY:</h4>
+                                                                                    <input type="number" name="quantity" id="french-hens" value="1"> </div>
+                                                                                <button class="single_add_to_cart_button cart-stylei" onclick="add_to_cart(<?= $row['product_id']; ?>)"><i class="fa fa-shopping-cart"></i> Add to cart</button>
+                                                                            </form>
+                                                                        </div>
+                                                                        <a href="<?= site_url('Main/product/'.$row['product_id']); ?>" class="btn_full_info">View Full Info</a>
+                                                                    </div>
+                                                                    <!-- .product-info -->
+                                                                </div>
+                                                                <!-- .modal-product -->
+                                                            </div>
+                                                            <!-- .modal-body -->
+                                                        </div>
+                                                        <!-- .modal-content -->
+                                                    </div>
+                                                    <!-- .modal-dialog -->
+                                                </div>
+                                                <!-- END Modal -->
                                             </div>
                                             <?php } ?>
                                            
@@ -157,3 +259,16 @@
     <!--Main shop area end-->
 
     <!--Hair top banner end-->
+<script>
+    function add_to_cart(id){
+        var data = $("#product_form").serialize();
+        $.post("<?= site_url('Main/add_to_cart/'); ?>"+ id,data,function(response){
+            if(response.status){
+                $("#sticky-header").load(location.href + " #sticky-header");
+                alert("added to cart");
+            }else{
+                alert("something went wrong");
+            }
+        },'json');
+    }
+</script>

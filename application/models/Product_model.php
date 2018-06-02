@@ -52,6 +52,7 @@ class Product_model extends CI_Model {
                 "price" => $input['price'],
                 "discount_price" => $input['discount_price'],
                 "thumbnail" => $input['thumbnail'],
+                "thumbnail2" => $input['thumbnail2'],
                 "weight" => $input['weight'],
                 "description" => $input['description'],
                 "category_id" => $input['category_id']
@@ -184,6 +185,7 @@ class Product_model extends CI_Model {
                 "price" => $input['price'],
                 "discount_price" => $input['discount_price'],
                 "thumbnail" => $input['thumbnail'],
+                "thumbnail2" => $input['thumbnail2'],
                 "weight" => $input['weight'],
                 "description" => $input['description'],
                 "category_id" => $input['category_id']

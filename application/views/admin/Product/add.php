@@ -47,6 +47,10 @@
                                             <input type="file" class="form-control" required name="thumbnail" id="form_thumbnail">
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                                            <label>Thumbnail 2 (show on hover)</label>
+                                            <input type="file" class="form-control" required name="thumbnail2" id="form_thumbnail2">
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
                                             <label>Weight</label>
                                             <input type="number" class="form-control" required name="weight" placeholder="Weight" id="form_weight" step="any">
                                         </div>
@@ -93,7 +97,7 @@
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
                                             <label>Images</label>
-                                            <input type="file" class="form-control" name="images[]" id="form_images" multiple>
+                                            <input type="file" class="form-control" required name="images[]" id="form_images" multiple>
                                         </div>
                                     </div>
                                     <br/>

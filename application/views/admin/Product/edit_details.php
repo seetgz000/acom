@@ -40,6 +40,10 @@
                                             <input type="file" class="form-control" name="thumbnail" id="form_thumbnail">
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                                            <label>Thumbnail 2<small>(upload a new file to replace the previous thumbnail)</small></label>
+                                            <input type="file" class="form-control" name="thumbnail2" id="form_thumbnail">
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
                                             <label>Weight</label>
                                             <input type="number" class="form-control" required name="weight" placeholder="Weight" id="form_weight" value="<?= $product['weight'] ?>" step="any">
                                         </div>

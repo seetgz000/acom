@@ -27,7 +27,7 @@ class Product extends CI_Controller {
 
     public function add() {
 
-        $this->page_data['categories'] = $this->Category_model->get_all();
+        $this->page_data['categories'] = $this->Category_model->get_child();
 
         if ($_POST) {
 
@@ -56,6 +56,30 @@ class Product extends CI_Controller {
             }
 
             $input['thumbnail'] = $thumbnail;
+
+            if (!empty($_FILES['thumbnail2']['name'])) {
+                $config = array(
+                    "allowed_types" => "gif|png|jpg|jpeg",
+                    "upload_path" => "./images/Product/",
+                    "path" => "/images/Product/");
+
+                $this->load->library("upload", $config);
+                if ($this->upload->do_upload("thumbnail2")) {
+                    $thumbnail2 = $config['path'] . $this->upload->data()['file_name'];
+                } else {
+                    die(json_encode(array(
+                        "status" => false,
+                        "message" => $this->upload->display_errors()
+                    )));
+                }
+            } else {
+                die(json_encode(array(
+                    "status" => false,
+                    "message" => "Please upload a thumbnail for on hover effect."
+                )));
+            }
+
+            $input['thumbnail2'] = $thumbnail2;
 
             $product_id = $this->Product_model->add($input);
 
@@ -158,6 +182,28 @@ class Product extends CI_Controller {
 
 
             $input['thumbnail'] = $thumbnail;
+            
+            if (!empty($_FILES['thumbnail2']['name'])) {
+                $config = array(
+                    "allowed_types" => "gif|png|jpg|jpeg",
+                    "upload_path" => "./images/Product/",
+                    "path" => "/images/Product/");
+
+                $this->load->library("upload", $config);
+                if ($this->upload->do_upload("thumbnail2")) {
+                    $thumbnail2 = $config['path'] . $this->upload->data()['file_name'];
+                } else {
+                    die(json_encode(array(
+                        "status" => false,
+                        "message" => $this->upload->display_errors()
+                    )));
+                }
+            } else {
+                $thumbnail2 = $product[0]['thumbnail2'];
+            }
+
+
+            $input['thumbnail2'] = $thumbnail2;
 
             $this->Product_model->update($product_id, $input);
 

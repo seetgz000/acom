@@ -107,11 +107,11 @@
         max: 600,
         values: [60, 570],
         slide: function(event, ui) {
-            $("#amount").val("£" + ui.values[0] + " - £" + ui.values[1]);
+            $("#amount").val("ï¿½" + ui.values[0] + " - ï¿½" + ui.values[1]);
         }
     });
-    $("#amount").val("£" + $("#slider-range").slider("values", 0) +
-        " - £" + $("#slider-range").slider("values", 1));
+    $("#amount").val("ï¿½" + $("#slider-range").slider("values", 0) +
+        " - ï¿½" + $("#slider-range").slider("values", 1));
 
     /*--------------------------
      scrollUp
@@ -393,5 +393,12 @@
     /* mixItUp
        ------------------------------ */
     $('#mix-fil').mixItUp();
+
+    /* For elevatezoom */
+    $(".product_img").elevateZoom({
+        zoomType				: "lens",
+        lensShape : "round",
+        lensSize    : 200
+    });
 
 })(jQuery);

@@ -9,6 +9,11 @@
                     <a href="<?= site_url('Main/product/'. $product['product_id']); ?>"><img src="<?= site_url().$product['thumbnail']; ?>" alt="" />
                     </a>
                 </div>
+                <div class="product-hover-img">
+                    <a href="<?= site_url('Main/product/'. $product['product_id']); ?>"><img src="<?= site_url().$product['thumbnail2']; ?>" alt="" />
+                    </a>
+                </div>
+
                 <div class="product-inner-text">
                     
                 </div>

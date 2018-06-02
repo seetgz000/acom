@@ -29,7 +29,7 @@
                                 <ul class="single-tab-control" role="tablist">
                                     <?php $i=0; foreach($images as $image){ ?>
                                     <li class="<?= $i==0?'active':''; ?>">
-                                        <a href="#tab-<?= $i; ?>" aria-controls="tab-1" role="tab" data-toggle="tab"><img src="<?= site_url().$image['url']; ?>" alt="Domino" />
+                                        <a href="#tab-<?= $i; ?>" aria-controls="tab-1" role="tab" data-toggle="tab"><img src="<?= site_url().$image['url']; ?>" alt="" />
                                         </a>
                                     </li>
                                     <?php $i++; } ?>
@@ -41,12 +41,13 @@
                                     <?php $i = 0; foreach($images as $image){ ?>
                                     <div role="tabpanel" class="tab-pane <?= $i==0?'active':''; ?>" id="tab-<?= $i; ?>">
                                         <div class="tab-single-image">
-                                            <a href="<?= site_url().$image['url']; ?>" class="fancybox" data-fancybox-group="gallery"><img src="<?= site_url().$image['url']; ?>" alt="" />
+                                            <a href="<?= site_url().$image['url']; ?>" class="fancybox" data-fancybox-group="gallery">
+                                                <!-- <img src="<?= site_url().$image['url']; ?>" alt="" /> -->
+                                                <img class="product_img" src="<?= site_url().$image['url']; ?>" alt="" data-zoom-image="<?= site_url().$image['url']; ?>" />
                                             </a>
                                         </div>
                                     </div>
                                     <?php $i++; } ?>
-                                    
                                 </div>
                             </div>
                         </div>
@@ -64,9 +65,12 @@
                             </div>
                             <form id="product_form">
                             <div class="compare-conpart-pm compare-bottom">
-                                <div class="old-new-price">
-                                    <?= $product['price']; ?>
-                                </div>
+                            <?php if ($product['discount_price'] > 0) { ?>
+                                <div class="old-new-price-box"> <span class="new-price"><?= $product['discount_price']; ?></span> 
+                                <span class="old-price"><?= $product['price']; ?></span> </div>
+                            <?php } else { ?>
+                                <div class="old-new-price"><?= $product['price']; ?></div> 
+                            <?php } ?>
                                 <div class="plus-minus-text">Quantity</div>
                                 <div class="skill-plusminus-wrap">
                                     <div class="skill-plusminus">
@@ -172,4 +176,4 @@
             }
         },'json');
     }
-    </script>
+</script>
