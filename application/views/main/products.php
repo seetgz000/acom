@@ -176,11 +176,11 @@
                                                                         </div>
                                                                         <hr/>
                                                                         <div class="quick-add-to-cart">
-                                                                            <form id="product_form" method="post" class="cart">
+                                                                            <form id="product_form<?= $row['product_id'] ?>" method="post" class="cart">
                                                                                 <div class="skill-checklist">
-                                                                                    <label for="skillc"><span class="italic">Size</span>
+                                                                                    <label for="skillc<?= $row['product_id'] ?>"><span class="italic">Size</span>
                                                                                     </label>
-                                                                                    <select id="skillc" name="model_id" class="form-control" style="margin-bottom:5%; width:62%; height:34px;">
+                                                                                    <select id="skillc<?= $row['product_id'] ?>" name="model_id" class="form-control" style="margin-bottom:5%; width:62%; height:34px;">
                                                                                         <?php 
                                                                                         $models = $this->Product_model->get_product_models_where($where);
                                                                                         foreach($models as $modelRow){ ?>
@@ -190,7 +190,7 @@
                                                                                 </div>
                                                                                 <div class="numbers-row">
                                                                                     <h4 class="qty_label">QTY:</h4>
-                                                                                    <input type="number" name="quantity" id="french-hens" value="1"> </div>
+                                                                                    <input type="number" name="quantity" value="1"> </div>
                                                                                 <button class="single_add_to_cart_button cart-stylei" onclick="add_to_cart(<?= $row['product_id']; ?>)"><i class="fa fa-shopping-cart"></i> Add to cart</button>
                                                                             </form>
                                                                         </div>
@@ -261,7 +261,7 @@
     <!--Hair top banner end-->
 <script>
     function add_to_cart(id){
-        var data = $("#product_form").serialize();
+        var data = $("#product_form" + id).serialize();
         $.post("<?= site_url('Main/add_to_cart/'); ?>"+ id,data,function(response){
             if(response.status){
                 $("#sticky-header").load(location.href + " #sticky-header");

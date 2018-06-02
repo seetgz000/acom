@@ -5554,3 +5554,7 @@ p.error {
 .btn_full_info:hover {
     color: #000;
 }
+
+.single-cart-box {
+    min-height: 150px;
+}
