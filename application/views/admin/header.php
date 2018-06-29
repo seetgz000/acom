@@ -115,6 +115,11 @@
                             </a>
                         </li>
                         <li>
+                            <a href="<?= base_url()?>shopping_details">
+                                <i class="fa fa-image"></i> <span>Shopping Details</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="<?= base_url()?>order">
                                 <i class="fa fa-truck"></i> <span>Orders</span>
                             </a>

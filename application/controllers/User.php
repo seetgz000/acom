@@ -50,15 +50,28 @@ class User extends CI_Controller {
             $product_count = 0;
             foreach ($products as $product_row) {
 
-                $product_total = ($product_row['price'] * $product_row['quantity']);
+                if ($product_row['discount_price'] > 0) {
+                    $product_price = $product_row['discount_price'];
+                 } else { 
+                     $product_price = $product_row['price']; 
+                }
+
+                $product_total = ($product_price * $product_row['quantity']);
 
                 $total = $total + $product_total;
 
                 $products[$product_count]['product_total'] = $product_total;
+
+                $product_count++;
             }
 
             $order[$i]['products'] = $products;
-            $order[$i]['total'] = $total;
+            
+            if (!empty($order[$i]['discount'])) {
+                $order[$i]['total'] = $total * ((100 - $order[$i]['discount']) / 100);
+            } else {
+                $order[$i]['total'] = $total;
+            }
         }
         $i++;
 

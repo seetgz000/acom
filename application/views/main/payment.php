@@ -7,7 +7,7 @@
     <div id="content" style="padding-left:20%;padding-right:20%; margin-bottom : 10vh;" class="col-sm-12">
         <h1 class="title">Order Successful</h1>
         <div class="table-responsive">
-            <table class="table table-bordered">
+            <table class="table table-bordered"  style="background:#fff;">
                 <thead>
                     <tr>
                         <td class="text-center">Image</td>
@@ -64,7 +64,8 @@
         <div style="text-align : center">
             <img src="http://3.bp.blogspot.com/-tbF4XTJuDTA/Tm0i3yxN3jI/AAAAAAAACHY/HQWC0mDljDg/s500/Maybank+logo+2011.png" style="margin-bottom : 2.5%;">
             <h4>To complete your order, please bank in the total amount of RM<?= number_format($total, 2) ?> to xxxx-xxxx-xxxx</h4>
-            <h4>After bank in is complete. Please contact 01X - XXX XXXX</h4>
+            <h4>After bank in is complete. Please contact 01X - XXX XXXX or</h4>
+            <h4>email to XXX@gmail.com</h4>
         </div>
     </div>
     <!--Middle Part End -->

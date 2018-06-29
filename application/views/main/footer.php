@@ -8,12 +8,10 @@
                 <div class="footer-content-wrapper">
                     <div class="footer-content">
                         <div id="f-about" class="footer-title def-funderline ftitle-about posr">
-                            <h5 class="active-about">About us</h5>
+                            <h5 class="active-about">Shopping Details</h5>
                         </div>
                         <div class="footer-text">
-                            <p>Lorem ipsum dolor sit amet, consec tetuer adipis elit, aliquam eget nibh etlibura. Aenean commodo ligula eget dolor Aenean massa. Portals seize data-driven, tag expedite</p>
-                            <div class="footer-readmore"><a href="about.html">Read more</a>
-                            </div>
+                            <p><?= $shopping_details[0]['description'] ?></p>
                         </div>
 
                         <ul class="footer-social-icon">

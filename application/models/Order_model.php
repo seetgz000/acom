@@ -12,6 +12,7 @@ class Order_model extends CI_Model {
         $this->db->join('user', 'order.user_id = user.user_id', 'left');
         $this->db->join('order_status', 'order.order_status_id = order_status.order_status_id', 'left');
         $this->db->join('promotion', 'order.promotion_id = promotion.promotion_id', 'left');
+        $this->db->where('order.deleted = 0');
         
         $query = $this->db->get();
         
@@ -47,6 +48,7 @@ class Order_model extends CI_Model {
         $this->db->join('order_status', 'order.order_status_id = order_status.order_status_id', 'left');
         $this->db->join('promotion', 'order.promotion_id = promotion.promotion_id', 'left');
         $this->db->where($where);
+        $this->db->where('order.deleted = 0');
         
         $query = $this->db->get();
         

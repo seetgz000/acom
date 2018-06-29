@@ -5558,3 +5558,72 @@ p.error {
 .single-cart-box {
     min-height: 150px;
 }
+
+body {
+    background: #fedddc;
+    background: linear-gradient(-45deg, #ffffff, #ffdad7, #ffd9e4, #fcece9);
+    background-size: 400% 400%;
+    background-attachment: fixed;
+}
+
+
+
+.main-footer-area {
+    background: #fff none repeat scroll 0 0;
+    color: #000;
+}
+.footer-text > p,
+.footer-list-text a,
+.footer-social-icon a,
+.footer-title > h5 {
+    color: #2b2b2b;
+}
+.mean-container .mean-bar,
+.mean-container .mean-nav {
+    background: #ffffff;
+}
+.mean-container .mean-nav ul li a.mean-expand:hover {
+    background: #e7e7e7;
+}
+.mean-container a.meanmenu-reveal,
+.container.mean-container:before,
+.mean-container .mean-nav ul li a {
+    color: #2b2b2b;
+}
+.mean-container a.meanmenu-reveal span {
+    background: #2b2b2b;
+}
+.mean-container .mean-nav ul {
+    overflow: auto;
+}
+
+.label_new {
+    background: rgb(224, 33, 33) none repeat scroll 0 0;
+    border-radius: 50%;
+    color: #fff;
+    content: "";
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    height: 65px;
+    line-height: 65px;
+    position: absolute;
+    right: -14px;
+    text-align: center;
+    text-transform: uppercase;
+    top: -16px;
+    width: 65px;
+    z-index: 99;
+}
+
+.hps2:hover input {
+    background: #fff;
+}
+
+.header-search-position:hover input, .header-search-position input:focus {
+    background: #fff;
+}
+
+.payment_method {
+    padding-top: 20%;
+}

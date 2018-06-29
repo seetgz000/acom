@@ -52,14 +52,28 @@
                                 <div class="header-login posr">
                                     <ul>
                                         <?php if ($this->session->has_userdata("user")) { ?>
-                                            <li><a href="my-account.html">My Account</a>
+                                            <li><a href="<?= site_url("main/profile/" . $user_id ); ?>" style="cursor:pointer;">My Account</a>
                                             </li>
                                         <?php } ?>
 
                                         <li><a href="<?= site_url("main/cart"); ?>">Checkout</a>
                                         </li>
-                                        <li><a data-toggle="modal" data-target="#login-modal" style="cursor:pointer;">Login</a>
-                                        </li>
+                                        <?php
+                                        if ($this->session->has_userdata('user_id')) {
+                                            $user_id = $this->session->userdata('user_id');
+
+                                        ?>
+                                            <li><a href="<?= site_url("main/profile/" . $user_id ); ?>" style="cursor:pointer;">Profile</a>
+                                            </li>
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <li><a data-toggle="modal" data-target="#login-modal" style="cursor:pointer;">Login</a>
+                                            </li>
+                                        <?php
+                                        }
+                                        ?>
+                                        
                                     </ul>
                                 </div>
                             </div>
@@ -103,9 +117,11 @@
                                             </div>
 
                                         </li>
-                                        <li class="mega-parent"><a href="<?= site_url("Main/about"); ?>">About us</a>
+                                        
+                                        <li><a href="<?= site_url("Main/new_arrival"); ?>">New Arrival</a>
                                         </li>
-
+                                        <li><a href="<?= site_url("Main/sales"); ?>">Sales</a>
+                                        </li>
                                         <li><a href="<?= site_url("Main/contact"); ?>">Contact us</a>
                                         </li>
                                     </ul>
@@ -114,7 +130,7 @@
                             <div class="col-md-2 col-sm-2 col-xs-12">
                                 <div class="main-cart-area home2-main-cart posr">
                                     <div class="header-search header-search-style2 header-search-position hps2 hps3 posr">
-                                        <form action="#">
+                                        <form action="<?= base_url() ?>main/search">
                                             <input type="text" value="" placeholder="Search Product..." />
                                             <button type="submit"><i class="fa fa-search"></i>
                                             </button>
@@ -153,10 +169,10 @@
                                                         <div class="cart-remove deft-remove-icon">
                                                             <a href="#" class="delete-cart-item-button" data-product="<?= $row["product_id"] ?>" data-model="<?= $row["model_id"] ?>"><i class="zmdi zmdi-close"></i></a>
                                                         </div>
-                                                        <!--                                                        <div class="cart-shipping-cost">
-                                                                                                                    <span class="shipping-text">Shipping</span>
-                                                                                                                    <span class="shipping-amt">$7.00</span>
-                                                                                                                </div>-->
+                                                        <!-- <div class="cart-shipping-cost">
+                                                            <span class="shipping-text">Shipping</span>
+                                                            <span class="shipping-amt">$7.00</span>
+                                                        </div> -->
                                                     </div>
                                                     <?php
                                                     $cart_total += $row["total"];
@@ -182,13 +198,13 @@
                                     <?php
                                     if ($this->session->has_userdata('user_id')) {
                                     ?>
-                                        <a href="<?= site_url("main/logout"); ?>" class="btn_logout">
+                                        <a href="<?= site_url("main/logout"); ?>" class="btn_logout" title="logout">
                                             <i class="fa fa-sign-out"></i>
                                         </a>
                                     <?php
                                     } else {
                                     ?>
-                                        <a data-toggle="modal" data-target="#login-modal" class="btn_login">
+                                        <a data-toggle="modal" data-target="#login-modal" class="btn_login" title="login">
                                             <i class="fa fa-sign-in"></i>
                                         </a>
                                     <?php

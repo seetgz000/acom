@@ -14,6 +14,7 @@ class Main extends CI_Controller {
         $this->load->model("Promotion_model");
         $this->load->model("Order_model");
         $this->load->model("Admin_model");
+        $this->load->model("Shopping_details_model");
 
         $this->page_data = array();
 
@@ -34,6 +35,8 @@ class Main extends CI_Controller {
         $this->page_data['category'] = $category;
 
 //        die(var_dump($this->session->userdata('cart')));
+
+        $this->page_data['shopping_details'] = $this->Shopping_details_model->get_all();
     }
 
     public function index() {
@@ -127,6 +130,24 @@ class Main extends CI_Controller {
 
         $this->load->view('main/header', $this->page_data);
         $this->load->view('main/product');
+        $this->load->view('main/footer');
+    }
+    public function new_arrival() {
+
+
+        $this->page_data['latest_list'] = $this->Product_model->get_latest_list();
+        
+        $this->load->view('main/header', $this->page_data);
+        $this->load->view('main/new_arrival');
+        $this->load->view('main/footer');
+    }
+    public function sales() {
+
+
+        $this->page_data['promotion_list'] = $this->Product_model->get_promotion_list();
+        
+        $this->load->view('main/header', $this->page_data);
+        $this->load->view('main/sales');
         $this->load->view('main/footer');
     }
 

@@ -226,6 +226,17 @@ class Product_model extends CI_Model {
 
         return $query->result_array();
     }
+    public function get_latest_list() {
+        $this->db->select('*');
+        $this->db->from('product');
+        $this->db->where('deleted = 0');
+        $this->db->order_by('product_id DESC');
+        $this->db->limit('9');
+
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
 
     public function get_category_by_product() {
         $this->db->select('category_id');
@@ -260,6 +271,18 @@ class Product_model extends CI_Model {
         $this->db->where('product.discount_price != 0');
         $this->db->where('product.product_id !=', $product_id);
         $this->db->limit('3');
+
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
+    public function get_promotion_list() {
+        $this->db->select('*, product.name as product_name, category.name as category');
+        $this->db->from('product');
+        $this->db->join('category', 'product.category_id = category.category_id', 'left');
+        $this->db->where('product.deleted = 0');
+        $this->db->where('product.discount_price != 0');
+        $this->db->limit('9');
 
         $query = $this->db->get();
 

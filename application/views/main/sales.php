@@ -30,11 +30,11 @@
                     <div class="col-xs-12">
                         <div class="top-full-tarea">
                             <div class="full-ttlleft">
-                                <p>Shop</p>
+                                <p>Sales</p>
                             </div>
                             <div class="full-ttlright">
                                 <div class="selected-items">
-                                    <p>There are <?= count($products); ?> products.</p>
+                                    <p>There are <?= count($promotion_list); ?> products.</p>
                                 </div>
                             </div>
                         </div>
@@ -50,15 +50,13 @@
                                 <div role="tabpanel" class="tab-pane active" id="productWidgets">
                                     <div class="tab-content-wrapper">
                                         <div class="row">
-                                            <?php foreach($products as $row){ ?>
+                                            <?php foreach($promotion_list as $row){ ?>
                                             <div class="col-md-4 col-sm-6 col-xs-12">
                                                 <div class="single-product">
                                                     <div class="product-wrapper posr">
-                                                        <?php if ($row['discount_price'] != 0) { ?>
-                                                            <div class="product-label">
-                                                                <div class="label-sale">Sale</div>
-                                                            </div>
-                                                        <?php } ?>
+                                                        <div class="product-label">
+                                                            <div class="label-sale">Sale</div>
+                                                        </div>
                                                         <div class="priduct-img-wrapper posr">
                                                             <div class="product-img">
                                                                 <a href="<?= site_url('Main/product/'.$row['product_id']); ?>"><img src="<?= site_url().$row['thumbnail']; ?>" alt="" />
@@ -68,25 +66,6 @@
                                                                 <a href="<?= site_url('Main/product/'. $row['product_id']); ?>"><img src="<?= site_url().$row['thumbnail2']; ?>" alt="" />
                                                                 </a>
                                                             </div>
-                                                            <!-- <div class="product-inner-text">
-                                                                <div class="product-social-icon social-icon">
-                                                                    <ul>
-                                                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a>
-                                                                        </li>
-                                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a>
-                                                                        </li>
-                                                                        <li><a href="<?= site_url('Main/product/'.$row['product_id']); ?>"><i class="fa fa-refresh"></i></a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                                <div class="product-btn">
-                                                                    <div class="product-qview-search">
-                                                                        <a class="btn-def btn-product-qview q-view" data-toggle="modal" data-target="<?= '#productModal'.$row['product_id'] ?>" href="#">
-                                                                        <i class=" product-search fa fa-search" ></i> quick View</a>
-                                                                    </div>
-
-                                                                </div>
-                                                            </div> -->
                                                         </div>
                                                         <div class="product-review">
                                                             <ul>
@@ -104,7 +83,7 @@
                                                         </div>
                                                         <div class="product-bottom-text posr">
                                                             <div class="product-bottom-title deft-underline2">
-                                                                <a href="<?= site_url('Main/product/'.$row['product_id']); ?>" title="Fiant sollemnes"><h4><?= $row['product_name']; ?></h4></a>
+                                                                <a href="<?= site_url('Main/product/'.$row['product_id']); ?>" title="Fiant sollemnes"><h4><?= $row['name']; ?></h4></a>
                                                             </div>
                                                             <div class="product-bottom-price">
                                                                 <?= $row['price']; ?>
@@ -167,7 +146,7 @@
                                                                     <!--modal tab end-->
                                                                     <!-- .product-images -->
                                                                     <div class="product-info">
-                                                                        <h1><?= $row['product_name']; ?></h1>
+                                                                        <h1><?= $row['name']; ?></h1>
                                                                         <div class="price-box-3">
                                                                             <?php if ($row['discount_price'] > 0) { ?>
                                                                                 <div class="s-price-box"> <span class="new-price"><?= $row['discount_price']; ?></span> 
@@ -192,7 +171,7 @@
                                                                                 </div>
                                                                                 <div class="numbers-row">
                                                                                     <h4 class="qty_label">QTY:</h4>
-                                                                                    <input type="number" name="quantity" min="1" value="1"> </div>
+                                                                                    <input type="number" name="quantity" value="1"> </div>
                                                                                 <button class="single_add_to_cart_button cart-stylei" onclick="add_to_cart(<?= $row['product_id']; ?>)"><i class="fa fa-shopping-cart"></i> Add to cart</button>
                                                                             </form>
                                                                         </div>

@@ -44,8 +44,14 @@ class Order extends CI_Controller {
 
             $product_count = 0;
             foreach ($products as $product_row) {
+                
+                if ($product_row['discount_price'] > 0) {
+                    $product_price = $product_row['discount_price'];
+                 } else { 
+                     $product_price = $product_row['price']; 
+                }
 
-                $product_total = ($product_row['price'] * $product_row['quantity']);
+                $product_total = ($product_price * $product_row['quantity']);
 
                 $total = $total + $product_total;
 

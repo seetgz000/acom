@@ -75,7 +75,7 @@
                                 <div class="skill-plusminus-wrap">
                                     <div class="skill-plusminus">
                                         <div class="skill-minus qtybutton">-</div>
-                                        <input type="text" name="quantity" value="1" class="cart-plus-minus-box" />
+                                        <input type="text" name="quantity" min="1" value="1" class="cart-plus-minus-box" />
                                         <div class="skill-plus qtybutton">+</div>
                                     </div>
                                 </div>
