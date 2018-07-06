@@ -1,10 +1,10 @@
 <?php
 
-class Shopping_details_model extends CI_Model {
+class Shipping_details_model extends CI_Model {
 
     public function get_all() {
         $this->db->select('*');
-        $this->db->from('shopping_details');
+        $this->db->from('shipping_details');
         $this->db->where('deleted = 0');
 
         $query = $this->db->get();
@@ -14,7 +14,7 @@ class Shopping_details_model extends CI_Model {
 
     public function get_where($where) {
         $this->db->select('*');
-        $this->db->from('shopping_details');
+        $this->db->from('shipping_details');
         $this->db->where($where);
 
         $query = $this->db->get();
@@ -27,7 +27,7 @@ class Shopping_details_model extends CI_Model {
             "description" => $input['description']
         );
 
-        $this->db->insert('shopping_details', $data);
+        $this->db->insert('shipping_details', $data);
 
         if ($this->db->affected_rows() == 0) {
             die(json_encode(array(
@@ -41,7 +41,7 @@ class Shopping_details_model extends CI_Model {
 
     public function update_where($where, $data) {
         $this->db->where($where);
-        $this->db->update('shopping_details', $data);
+        $this->db->update('shipping_details', $data);
     }
 
 }

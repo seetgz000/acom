@@ -14,7 +14,7 @@ class Main extends CI_Controller {
         $this->load->model("Promotion_model");
         $this->load->model("Order_model");
         $this->load->model("Admin_model");
-        $this->load->model("Shopping_details_model");
+        $this->load->model("Shipping_details_model");
 
         $this->page_data = array();
 
@@ -36,7 +36,7 @@ class Main extends CI_Controller {
 
 //        die(var_dump($this->session->userdata('cart')));
 
-        $this->page_data['shopping_details'] = $this->Shopping_details_model->get_all();
+        
     }
 
     public function index() {
@@ -142,6 +142,34 @@ class Main extends CI_Controller {
         $this->load->view('main/footer');
     }
     public function sales() {
+
+
+        $this->page_data['promotion_list'] = $this->Product_model->get_promotion_list();
+        
+        $this->load->view('main/header', $this->page_data);
+        $this->load->view('main/sales');
+        $this->load->view('main/footer');
+    }
+    
+    public function contact() {
+
+        
+        $this->load->view('main/header', $this->page_data);
+        $this->load->view('main/contact');
+        $this->load->view('main/footer');
+    }
+
+    public function shipping_details() {
+
+
+        $this->page_data['shipping_details'] = $this->Shipping_details_model->get_all();
+        
+        $this->load->view('main/header', $this->page_data);
+        $this->load->view('main/shipping_details');
+        $this->load->view('main/footer');
+    }
+
+    public function term() {
 
 
         $this->page_data['promotion_list'] = $this->Product_model->get_promotion_list();

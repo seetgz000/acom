@@ -1547,8 +1547,8 @@ nav ul.main-menu {
 .main-footer-area {
     background: #3b3b3b none repeat scroll 0 0;
     color: #fff;
-    padding-bottom: 28px;
-    padding-top: 88px;
+    padding-bottom: 7rem;
+    padding-top: 5rem;
 }
 .footer-content {
     width: 90%;
@@ -1582,7 +1582,6 @@ nav ul.main-menu {
 }
 .footer-social-icon li {
     display: inline-block;
-    margin-top: 30px;
 }
 .footer-social-icon li + li {
     margin-left: 18px;
@@ -5626,4 +5625,43 @@ body {
 
 .payment_method {
     padding-top: 20%;
+}
+
+.footer_heading {
+    margin-bottom: 45px;
+}
+@media (max-width: 767px) {
+    .footer_heading {
+        margin-bottom: 35px;
+    }
+}
+
+.footer_heading > h5 {
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.footer-bottom-area {
+    background: #ffffff none repeat scroll 0 0;
+}
+
+.footer-bottom-text p {
+    color: #616161;
+}
+
+.footer_list_text a {
+    color: #2b2b2b;
+    font-family: Montserrat;
+    font-size: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+.shipping_details_container {
+    padding: 5rem;
 }

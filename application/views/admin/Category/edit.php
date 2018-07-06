@@ -39,7 +39,7 @@
                                 </div>
                             </div>
                             <br/>
-                            <input type="submit" class="btn btn-flat btn-info pull-right" value="add">
+                            <input type="submit" class="btn btn-flat btn-info pull-right" value="save">
                         </form>
                     </div>
 

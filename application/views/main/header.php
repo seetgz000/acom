@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Lueur || Home3</title>
+        <title>Shop Cherie</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" type="image/x-icon" href="https://devitems.com/html/raptas-preview/raptas/img/favicon.png" />
@@ -98,10 +98,10 @@
                             <div class="col-md-8 col-sm-8 hidden-xs">
                                 <nav>
                                     <ul class="main-menu">
-                                        <li class="active"><a href="<?= site_url("Main"); ?>" target="_blank">Home </a>
+                                        <li class="<?php  if ($this->router->fetch_method() == 'index'){ echo 'active' ;} ?>"><a href="<?= site_url("Main"); ?>">Home</a>
 
                                         </li>
-                                        <li class="mega-parent"><a href="#">Shop <i class="zmdi zmdi-chevron-down"></i></a>
+                                        <li class="mega-parent <?php  if ($this->router->fetch_method() == 'products'){ echo 'active' ;} ?>"><a href="#">Shop <i class="zmdi zmdi-chevron-down"></i></a>
                                             <div class="mega-menu-area hp1-style1">
                                                 <?php foreach ($category as $row) { ?>
                                                     <ul class="single-mega-item mega-underline1 mega-underline3">
@@ -118,11 +118,28 @@
 
                                         </li>
                                         
-                                        <li><a href="<?= site_url("Main/new_arrival"); ?>">New Arrival</a>
+                                        <li class="<?php  if ($this->router->fetch_method() == 'new_arrival'){ echo 'active' ;} ?>"><a href="<?= site_url("Main/new_arrival"); ?>">New Arrival</a>
                                         </li>
-                                        <li><a href="<?= site_url("Main/sales"); ?>">Sales</a>
+                                        <li class="<?php  if ($this->router->fetch_method() == 'sales'){ echo 'active' ;} ?>"><a href="<?= site_url("Main/sales"); ?>">Sales</a>
                                         </li>
-                                        <li><a href="<?= site_url("Main/contact"); ?>">Contact us</a>
+
+                                        <li class="mega-parent <?php  if ($this->router->fetch_method() == 'collection'){ echo 'active' ;} ?>"><a href="#">Collection <i class="zmdi zmdi-chevron-down"></i></a>
+                                            <div class="mega-menu-area hp1-style1">
+                                                <?php foreach ($category as $row) { ?>
+                                                    <ul class="single-mega-item mega-underline1 mega-underline3">
+                                                        <li class="mega-title"><a href="#"><?= $row['name']; ?></a>
+                                                        </li>
+                                                        <?php foreach ($row['child'] as $child) { ?>
+                                                            <li><a href="<?= site_url("Main/products/") . $child['category_id']; ?>"><?= $child['name']; ?></a>
+                                                            </li>
+                                                        <?php } ?>
+                                                    </ul>
+                                                <?php } ?>
+
+                                            </div>
+                                        </li>
+
+                                        <li class="<?php  if ($this->router->fetch_method() == 'contact'){ echo 'active' ;} ?>"><a href="<?= site_url("Main/contact"); ?>">Contact us</a>
                                         </li>
                                     </ul>
                                 </nav>
@@ -220,150 +237,48 @@
                                         <div class="col-xs-12">
                                             <nav class="active-mobile-menu">
                                                 <ul>
-                                                    <li><a href="index.html">Home</a>
+                                                    <li><a href="<?= site_url("Main"); ?>">Home</a>
+                                                    </li>
+                                                    <li><a href="#">Shop</i></a>
                                                         <ul>
-                                                            <li><a href="index.html">Home-1</a>
-                                                            </li>
-                                                            <li><a href="index2.html">Home-2</a>
-                                                            </li>
-                                                            <li><a href="index3.html">Home-3</a>
-                                                            </li>
-                                                            <li><a href="index4.html">Home-4</a>
-                                                            </li>
-                                                            <li><a href="index5.html">Home-5</a>
-                                                            </li>
-                                                            <li><a href="index6.html">Home-6</a>
-                                                            </li>
+                                                            <?php foreach ($category as $row) { ?>
+                                                                <li><a href="#"><?= $row['name']; ?></a>
+                                                                    <ul>
+                                                                    
+                                                                    <?php foreach ($row['child'] as $child) { ?>
+                                                                        <li><a href="<?= site_url("Main/products/") . $child['category_id']; ?>"><?= $child['name']; ?></a>
+                                                                        </li>
+                                                                    <?php } ?>
+                                                                    </ul>
+                                                                </li>
+                                                            <?php } ?>
+
                                                         </ul>
+
                                                     </li>
-                                                    <li><a href="shop.html">Shop</a>
-                                                        <ul>
-                                                            <li><a href="#">Shop Layouts</a>
-                                                                <ul>
-                                                                    <li><a href="shop-fullwidth.html">Fullwidth</a>
-                                                                    </li>
-                                                                    <li><a href="shop.html">Sidebar Left</a>
-                                                                    </li>
-                                                                    <li><a href="shop-right-sidebar.html">Sidebar right</a>
-                                                                    </li>
-                                                                    <li><a href="shop-list-view.html">List View</a>
-                                                                    </li>
-                                                                    <li><a href="shop-list-view-right.html">List View right</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </li>
-                                                            <li><a href="#">Shop Pages</a>
-                                                                <ul>
-                                                                    <li><a href="shop.html">Category</a>
-                                                                    </li>
-                                                                    <li><a href="my-account.html">My Account</a>
-                                                                    </li>
-                                                                    <li><a href="wishlist.html">Wishlist</a>
-                                                                    </li>
-                                                                    <li><a href="cart.html">Shopping Cart</a>
-                                                                    </li>
-                                                                    <li><a href="checkout.html">Checkout</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </li>
-                                                            <li><a href="#">Product Types</a>
-                                                                <ul>
-                                                                    <li><a href="single-product.html">Single Product</a>
-                                                                    </li>
-                                                                    <li><a href="shop.html">Variable Product</a>
-                                                                    </li>
-                                                                    <li><a href="shop.html">Group Product</a>
-                                                                    </li>
-                                                                    <li><a href="shop.html">External Product</a>
-                                                                    </li>
-                                                                    <li><a href="shop.html">New Product</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </li>
-                                                        </ul>
+                                                    <li><a href="<?= site_url("Main/new_arrival"); ?>">New Arrival</a>
                                                     </li>
-                                                    <li><a href="about.html">About Us</a>
-                                                    </li>
-                                                    <li><a href="portfolio.html">Portfolio</a>
+                                                    <li><a href="<?= site_url("Main/sales"); ?>">Sales</a>
                                                     </li>
 
-                                                    <li><a href="blog.html">Blog</a>
+                                                    <li><a href="#">Collection</i></a>
                                                         <ul>
-                                                            <li><a href="blog-right-sidebar.html">Right Sidebar</a>
-                                                            </li>
-                                                            <li><a href="blog-fullwidth.html">Fullwidth</a>
-                                                            </li>
-                                                            <li><a href="single-blog-video.html">Single Video</a>
-                                                            </li>
-                                                            <li><a href="single-blog-audio.html">Single Audio</a>
-                                                            </li>
-                                                            <li><a href="single-blog-slider.html">Single Gallery</a>
-                                                            </li>
-                                                            <li><a href="single-blog.html">Single Image</a>
-                                                            </li>
+                                                            <?php foreach ($category as $row) { ?>
+                                                                <li><a href="#"><?= $row['name']; ?></a>
+                                                                    <ul>
+                                                                    
+                                                                    <?php foreach ($row['child'] as $child) { ?>
+                                                                        <li><a href="<?= site_url("Main/products/") . $child['category_id']; ?>"><?= $child['name']; ?></a>
+                                                                        </li>
+                                                                    <?php } ?>
+                                                                    </ul>
+                                                                </li>
+                                                            <?php } ?>
+
                                                         </ul>
+
                                                     </li>
-                                                    <li><a href="#">Pages</a>
-                                                        <ul>
-                                                            <li><a href="#">Pages-01</a>
-                                                                <ul>
-                                                                    <li><a href="about.html">About us</a>
-                                                                    </li>
-                                                                    <li><a href="404.html">Page 404</a>
-                                                                    </li>
-                                                                    <li><a href="portfolio.html">Portfolio</a>
-                                                                    </li>
-                                                                    <li><a href="portfolio2.html">Portfolio2</a>
-                                                                    </li>
-                                                                    <li><a href="single-product">Single Product</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </li>
-                                                            <li><a href="#">Pages-02</a>
-                                                                <ul>
-                                                                    <li><a href="blog-right-sidebar.html">Right Sidebar</a>
-                                                                    </li>
-                                                                    <li><a href="single-blog-video.html">Single Video</a>
-                                                                    </li>
-                                                                    <li><a href="single-blog-audio.html">Single Audio</a>
-                                                                    </li>
-                                                                    <li><a href="single-blog-slider.html">Single Gallery</a>
-                                                                    </li>
-                                                                    <li><a href="single-blog.html">Single Image</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </li>
-                                                            <li><a href="#">Pages-03</a>
-                                                                <ul>
-                                                                    <li><a href="cart.html">Cart</a>
-                                                                    </li>
-                                                                    <li><a href="address.html">Address</a>
-                                                                    </li>
-                                                                    <li><a href="checkout.html">Checkout</a>
-                                                                    </li>
-                                                                    <li><a href="payment.html">Payment</a>
-                                                                    </li>
-                                                                    <li><a href="shipping.html">Shipping</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </li>
-                                                            <li><a href="#">Pages-04</a>
-                                                                <ul>
-                                                                    <li><a href="my-account.html">My Account</a>
-                                                                    </li>
-                                                                    <li><a href="wishlist.html">Wishlist</a>
-                                                                    </li>
-                                                                    <li><a href="login.html">login</a>
-                                                                    </li>
-                                                                    <li><a href="shop.html">Dresses</a>
-                                                                    </li>
-                                                                    <li><a href="shop.html">T-Shirts</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                    <li><a href="contact.html">Contact Us</a>
+                                                    <li><a href="<?= site_url("Main/contact"); ?>">Contact us</a>
                                                     </li>
                                                 </ul>
                                             </nav>

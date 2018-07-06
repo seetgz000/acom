@@ -59,29 +59,32 @@
                 <div class="row">
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="product-banner-left">
-                            
-                            <div class="pbanner-image hvreff-defm20 posr">
-                                <div class="product-banner-caption">
-                                    <h1>View New Arrivals</h1>
+                            <a href="<?= site_url("Main/new_arrival"); ?>">
+                                <div class="pbanner-image hvreff-defm20 posr">
+                                    <div class="product-banner-caption">
+                                        <h1>View New Arrivals</h1>
+                                    </div>
+                                    <img src="<?= site_url(); ?>images/discount/cms7.jpg" alt="" />
                                 </div>
-                                <img src="<?= site_url(); ?>images/discount/cms7.jpg" alt="" />
-                            </div>
+                            </a>
                         </div>
 
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="product-banner-right">
                             <!-- InstaWidget -->
-                            <a href="https://instawidget.net/v/tag/cosmetic" id="link-cb34915df086337386db6abf59bbec0fe2b461c075f5c88322bb9055401eb9e0">#cosmetic</a>
-                            <script src="https://instawidget.net/js/instawidget.js?u=cb34915df086337386db6abf59bbec0fe2b461c075f5c88322bb9055401eb9e0&width=100%"></script>
-                            <div class="img-banner">
-                                <div class="pbanner-image hvreff-defm10 posr">
-                                    <div class="product-banner-caption">
-                                        <h1>Promotions</h1>
+                            <a href="https://instawidget.net/v/user/shopcherie.co" id="link-6dfd5414179016d8b1267a2c7ed22b84d576835fe0a8da19942e61bc15b98511">@shopcherie.co</a>
+                            <script src="https://instawidget.net/js/instawidget.js?u=6dfd5414179016d8b1267a2c7ed22b84d576835fe0a8da19942e61bc15b98511&width=100%"></script>
+                            <a href="<?= site_url("Main/sales"); ?>">
+                                <div class="img-banner">
+                                    <div class="pbanner-image hvreff-defm10 posr">
+                                        <div class="product-banner-caption">
+                                            <h1>Promotions</h1>
+                                        </div>
+                                        <img src="<?= site_url(); ?>images/discount/cms9.jpg" alt="" />
                                     </div>
-                                    <img src="<?= site_url(); ?>images/discount/cms9.jpg" alt="" />
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>

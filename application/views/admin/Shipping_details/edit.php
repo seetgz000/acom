@@ -12,13 +12,13 @@
                         <div class="alert alert-danger hidden user_form_alert" id="form_alert">
 
                         </div>
-                        <form id="shopping_details_form" method="POST" action="<?php echo site_url("Shopping_details/edit/" . $shopping_details[0]['shopping_details_id']); ?>">
+                        <form id="shipping_details_form" method="POST" action="<?php echo site_url("Shipping_details/edit/" . $shipping_details[0]['shipping_details_id']); ?>">
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
                                     <label>Shopping Details</label>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
-                                    <textarea id="form_shopping_details" name="description" class="form-control"><?= $shopping_details[0]['description']; ?></textarea>
+                                    <textarea id="form_shipping_details" name="description" class="form-control"><?= $shipping_details[0]['description']; ?></textarea>
                                 </div>
                             </div>
                             <br/>
@@ -47,7 +47,7 @@
                         text: "Successfully updated"
                     });
                     setTimeout(function () {
-                        window.location = "<?= site_url('Shopping_details'); ?>";
+                        window.location = "<?= site_url('Shipping_details'); ?>";
                     }, 1500);
                 } else {
                     $(".user_form_alert").html(data.message);
@@ -60,14 +60,14 @@
     }
 
     $(document).ready(function () {
-        var shopping_details_form = document.getElementById("shopping_details_form");
+        var shipping_details_form = document.getElementById("shipping_details_form");
 
-        shopping_details_form.addEventListener("submit", function (e) {
+        shipping_details_form.addEventListener("submit", function (e) {
             e.preventDefault();
-            form_submit(shopping_details_form);
+            form_submit(shipping_details_form);
         });
 
-        var basic_elements = ["form_shopping_details"];
+        var basic_elements = ["form_shipping_details"];
 
         for (var i = 0; i < basic_elements.length; i++) {
             document.getElementById(basic_elements[i]).addEventListener("invalid", function () {
