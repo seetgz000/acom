@@ -91,7 +91,7 @@
                         <div class="row">
                             <div class="col-md-2 col-sm-2 col-xs-12">
                                 <div class="header-logo home2-header-logo header-logo-def">
-                                    <a href="<?= site_url("Main"); ?>"><img src="<?= site_url(); ?>images/logo.png" alt="lueur" />
+                                    <a href="<?= site_url("Main"); ?>"><img src="<?= site_url(); ?>images/logo.png" alt="shopcherie" />
                                     </a>
                                 </div>
                             </div>

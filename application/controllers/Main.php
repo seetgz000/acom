@@ -14,7 +14,6 @@ class Main extends CI_Controller {
         $this->load->model("Promotion_model");
         $this->load->model("Order_model");
         $this->load->model("Admin_model");
-        $this->load->model("Shipping_details_model");
 
         $this->page_data = array();
 
@@ -160,9 +159,6 @@ class Main extends CI_Controller {
     }
 
     public function shipping_details() {
-
-
-        $this->page_data['shipping_details'] = $this->Shipping_details_model->get_all();
         
         $this->load->view('main/header', $this->page_data);
         $this->load->view('main/shipping_details');
@@ -178,6 +174,42 @@ class Main extends CI_Controller {
         $this->load->view('main/sales');
         $this->load->view('main/footer');
     }
+
+    public function sentContact(){
+		$data = $this->input->post();
+		
+		$this->load->library('email');
+
+		$config = array();  
+		$config['protocol'] = 'smtp';  
+		$config['smtp_host'] = 'ssl://smtp.gmail.com';  
+		$config['smtp_port'] = 465;
+		$config['smtp_user'] = 'seetgz000@gmail.com';  
+        $config['smtp_pass'] = 'Lucario448$$*';
+        $config['charset'] = 'iso-8859-1'; 
+        $config['wordwrap'] = TRUE; 
+        $config['mailtype'] = 'html';
+		$this->email->initialize($config);  
+		  
+        $this->email->set_newline("\r\n");
+        
+        $message ="Customer Name: " . $data['contact_name'] . "<br>";
+        $message .="Customer Email: " . $data['contact_email'] . "<br>";
+        $message .="Customer Phone Number: " . $data['contact_number'] . "<br>";
+        $message .="Message: " . $data['contact_message'];
+
+		$this->email->from('seetgz000@gmail.com','Shop Cherie');
+		$this->email->to('sgz000@yahoo.com');
+		$this->email->subject('Shop Cherie Customer Contact from ' . $data['contact_name']);
+        $this->email->message($message);
+        $result = $this->email->send();
+		if($result){
+            $this->session->set_flashdata('success', 'Email Sent Successfully!');
+			redirect("Main/contact", "refresh");
+		} else {
+            // print_r($this->email->print_debugger());
+        }
+	}
 
     public function register() {
         if ($_POST) {

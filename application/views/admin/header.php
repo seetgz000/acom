@@ -105,6 +105,11 @@
                             </a>
                         </li>
                         <li>
+                            <a href="<?= base_url()?>collection">
+                                <i class="fa fa-object-group"></i> <span>Collection</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="<?= base_url()?>promotion">
                                 <i class="fa fa-money"></i> <span>Promotion</span>
                             </a>
@@ -112,11 +117,6 @@
                         <li>
                             <a href="<?= base_url()?>banner">
                                 <i class="fa fa-image"></i> <span>Banners</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url()?>shipping_details">
-                                <i class="fa fa-ship"></i> <span>Shipping Details</span>
                             </a>
                         </li>
                         <li>

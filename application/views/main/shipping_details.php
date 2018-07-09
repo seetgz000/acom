@@ -7,7 +7,7 @@
         <div class="breadcrumbs-wrapper breadcumbs-bg1">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-sm-12">
                         <div class="breadcrumbs breadcrumbs-style1 sep1 posr">
                             <ul>
                                 <li>
@@ -27,16 +27,10 @@
         <div class="main-shop-area">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-sm-12">
                         <div class="top-full-tarea">
                             <div class="full-ttlleft">
                                 <p>Shipping Details</p>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="mainshop-area">
-                            <div class="mainshop-top">
-                                
                             </div>
                         </div>
                         <div class="clearfix"></div>
@@ -46,7 +40,35 @@
                                     <div class="tab-content-wrapper">
                                         <div class="row">
                                             <div class="shipping_details_container">
-                                                <?= $shipping_details[0]['description']; ?>
+                                                <p>All deliveries will be made via Pos Laju</p>
+                                                <table class="table shipping_table">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td>Estimated Delivery Time</td>
+                                                            <td>Standard Shipping fee</td>
+                                                            <td>Purchase Above MYR 150</td>
+                                                        </tr>
+                                                        <tr>        
+                                                            <td>West Malaysia</td>
+                                                            <td>2-3 working days</td>
+                                                            <td>MYR 8</td>
+                                                            <td>Free Shipping</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>East Malaysia</td>
+                                                            <td>4-5 working days</td>
+                                                            <td>MYR 12</td>
+                                                            <td>Free Shipping</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="cod_container">
+                                                <p>Cash On Delivery:</p>
+                                                <p>Cash On Delivery (COD) is also available at Subang Jaya, Sunway, Desa Park City and Sungai Buloh.</br>
+                                                Subang Jaya & Sunway: 016-2334243</br>
+                                                Desa Park City & Sungai Buloh : 012-9774480</p>
                                             </div>
                                            
                                         </div>

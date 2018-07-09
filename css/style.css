@@ -1187,6 +1187,9 @@ nav ul.main-menu {
     font-size: 16px;
     text-decoration: none;
     text-transform: uppercase;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 .product-bottom-price > span {
     color: #353535;
@@ -2686,7 +2689,7 @@ nav ul.main-menu {
 /*----------------------------------------*/
 
 .breadcumbs-bg1 {
-    background: #f6f6f6 none repeat scroll 0 0;
+    background: #fff;
     padding: 50px 0;
 }
 .breadcrumbs ul li {
@@ -5559,8 +5562,8 @@ p.error {
 }
 
 body {
-    background: #fedddc;
-    background: linear-gradient(-45deg, #ffffff, #ffdad7, #ffd9e4, #fcece9);
+    background: #fff0f2;
+    background: linear-gradient(-45deg, #ffffff, #fde8e7, #fde5ec, #fff7f5);
     background-size: 400% 400%;
     background-attachment: fixed;
 }
@@ -5663,5 +5666,30 @@ body {
 }
 
 .shipping_details_container {
-    padding: 5rem;
+    padding: 5rem 0;
+}
+
+.shipping_table th, .shipping_table td {
+    padding: 15px 0!important;
+}
+
+.cod_container {
+    padding-bottom: 5rem;
+}
+
+
+.contact_container {
+    padding: 5rem 0;
+}
+
+.btn_send_contact {
+    text-transform: uppercase;
+    background-color: #404048;
+    color: #fff;
+    font-size: 18px;
+}
+
+.btn_send_contact:hover {
+    color: #fff;
+    background-color: #65656e;
 }

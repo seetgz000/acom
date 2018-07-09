@@ -7,7 +7,7 @@
             
             <div class="col-sm-6 col-xs-12">
                 <div class="footer-list-wrapper">
-                    <div class="footer_heading def-funderline def-funderline2 ftitle-cus posr">
+                    <div class="footer_heading def-funderline ftitle-cus posr">
                         <h5>Quick Link</h5>
                     </div>
                     <ul class="footer_list_text jscroll-cussrve">
@@ -72,7 +72,7 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <div class="modal-header-logo">
                         <div class="logo-container align-center">
-                            <a href="<?= base_url() ?>/main"><img class="modal-logo" src="<?= base_url() ?>images/logo_1.png" title="MarketShop" alt="MarketShop" /></a>
+                            <a href="<?= base_url() ?>/main"><img class="modal-logo" src="<?= site_url(); ?>images/logo.png" alt="shopcherie" title="shopcherie" /></a>
                         </div>
                     </div>
                 </div>
@@ -109,6 +109,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-default modal-form-button">Login Now</button>
+                    <a data-toggle="modal" data-target="#register-modal" class="btn btn-default modal-form-button pull-left">Register</a>
                 </div>
             </form>
         </div>
