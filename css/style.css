@@ -2717,7 +2717,7 @@ nav ul.main-menu {
     padding-left: 0;
     padding-right: 23px;
 }
-.sep1 ul li:last-child {
+.sep1 ul li:not(:first-child) {
     padding-left: 21px;
 }
 .sidebar-main-ttl {
@@ -5484,7 +5484,8 @@ p.error {
 }
 .product-img img,
 .product-hover-img img {
-    max-height: 80%;
+    max-height: 100%;
+    padding: 5%;
 }
 .xs-thumbnail {
     max-width: 200px;

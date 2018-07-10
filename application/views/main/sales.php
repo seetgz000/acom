@@ -16,6 +16,7 @@
                                     </div>
                                 </li>
                                 <li>Shop</li>
+                                <li>Sales</li>
                             </ul>
                         </div>
                     </div>

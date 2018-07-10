@@ -16,6 +16,7 @@
                                     </div>
                                 </li>
                                 <li>Shop</li>
+                                <li>New Arrival</li>
                             </ul>
                         </div>
                     </div>

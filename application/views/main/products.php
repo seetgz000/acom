@@ -15,7 +15,14 @@
                                         <a href="<?= site_url("Main"); ?>" title="Return to home"><i class="fa fa-home"></i></a>
                                     </div>
                                 </li>
-                                <li>Shop</li>
+                                <?php if ($this->router->fetch_method() == 'products') { ?>
+                                    <li>Shop</li>
+
+                                    <li><?php echo $selected_parent; ?></li>
+                                <?php } else { ?>
+                                    <li>Collection</li>
+                                <?php } ?>
+                                <li><?php echo $selected; ?></li>
                             </ul>
                         </div>
                     </div>
@@ -30,7 +37,11 @@
                     <div class="col-xs-12">
                         <div class="top-full-tarea">
                             <div class="full-ttlleft">
-                                <p>Shop</p>
+                                <?php if ($this->router->fetch_method() == 'products') { ?>
+                                    <p>Shop</p>
+                                <?php } else { ?>
+                                    <p>Collection</p>
+                                <?php } ?>
                             </div>
                             <div class="full-ttlright">
                                 <div class="selected-items">
@@ -68,25 +79,6 @@
                                                                 <a href="<?= site_url('Main/product/'. $row['product_id']); ?>"><img src="<?= site_url().$row['thumbnail2']; ?>" alt="" />
                                                                 </a>
                                                             </div>
-                                                            <!-- <div class="product-inner-text">
-                                                                <div class="product-social-icon social-icon">
-                                                                    <ul>
-                                                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a>
-                                                                        </li>
-                                                                        <li><a href="#"><i class="fa fa-heart-o"></i></a>
-                                                                        </li>
-                                                                        <li><a href="<?= site_url('Main/product/'.$row['product_id']); ?>"><i class="fa fa-refresh"></i></a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                                <div class="product-btn">
-                                                                    <div class="product-qview-search">
-                                                                        <a class="btn-def btn-product-qview q-view" data-toggle="modal" data-target="<?= '#productModal'.$row['product_id'] ?>" href="#">
-                                                                        <i class=" product-search fa fa-search" ></i> quick View</a>
-                                                                    </div>
-
-                                                                </div>
-                                                            </div> -->
                                                         </div>
                                                         <div class="product-bottom-text posr">
                                                             <div class="product-bottom-title deft-underline2">
