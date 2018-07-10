@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <section class="content-header">
     <h1>
         Agents
@@ -9,7 +8,6 @@
     </ol>
 </section>
 <br>
-=======
 <div class="modal fade" tabindex="-1" role="dialog" id="user_type_modal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -37,4 +35,3 @@
         });
     });
 </script>
->>>>>>> 0fa3017c51b6eb6a723ec0eb80d3d41e4501eeb1

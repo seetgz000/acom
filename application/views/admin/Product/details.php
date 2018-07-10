@@ -36,6 +36,25 @@
                                     <td>: <?= $product['category']; ?></td>
                                 </tr>
                                 <tr>
+                                    <th>Collection</th>
+                                    <td>: 
+                                    </td>
+                                        
+                                    
+                                </tr>
+                                <tr>
+                                    <th> </th>
+                                    <td>
+                                        <?php
+                                            foreach ($collection as $row) {
+                                        ?>
+                                            <?= $row['collection_name']; ?><br/>
+                                        <?php
+                                            }
+                                        ?>
+                                    </td>
+                                </tr>
+                                <tr>
                                     <th>Price</th>
                                     <td>: RM<?= $product['price']; ?></td>
                                 </tr>
@@ -84,7 +103,7 @@
                                         <td><?= $row['model'] ?></td>
                                         <td><?= $row['SKU'] ?></td>
                                         <td><button class="btn btn-danger delete-button" data-id="<?= $row['model_id'] ?>"><i class="fa fa-close"></i></button>
-                                            <a href="<?= base_url() ?>product/edit_model/<?= $row['model_id'] ?>"><button class="btn btn-warning update-button""><i class="fa fa-pencil"></i></button></a></td>
+                                            <a href="<?= base_url() ?>product/edit_model/<?= $row['model_id'] ?>"><button class="btn btn-warning update-button"><i class="fa fa-pencil"></i></button></a></td>
                                     </tr>
                                     <?php
                                 }

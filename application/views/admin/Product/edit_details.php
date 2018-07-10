@@ -25,7 +25,7 @@
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
                                             <label>Name</label>
-                                            <input type="text" class="form-control" required name="name" placeholder="Name" id="form_name" value="<?= $product['name'] ?>">
+                                            <input type="text" class="form-control" required name="name" placeholder="Name" id="form_name" value="<?= $product['product_name'] ?>">
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
                                             <label>Price</label>
@@ -69,6 +69,29 @@
                                                         }
                                                         ?>
                                             </select>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                                            <label>Collection</label>
+                                                <?php
+                                                foreach ($collection as $row) {
+                                                ?>
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" name="collection_id[]" value="<?= $row['collection_id'] ?>"
+                                                                <?php
+                                                                    foreach ($product_collection as $pcRow) {
+                                                                    if ($pcRow['collection_id'] == $row['collection_id']) {
+                                                                ?>
+                                                                    checked
+                                                                <?php }
+                                                                    }
+                                                                ?>
+                                                            ><?= $row['collection_name'] ?>
+                                                        </label>
+                                                    </div>
+                                                <?php
+                                                }
+                                                ?>
                                         </div>
                                     </div>
                                     <br/>

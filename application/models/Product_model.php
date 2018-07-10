@@ -146,6 +146,18 @@ class Product_model extends CI_Model {
 
         return $query->result_array();
     }
+    
+    public function get_product_collection_where($where) {
+        $this->db->select('*');
+        $this->db->from('collection_product');
+        $this->db->join('collection', 'collection_product.collection_id = collection.collection_id');
+        $this->db->where('deleted = 0');
+        $this->db->where($where);
+
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
 
     public function get_product_images_where($where) {
         $this->db->select('*');
@@ -198,6 +210,25 @@ class Product_model extends CI_Model {
             $this->db->where($where);
             $this->db->update('product', $data);
         }
+    }
+
+    public function update_collection($product_id, $input) {
+
+        $where = array(
+            "product_id" => $product_id
+        );
+
+        $this->db->where($where);
+        $this->db->delete('collection_product');
+
+        foreach ($input['collection_id'] as $row) {
+            $data = array(
+                "collection_id" => $row,
+                "product_id" => $product_id
+            );
+
+            $this->db->insert('collection_product', $data);
+        }   
     }
 
     public function delete_image($where) {

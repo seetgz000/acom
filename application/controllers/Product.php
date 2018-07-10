@@ -13,6 +13,7 @@ class Product extends CI_Controller {
         }
         $this->load->model("Product_model");
         $this->load->model("Category_model");
+        $this->load->model("Collection_model");
         $this->page_data = array();
     }
 
@@ -28,6 +29,7 @@ class Product extends CI_Controller {
     public function add() {
 
         $this->page_data['categories'] = $this->Category_model->get_child();
+        $this->page_data['collection'] = $this->Collection_model->get_all();
 
         if ($_POST) {
 
@@ -139,6 +141,8 @@ class Product extends CI_Controller {
         $this->page_data['product'] = $product[0];
 
         $this->page_data['models'] = $this->Product_model->get_product_models_where($where);
+        
+        $this->page_data['collection'] = $this->Product_model->get_product_collection_where($where);
 
         $this->page_data['images'] = $this->Product_model->get_product_images_where($where);
 
@@ -157,6 +161,10 @@ class Product extends CI_Controller {
         $this->page_data['product'] = $product[0];
 
         $this->page_data['categories'] = $this->Category_model->get_all();
+
+        $this->page_data['product_collection'] = $this->Product_model->get_product_collection_where($where);
+        
+        $this->page_data['collection'] = $this->Collection_model->get_all();
 
         if ($_POST) {
             $input = $this->input->post();
@@ -206,6 +214,8 @@ class Product extends CI_Controller {
             $input['thumbnail2'] = $thumbnail2;
 
             $this->Product_model->update($product_id, $input);
+
+            $this->Product_model->update_collection($product_id, $input);
 
             die(json_encode(array(
                 "status" => true
