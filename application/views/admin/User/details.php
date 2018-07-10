@@ -67,7 +67,6 @@
                                 <?php
                                 if (!empty($order)) {
                                     $i = 1;
-                                    var_dump($order);
                                     foreach ($order as $row) {
                                         ?>
                                         <tr>

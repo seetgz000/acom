@@ -146,8 +146,8 @@
                             <div class="col-md-2 col-sm-2 col-xs-12">
                                 <div class="main-cart-area home2-main-cart posr">
                                     <div class="header-search header-search-style2 header-search-position hps2 hps3 posr">
-                                        <form action="<?= base_url() ?>main/search">
-                                            <input type="text" value="" placeholder="Search Product..." />
+                                        <form id="search_form" action="<?= base_url() ?>main/search" method = "post">
+                                            <input type="text" value="" name="search_keywords" id="search_keywords" placeholder="Search Product..." />
                                             <button type="submit"><i class="fa fa-search"></i>
                                             </button>
                                         </form>

@@ -72,8 +72,8 @@ class User extends CI_Controller {
             } else {
                 $order[$i]['total'] = $total;
             }
+            $i++;
         }
-        $i++;
 
         $this->page_data['order'] = $order;
 

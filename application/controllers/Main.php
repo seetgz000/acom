@@ -350,17 +350,30 @@ class Main extends CI_Controller {
             $product_count = 0;
             foreach ($products as $product_row) {
 
-                $product_total = ($product_row['price'] * $product_row['quantity']);
+                if ($product_row['discount_price'] > 0) {
+                    $product_price = $product_row['discount_price'];
+                 } else { 
+                     $product_price = $product_row['price']; 
+                }
+
+                $product_total = ($product_price * $product_row['quantity']);
 
                 $total = $total + $product_total;
 
                 $products[$product_count]['product_total'] = $product_total;
+
+                $product_count++;
             }
 
             $order[$i]['products'] = $products;
-            $order[$i]['total'] = $total;
+            
+            if (!empty($order[$i]['discount'])) {
+                $order[$i]['total'] = $total * ((100 - $order[$i]['discount']) / 100);
+            } else {
+                $order[$i]['total'] = $total;
+            }
+            $i++;
         }
-        $i++;
 
         $this->page_data['order'] = $order;
 
@@ -415,7 +428,7 @@ class Main extends CI_Controller {
 
             if ($selected == "") {
                 $like = array(
-                    'product.name' => $input['name']
+                    'product.name' => $input['search_keywords']
                 );
 
                 $this->page_data['products'] = $this->Product_model->filter($like);
@@ -428,7 +441,7 @@ class Main extends CI_Controller {
                 );
 
                 $like = array(
-                    'product.name' => $input['name']
+                    'product.name' => $input['search_keywords']
                 );
 
                 $this->page_data['products'] = $this->Product_model->filter($like, $where);
@@ -452,7 +465,7 @@ class Main extends CI_Controller {
         }
 
         $this->load->view('main/header', $this->page_data);
-        $this->load->view('main/products');
+        $this->load->view('main/search');
         $this->load->view('main/footer');
     }
 

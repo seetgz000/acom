@@ -15,14 +15,7 @@
                                         <a href="<?= site_url("Main"); ?>" title="Return to home"><i class="fa fa-home"></i></a>
                                     </div>
                                 </li>
-                                <?php if ($this->router->fetch_method() == 'products') { ?>
-                                    <li>Shop</li>
-
-                                    <li><?php echo $selected_parent; ?></li>
-                                <?php } elseif ($this->router->fetch_method() == 'collection') { ?>
-                                    <li>Collection</li>
-                                <?php } ?>
-                                <li><?php echo $selected; ?></li>
+                                <li>Search</li>
                             </ul>
                         </div>
                     </div>
@@ -37,11 +30,7 @@
                     <div class="col-xs-12">
                         <div class="top-full-tarea">
                             <div class="full-ttlleft">
-                                <?php if ($this->router->fetch_method() == 'products') { ?>
-                                    <p>Shop</p>
-                                <?php } elseif ($this->router->fetch_method() == 'collection') { ?>
-                                    <p>Collection</p>
-                                <?php } ?>
+                                <p>Search Result</p>
                             </div>
                             <div class="full-ttlright">
                                 <div class="selected-items">
