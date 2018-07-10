@@ -125,16 +125,15 @@
 
                                         <li class="mega-parent <?php  if ($this->router->fetch_method() == 'collection'){ echo 'active' ;} ?>"><a href="#">Collection <i class="zmdi zmdi-chevron-down"></i></a>
                                             <div class="mega-menu-area hp1-style1">
-                                                <?php foreach ($category as $row) { ?>
-                                                    <ul class="single-mega-item mega-underline1 mega-underline3">
-                                                        <li class="mega-title"><a href="#"><?= $row['name']; ?></a>
+                                                <ul>
+                                                    <?php foreach ($collection as $row) { ?>
+                                                        <li class="mega-title">
+                                                            <a class="collection_nav" href="<?= site_url("Main/collection/") . $row['collection_id']; ?>">
+                                                                <?= $row['collection_name']; ?>
+                                                            </a>
                                                         </li>
-                                                        <?php foreach ($row['child'] as $child) { ?>
-                                                            <li><a href="<?= site_url("Main/products/") . $child['category_id']; ?>"><?= $child['name']; ?></a>
-                                                            </li>
-                                                        <?php } ?>
-                                                    </ul>
-                                                <?php } ?>
+                                                    <?php } ?>
+                                                </ul>
 
                                             </div>
                                         </li>

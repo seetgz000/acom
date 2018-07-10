@@ -531,7 +531,7 @@ li.mega-title > a {
 .single-mega-item.mega-underline1.mega-underline3:before {
     width: 114px;
 }
-li.active a {
+li.active > a {
     color: #999999;
 }
 .main-menu li .mega-parent {
@@ -5692,4 +5692,8 @@ body {
 .btn_send_contact:hover {
     color: #fff;
     background-color: #65656e;
+}
+
+.collection_nav {
+    padding: 2px 31px;
 }

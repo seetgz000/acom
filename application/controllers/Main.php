@@ -14,6 +14,7 @@ class Main extends CI_Controller {
         $this->load->model("Promotion_model");
         $this->load->model("Order_model");
         $this->load->model("Admin_model");
+        $this->load->model("Collection_model");
 
         $this->page_data = array();
 
@@ -32,6 +33,12 @@ class Main extends CI_Controller {
             $i++;
         }
         $this->page_data['category'] = $category;
+
+        $where = array(
+            'deleted' => 0
+        );
+
+        $this->page_data['collection'] = $this->Collection_model->get_where($where);
 
 //        die(var_dump($this->session->userdata('cart')));
 
@@ -100,6 +107,32 @@ class Main extends CI_Controller {
             $this->page_data['selected'] = $category_details[0]['name'];
             $this->page_data['category_id'] = $category_details[0]['category_id'];
             $this->page_data['selected_parent'] = $parent_details[0]['name'];
+        }
+        $this->load->view('main/header', $this->page_data);
+        $this->load->view('main/products');
+        $this->load->view('main/footer');
+    }
+
+    public function collection($selected = "") {
+
+        if ($selected == "") {
+            $this->page_data['products'] = $this->Product_model->get_all();
+            $this->page_data['selected'] = "All Products";
+        } else {
+            $where = array(
+                'collection_product.collection_id' => $selected
+            );
+
+            $this->page_data['products'] = $this->Product_model->get_collection_product($where);
+
+            $where = array(
+                'collection_id' => $selected
+            );
+
+            $collection_details = $this->Collection_model->get_where($where);
+
+            $this->page_data['selected'] = $collection_details[0]['collection_name'];
+            $this->page_data['collection_id'] = $collection_details[0]['collection_id'];
         }
         $this->load->view('main/header', $this->page_data);
         $this->load->view('main/products');

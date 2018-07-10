@@ -136,6 +136,18 @@ class Product_model extends CI_Model {
         return $query->result_array();
     }
 
+    public function get_collection_product($where) {
+        $this->db->select('*, product.name as product_name');
+        $this->db->from('product');
+        $this->db->join('collection_product', 'product.product_id = collection_product.product_id', 'left');
+        $this->db->where('product.deleted = 0');
+        $this->db->where($where);
+
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
+
     public function get_product_models_where($where) {
         $this->db->select('*');
         $this->db->from('product_model');
