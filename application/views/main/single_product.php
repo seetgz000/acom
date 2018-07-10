@@ -18,20 +18,6 @@
                     
                 </div>
             </div>
-            <div class="product-review">
-                <ul>
-                    <li><a href="#"><i class="fa fa-star-o"></i></a>
-                    </li>
-                    <li><a href="#"><i class="fa fa-star-o"></i></a>
-                    </li>
-                    <li><a href="#"><i class="fa fa-star-o"></i></a>
-                    </li>
-                    <li><a href="#"><i class="fa fa-star-o"></i></a>
-                    </li>
-                    <li><a href="#"><i class="fa fa-star-o"></i></a>
-                    </li>
-                </ul>
-            </div>
             <div class="product-bottom-text posr">
                 <div class="product-bottom-title deft-underline2">
                     <a href="single-product.html" title="Mirum est notare"><h4><?= $product['product_name']; ?></h4></a>

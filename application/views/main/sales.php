@@ -67,20 +67,6 @@
                                                                 </a>
                                                             </div>
                                                         </div>
-                                                        <div class="product-review">
-                                                            <ul>
-                                                                <li><a href="#"><i class="fa fa-star-o"></i></a>
-                                                                </li>
-                                                                <li><a href="#"><i class="fa fa-star-o"></i></a>
-                                                                </li>
-                                                                <li><a href="#"><i class="fa fa-star-o"></i></a>
-                                                                </li>
-                                                                <li><a href="#"><i class="fa fa-star-o"></i></a>
-                                                                </li>
-                                                                <li><a href="#"><i class="fa fa-star-o"></i></a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
                                                         <div class="product-bottom-text posr">
                                                             <div class="product-bottom-title deft-underline2">
                                                                 <a href="<?= site_url('Main/product/'.$row['product_id']); ?>" title="<?= $row['name']; ?>"><h4><?= $row['name']; ?></h4></a>
