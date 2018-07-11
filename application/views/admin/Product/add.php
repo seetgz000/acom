@@ -71,6 +71,20 @@
                                                 ?>
                                             </select>
                                         </div>
+                                        <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                                            <label>Collection</label>
+                                                <?php
+                                                foreach ($collection as $row) {
+                                                ?>
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" name="collection_id[]" value="<?= $row['collection_id'] ?>"><?= $row['collection_name'] ?>
+                                                        </label>
+                                                    </div>
+                                                <?php
+                                                }
+                                                ?>
+                                        </div>
                                     </div>
                                     <br/>
                                 </div>

@@ -51,6 +51,10 @@
                                             <td>: RM<?= $order['payment_amount'] ?></td>
                                         </tr>
                                         <tr>
+                                            <th>Payment Method</th>
+                                            <td>: <?= $order['payment_method'] ?></td>
+                                        </tr>
+                                        <tr>
                                             <th>Status</th>
                                             <td>
                                                 <select name="status">

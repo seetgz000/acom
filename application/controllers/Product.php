@@ -89,6 +89,8 @@ class Product extends CI_Controller {
 
             $this->Product_model->add_model($input);
 
+            $this->Product_model->add_collection($input);
+
             if ($_FILES["images"]['error'][0] != 4) {
                 if (!empty($_FILES['images']['name'])) {
                     $files_count = count($_FILES["images"]['name']);

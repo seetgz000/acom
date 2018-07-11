@@ -31,6 +31,8 @@
         $('.datepicker').datepicker({
             autoclose: true
         });
+
+        $('#data-table').DataTable();
         
     });
 </script>

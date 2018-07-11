@@ -18,7 +18,7 @@
             <div class='panel-body'>
 
                 <div id="refreshBox">
-                    <table id="data-table" class="table table-bordered table-hover data-table">
+                    <table class="table table-bordered table-hover data-table">
                         <thead>
                             <tr>
                                 <th>No.</th>

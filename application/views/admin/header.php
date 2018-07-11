@@ -47,12 +47,6 @@
                     </a>
                     <!-- Navbar Right Menu -->
                     <ul class="nav navbar-nav pull-right">
-                        <!-- User Account: style can be found in dropdown.less -->
-                        <!--                        <li class="user user-menu">
-                                                    <a href="<?= base_url() ?>/user/user_details/<?= $this->session->userdata['user_id'] ?>">
-                                                        <span class="hidden-xs"><i class="fa fa-user">&nbsp;<?= $this->session->userdata['username'] ?></i></span>
-                                                    </a>
-                                                </li>-->
                     </ul>
 
                 </nav>

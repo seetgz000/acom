@@ -124,6 +124,22 @@ class Product_model extends CI_Model {
         }
     }
 
+    public function add_collection($input) {
+
+        $checked = (isset($_POST['collection_id']))?true:false;
+
+        if ($checked){
+            foreach ($input['collection_id'] as $row) {
+                $data = array(
+                    "collection_id" => $row,
+                    "product_id" => $input['product_id']
+                );
+    
+                $this->db->insert('collection_product', $data);
+            }   
+        }
+    }
+
     public function get_where($where) {
         $this->db->select('*, product.name as product_name, category.name as category');
         $this->db->from('product');
@@ -233,14 +249,18 @@ class Product_model extends CI_Model {
         $this->db->where($where);
         $this->db->delete('collection_product');
 
-        foreach ($input['collection_id'] as $row) {
-            $data = array(
-                "collection_id" => $row,
-                "product_id" => $product_id
-            );
+        $checked = (isset($_POST['collection_id']))?true:false;
 
-            $this->db->insert('collection_product', $data);
-        }   
+        if ($checked){
+            foreach ($input['collection_id'] as $row) {
+                $data = array(
+                    "collection_id" => $row,
+                    "product_id" => $product_id
+                );
+    
+                $this->db->insert('collection_product', $data);
+            }   
+        }
     }
 
     public function delete_image($where) {

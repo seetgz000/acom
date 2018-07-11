@@ -215,24 +215,27 @@ class Main extends CI_Controller {
 
 		$config = array();  
 		$config['protocol'] = 'smtp';  
-		$config['smtp_host'] = 'ssl://smtp.gmail.com';  
-		$config['smtp_port'] = 465;
-		$config['smtp_user'] = 'seetgz000@gmail.com';  
-        $config['smtp_pass'] = 'Lucario448$$*';
+        $config['smtp_host'] = 'smtp.live.com'; 
+        $config['smtp_crypto']  = "tls" or " ssl"; 
+		$config['smtp_port'] = 587;
+		$config['smtp_user'] = 'cherie.clo@hotmail.com';  
+        $config['smtp_pass'] = 'tshrcex08';
         $config['charset'] = 'iso-8859-1'; 
         $config['wordwrap'] = TRUE; 
         $config['mailtype'] = 'html';
-		$this->email->initialize($config);  
-		  
-        $this->email->set_newline("\r\n");
         
-        $message ="Customer Name: " . $data['contact_name'] . "<br>";
-        $message .="Customer Email: " . $data['contact_email'] . "<br>";
-        $message .="Customer Phone Number: " . $data['contact_number'] . "<br>";
-        $message .="Message: " . $data['contact_message'];
+        $this->email->set_newline("\r\n");
+        $this->email->set_crlf( "\r\n" );
 
-		$this->email->from('seetgz000@gmail.com','Shop Cherie');
-		$this->email->to('sgz000@yahoo.com');
+		$this->email->initialize($config);  
+        
+        $message ="Customer Name: " . $data['contact_name'] . "<br>".
+                "Customer Email: " . $data['contact_email'] . "<br>".
+                "Customer Phone Number: " . $data['contact_number'] . "<br>". 
+                "Message: <p>" . $data['contact_message'] . "</p>";
+
+		$this->email->from('cherie.clo@hotmail.com','Shop Cherie');
+		$this->email->to('cherie.clo@hotmail.com');
 		$this->email->subject('Shop Cherie Customer Contact from ' . $data['contact_name']);
         $this->email->message($message);
         $result = $this->email->send();
@@ -240,7 +243,7 @@ class Main extends CI_Controller {
             $this->session->set_flashdata('success', 'Email Sent Successfully!');
 			redirect("Main/contact", "refresh");
 		} else {
-            // print_r($this->email->print_debugger());
+            print_r($this->email->print_debugger());
         }
 	}
 
@@ -649,6 +652,7 @@ class Main extends CI_Controller {
                 "name",
                 "contact",
                 "address",
+                "payment"
             );
 
             foreach ($required as $field) {
@@ -677,6 +681,7 @@ class Main extends CI_Controller {
                     'contact' => $input['contact'],
                     'address' => $input['address'],
                     'promotion_id' => $promotion_id,
+                    'payment_method' => $input['payment']
                 );
 
                 $order_id = $this->Order_model->add_order($data);
@@ -742,16 +747,53 @@ class Main extends CI_Controller {
             "order_id" => $order_id
         );
 
-        $product_item = $this->Order_model->get_order_products($where);
-        
-        $subtotal = 0;
-        foreach($product_item as $row){
-            $subtotal += $row["total"];
+        $order = $this->Order_model->get_where($where);
+
+        $i = 0;
+        foreach ($order as $row) {
+            $where = array(
+                'order_id' => $row['order_id']
+            );
+
+            $products = $this->Order_model->get_order_products($where);
+
+            $product_total = 0;
+            $total = 0;
+
+            $product_count = 0;
+            foreach ($products as $product_row) {
+                
+                if ($product_row['discount_price'] > 0) {
+                    $product_price = $product_row['discount_price'];
+                 } else { 
+                     $product_price = $product_row['price']; 
+                }
+
+                $product_total = ($product_price * $product_row['quantity']);
+
+                $total = $total + $product_total;
+
+                $products[$product_count]['product_total'] = $product_total;
+
+                $product_count++;
+            }
+
+            $order[$i]['products'] = $products;
+
+            $this->page_data['subtotal'] = $total;
+
+            
+            
+            if (!empty($order[$i]['discount'])) {
+                $order[$i]['total'] = $total * ((100 - $order[$i]['discount']) / 100);
+                $this->page_data['discount'] = $total * ($order[$i]['discount'] / 100 );
+            } else {
+                $order[$i]['total'] = $total;
+            }
+            $i++;
         }
             
-        $this->page_data["product_item"] = $product_item;
-        $this->page_data["subtotal"] = $subtotal;
-        $this->page_data["total"] = $subtotal;
+        $this->page_data['order'] = $order[0];
         
         $this->load->view('main/header', $this->page_data);
         $this->load->view('main/payment');

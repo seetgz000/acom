@@ -20,8 +20,8 @@
                 </thead>
                 <tbody>
                     <?php
-                    if (!empty($product_item)) {
-                        foreach ($product_item as $row) {
+                    if (!empty($order['products'])) {
+                        foreach ($order['products'] as $row) {
                             ?>
                             <tr>
                                 <td class="text-center"><a href="<?= base_url() ?>main/product/<?= $row['product_id'] ?>"><img src="<?= base_url() . $row['thumbnail'] ?>" class="xs-thumbnail" /></a></td>
@@ -42,9 +42,9 @@
                     <tr>
                         <td colspan="5" class="text-right">Discount</td>
                         <?php
-                        if (isset($discount)) {
+                        if (!empty($order['discount'])) {
                             ?>
-                            <td class="text-right">-(<?= $discount_percentage ?>%) RM<?= $discount ?></td>
+                            <td class="text-right">-(<?= $order['discount'] ?>%) RM<?= $discount ?></td>
                             <?php
                         } else {
                             ?>
@@ -55,7 +55,7 @@
                     </tr>
                     <tr>
                         <td colspan="5" class="text-right">Total</td>
-                        <td class="text-right">RM<?= $total ?></td>
+                        <td class="text-right">RM<?= $order['total'] ?></td>
                     </tr>
                 </tbody>
             </table>
@@ -63,9 +63,11 @@
         <hr/>
         <div style="text-align : center">
             <img src="http://3.bp.blogspot.com/-tbF4XTJuDTA/Tm0i3yxN3jI/AAAAAAAACHY/HQWC0mDljDg/s500/Maybank+logo+2011.png" style="margin-bottom : 2.5%;">
-            <h4>To complete your order, please bank in the total amount of RM<?= number_format($total, 2) ?> to xxxx-xxxx-xxxx</h4>
-            <h4>After bank in is complete. Please contact 01X - XXX XXXX or</h4>
-            <h4>email to XXX@gmail.com</h4>
+            <h4>To complete your order, please bank in the total amount of RM<?= number_format($order['total'], 2) ?> to <br/>
+            Account Name: Chua Exian <br/>
+            Account Number: 1623-1182-6840</h4>
+            <h4>After bank in is complete. Please contact 016-2334243 / 012-9774480‬ or</h4>
+            <h4>Email your receipt to cherie.clo@hotmail.com </h4>
         </div>
     </div>
     <!--Middle Part End -->

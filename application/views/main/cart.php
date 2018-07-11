@@ -112,19 +112,6 @@
                             <?php
                         }
                         ?>
-                        <?php
-                        if ($this->session->has_userdata('user_id')) {
-                            ?>
-                            
-                            <div class="payment_method">
-                                <h4 class="panel-title">Payment Method</h4>
-                                <br/>
-
-                                <label>Please select the perferred payment method to use on this payment</label>
-                                <input type="radio" name="payment" value="manual bank transfer"> Manual Bank Transfer / Cash Deposit<br>
-                                <input type="radio" name="payment" value="cash on delivery"> Cash on delivery (only for Subang Jaya, Sunway, Sungai Buloh)
-                            </div>
-                        <?php } ?>
 
                     </div>
                     <div class="col-sm-6 margin-bottom">
@@ -139,6 +126,14 @@
                         if ($this->session->has_userdata('user_id')) {
                             ?>
                             <form id="checkout-form" method="POST" action="<?= base_url() ?>main/checkout">
+
+                                <br/>
+
+                                <label>Please select the perferred payment method to use on this payment</label><br>
+                                <input type="radio" name="payment" required value="Manual bank transfer"> Manual Bank Transfer / Cash Deposit<br>
+                                <input type="radio" name="payment" required value="Cash on delivery"> Cash on delivery (only for Subang Jaya, Sunway, Sungai Buloh)<br>
+
+
                                 <label>Name</label>
                                 <input type="text" name="name" placeholder="Name" class="form-control" value="<?= $user['name'] ?>"/>
                                 <label>Contact Number</label>
