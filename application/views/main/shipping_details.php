@@ -40,7 +40,8 @@
                                     <div class="tab-content-wrapper">
                                         <div class="row">
                                             <div class="shipping_details_container">
-                                                <p>All deliveries will be made via Pos Laju</p>
+                                                <p>All deliveries will be made via Pos Laju. All shipping fees will be calculated automatically upon check out based on weight and shipping venue.
+                                                Please refer to the following rates for your kind reference:</p>
                                                 <table class="table shipping_table">
                                                     <tbody>
                                                         <tr>
@@ -64,10 +65,16 @@
                                                     </tbody>
                                                 </table>
                                             </div>
+                                            <div class="container-fluid">
+                                                <p>* Please email a copy of payment slip with your order number/ID attached to cherio.clo@hotmail.com</p>
+                                                <p>* Your purchased products will not be delivered until we have received confimation. </p>
+                                                <p>* Tracking number will be provided by email once they are shipped out.</p>
+                                                <p>* All shipping fees will be calculated automatically upon check out</p>
+                                            </div>
                                             <div class="cod_container">
                                                 <p>Cash On Delivery:</p>
-                                                <p>Cash On Delivery (COD) is also available at Subang Jaya, Sunway, Desa Park City and Sungai Buloh.</br>
-                                                Subang Jaya & Sunway: 016-2334243</br>
+                                                <p>Cash On Delivery (COD) is also available at Subang Jaya, Sunway, Desa Park City and Sungai Buloh.<br/><br/>
+                                                Subang Jaya & Sunway: 016-2334243<br/><br/>
                                                 Desa Park City & Sungai Buloh : 012-9774480</p>
                                             </div>
                                            

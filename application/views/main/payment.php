@@ -5,7 +5,7 @@
 <div class="row" id="refresh-box">
     <!--Middle Part Start-->
     <div id="content" style="padding-left:20%;padding-right:20%; margin-bottom : 10vh;" class="col-sm-12">
-        <h1 class="title">Order Successful</h1>
+        <h1 class="title">Order Successful <small><?php echo "Order ID: #". $order['order_id']; ?></small></h1>
         <div class="table-responsive">
             <table class="table table-bordered"  style="background:#fff;">
                 <thead>
@@ -29,7 +29,7 @@
                                 <td class="text-left"><?= $row['model'] ?></td>
                                 <td class="text-left"><?= $row['quantity'] ?></td>
                                 <td class="text-right">RM<?= $row['price'] ?></td>
-                                <td class="text-right">RM<?= $row['total'] ?></td>
+                                <td class="text-right">RM<?= number_format($row['total'], 2) ?></td>
                             </tr>
                             <?php
                         }
@@ -37,7 +37,7 @@
                     ?>
                     <tr>
                         <td colspan="5" class="text-right">Subtotal</td>
-                        <td class="text-right">RM<?= $subtotal ?></td>
+                        <td class="text-right">RM<?= number_format($subtotal, 2) ?></td>
                     </tr>
                     <tr>
                         <td colspan="5" class="text-right">Discount</td>
@@ -48,14 +48,18 @@
                             <?php
                         } else {
                             ?>
-                            <td class="text-right">-(0%) RM0</td>
+                            <td class="text-right">-(0%) RM0.00</td>
                             <?php
                         }
                         ?>
                     </tr>
                     <tr>
+                        <td colspan="5" class="text-right">Shipping Fees</td>
+                        <td class="text-right">RM<?= number_format($order['shipping'], 2) ?></td>
+                    </tr>
+                    <tr>
                         <td colspan="5" class="text-right">Total</td>
-                        <td class="text-right">RM<?= $order['total'] ?></td>
+                        <td class="text-right">RM<?= number_format($order['total'] , 2)?></td>
                     </tr>
                 </tbody>
             </table>

@@ -40,7 +40,7 @@
                                     <div class="tab-content-wrapper">
                                         <div class="row">
                                             <div class="contact_container">
-                                                <p>Please sent us a messsage if you have any inquiry. Or wholesale terms and further coorperate.</p>
+                                                <p>For more enquiries, kindly drop us your message bellow:</p>
                                                 <form method="POST" action="<?= base_url() ?>main/sentContact">
                                                     <div class="form-group">
                                                         <input required type="text" name="contact_name" class="form-control" id="contact_name" placeholder="Name">
@@ -60,6 +60,27 @@
                                                         </div>
                                                     </div>
                                                 </form>
+                                                <table class="no_border_tbl">
+                                                    <tr>
+                                                        <th colspan="2">We are also reachable via</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>*Whatsap</td>
+                                                        <td>: 016-2334243 (rachel)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td>: ‭012-9774480‬</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>*Facebook</td>    
+                                                        <td>: @shopcherie.co</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>*Instagram</td>   
+                                                        <td>: @shopcherie.co</td>
+                                                    </tr>
+                                                </table>
                                             </div>
                                            
                                         </div>

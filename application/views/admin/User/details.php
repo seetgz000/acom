@@ -37,6 +37,18 @@
                                     <td>: <?= $user['address']; ?></td>
                                 </tr>
                                 <tr>
+                                    <th>city</th>
+                                    <td>: <?= $user['city']; ?></td>
+                                </tr>
+                                <tr>
+                                    <th>post Code</th>
+                                    <td>: <?= $user['postcode']; ?></td>
+                                </tr>
+                                <tr>
+                                    <th>state/region</th>
+                                    <td>: <?= $user['state']; ?></td>
+                                </tr>
+                                <tr>
                                     <th>referrer code</th>
                                     <td>: <?= $user['referrer_code']; ?></td>
                                 </tr>
@@ -61,6 +73,7 @@
                             <table class="table table-hover">
                                 <tr>
                                     <th>No.</th>
+                                    <th>Order ID</th>
                                     <th>Products</th>
                                     <th>Total Price</th>
                                 </tr>
@@ -71,6 +84,7 @@
                                         ?>
                                         <tr>
                                         <td><?= $i ?></td>
+                                        <td><?= "#" . $row['order_id'] ?></td>
                                         <td>
                                             <ul class="no-bullet">
                                                 <?php

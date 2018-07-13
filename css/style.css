@@ -5675,7 +5675,7 @@ body {
 }
 
 .cod_container {
-    padding-bottom: 5rem;
+    padding: 5rem 0;
 }
 
 
@@ -5697,4 +5697,22 @@ body {
 
 .collection_nav {
     padding: 2px 31px;
+}
+
+.no_border_tbl th, tr1, td {
+    border: none;
+    text-align: left;
+}
+
+.term_container {
+    padding: 2rem;
+}
+
+.term_container h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.term_container p {
+    font-size: 1.5rem;
 }

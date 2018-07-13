@@ -67,6 +67,7 @@ class Order extends CI_Controller {
             } else {
                 $order[$i]['total'] = $total;
             }
+            $order[$i]['total'] = $order[$i]['total'] + $order[$i]['shipping'];
             $i++;
         }
 

@@ -204,7 +204,7 @@ class Main extends CI_Controller {
         $this->page_data['promotion_list'] = $this->Product_model->get_promotion_list();
         
         $this->load->view('main/header', $this->page_data);
-        $this->load->view('main/sales');
+        $this->load->view('main/term');
         $this->load->view('main/footer');
     }
 
@@ -214,18 +214,17 @@ class Main extends CI_Controller {
 		$this->load->library('email');
 
 		$config = array();  
-		$config['protocol'] = 'smtp';  
-        $config['smtp_host'] = 'smtp.live.com'; 
-        $config['smtp_crypto']  = "tls" or " ssl"; 
-		$config['smtp_port'] = 587;
-		$config['smtp_user'] = 'cherie.clo@hotmail.com';  
+        $config['protocol'] = 'smtp';  
+        $config['smtp_host'] = 'smtp.gmail.com'; 
+        $config['smtp_crypto']  = "ssl"; 
+		$config['smtp_port'] = 465;
+		$config['smtp_user'] = 'cherie.clo2@gmail.com';  
         $config['smtp_pass'] = 'tshrcex08';
         $config['charset'] = 'iso-8859-1'; 
         $config['wordwrap'] = TRUE; 
         $config['mailtype'] = 'html';
-        
-        $this->email->set_newline("\r\n");
-        $this->email->set_crlf( "\r\n" );
+        $config['newline'] = "\r\n";
+        $config['crlf'] = "\r\n";
 
 		$this->email->initialize($config);  
         
@@ -234,7 +233,7 @@ class Main extends CI_Controller {
                 "Customer Phone Number: " . $data['contact_number'] . "<br>". 
                 "Message: <p>" . $data['contact_message'] . "</p>";
 
-		$this->email->from('cherie.clo@hotmail.com','Shop Cherie');
+		$this->email->from('cherie.clo2@gmail.com','Shop Cherie');
 		$this->email->to('cherie.clo@hotmail.com');
 		$this->email->subject('Shop Cherie Customer Contact from ' . $data['contact_name']);
         $this->email->message($message);
@@ -375,7 +374,9 @@ class Main extends CI_Controller {
             } else {
                 $order[$i]['total'] = $total;
             }
+            $order[$i]['total'] = $order[$i]['total'] + $order[$i]['shipping'];
             $i++;
+
         }
 
         $this->page_data['order'] = $order;
@@ -652,6 +653,9 @@ class Main extends CI_Controller {
                 "name",
                 "contact",
                 "address",
+                "city",
+                "postcode",
+                "state",
                 "payment"
             );
 
@@ -674,14 +678,43 @@ class Main extends CI_Controller {
                     $promotion_id = 0;
                 }
 
+                $cart = $this->session->userdata('cart');
+
+                $total = $cart[0]['total'];
+
+                if ($this->session->has_userdata('promotion')) {
+                    $promotion = $this->session->userdata('promotion');
+                    $total = $total * ((100 - $promotion['discount']) / 100);
+                } else {
+                    $total = $total;
+                }
+
+                if ($input['payment'] == "Manual bank transfer") {
+                    if ($total < 150) {
+                        if ($input['state'] == "Labuan" || $input['state'] == "Sabah" || $input['state'] == "Sarawak") {
+                            $shipping = 12;
+                        } else {
+                            $shipping = 8;
+                        }
+                    } else {
+                        $shipping = 0;
+                    }
+                } else {
+                    $shipping = 0;
+                }
+
                 $data = array(
                     'user_id' => $user_id,
                     'order_status_id' => 1,
                     'receiver' => $input['name'],
                     'contact' => $input['contact'],
                     'address' => $input['address'],
+                    'city' => $input['city'],
+                    'postcode' => $input['postcode'],
+                    'state' => $input['state'],
                     'promotion_id' => $promotion_id,
-                    'payment_method' => $input['payment']
+                    'payment_method' => $input['payment'],
+                    'shipping' => $shipping
                 );
 
                 $order_id = $this->Order_model->add_order($data);
@@ -709,6 +742,9 @@ class Main extends CI_Controller {
                 "name",
                 "contact",
                 "address",
+                "city",
+                "postcode",
+                "state"
             );
 
             foreach ($required as $field) {
@@ -732,6 +768,9 @@ class Main extends CI_Controller {
                     'name' => $input['name'],
                     'contact' => $input['contact'],
                     'address' => $input['address'],
+                    'city' => $input['city'],
+                    'postcode' => $input['postcode'],
+                    'state' => $input['state']
                 );
 
                 $this->User_model->update_where($where, $data);
@@ -792,6 +831,8 @@ class Main extends CI_Controller {
             }
             $i++;
         }
+
+        $order[0]['total'] = $order[0]['total'] + $order[0]['shipping'];
             
         $this->page_data['order'] = $order[0];
         

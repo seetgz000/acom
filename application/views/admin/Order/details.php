@@ -39,12 +39,32 @@
                                             <td>: <?= $order['address'] ?></td>
                                         </tr>
                                         <tr>
+                                            <th>City</th>
+                                            <td>: <?= $order['city'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Post Code</th>
+                                            <td>: <?= $order['postcode'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>State/Region</th>
+                                            <td>: <?= $order['state'] ?></td>
+                                        </tr>
+                                        <tr>
                                             <th>Promo Code</th>
                                             <td>: <?= $order['code'] ?></td>
                                         </tr>
                                         <tr>
+                                            <th>Discount</th>
+                                            <td>: RM<?= number_format($order['discount'], 2) ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Shipping Fees</th>
+                                            <td>: RM<?= number_format($order['shipping'], 2) ?></td>
+                                        </tr>
+                                        <tr>
                                             <th>Total</th>
-                                            <td>: RM<?= $order['total'] ?></td>
+                                            <td>: RM<?= number_format($order['total'], 2)?></td>
                                         </tr>
                                         <tr>
                                             <th>Payment</th>

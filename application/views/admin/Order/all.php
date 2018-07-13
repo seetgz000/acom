@@ -20,6 +20,7 @@
                         <thead>
                             <tr>
                                 <th>No.</th>
+                                <th>Order ID</th>
                                 <th>Username</th>
                                 <th>Date</th>
                                 <th>Status</th>
@@ -32,6 +33,7 @@
                                 ?>
                                 <tr>
                                     <td><a href="<?= base_url() ?>order/details/<?= $row['order_id'] ?>"><?= $i ?></a></td>
+                                    <td><a href="<?= base_url() ?>order/details/<?= $row['order_id'] ?>"><?= "#" . $row['order_id'] ?></a></td>
                                     <td><a href="<?= base_url() ?>order/details/<?= $row['order_id'] ?>"><?= $row['username'] ?></a></td>
                                     <td><a href="<?= base_url() ?>order/details/<?= $row['order_id'] ?>"><?= $row['added_date'] ?></a></td>
                                     <td><a href="<?= base_url() ?>order/details/<?= $row['order_id'] ?>"><?= $row['status'] ?></a></td>
@@ -44,6 +46,7 @@
                         <tfoot>
                             <tr>
                                 <th>No.</th>
+                                <th>Order ID</th>
                                 <th>Username</th>
                                 <th>Date</th>
                                 <th>Status</th>

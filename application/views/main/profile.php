@@ -43,6 +43,35 @@
                         <span class="input-group-addon"><i class="fa fa-home"></i></span>
                         <textarea class="form-control" name="address" placeholder="Address" rows="5" required><?= $user['address'] ?></textarea>
                     </div>
+                    <label>City</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-home"></i></span>
+                        <input type="text" class="form-control" name="city" placeholder="City" value="<?= $user['city'] ?>" required>
+                    </div>
+                    <label>Post Code</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-home"></i></span>
+                        <input type="text" class="form-control" name="postcode" placeholder="Post Code" value="<?= $user['postcode'] ?>" required>
+                    </div>
+                    <label>Region / State</label>
+                    <select name="state" class="form-control" required>
+                        <option value=""> --- Please Select --- </option>
+                        <option value="Johor" <?php if ($user['state'] == "Johor") {echo 'selected';}?>>Johor</option>
+                        <option value="Kedah" <?php if ($user['state'] == "Kedah") {echo 'selected';}?>>Kedah</option>
+                        <option value="Kelantan" <?php if ($user['state'] == "Kelantan") {echo 'selected';}?>>Kelantan</option>
+                        <option value="Labuan" <?php if ($user['state'] == "Labuan") {echo 'selected';}?>>Labuan</option>
+                        <option value="Melaka" <?php if ($user['state'] == "Melaka") {echo 'selected';}?>>Melaka</option>
+                        <option value="Negeri Sembilan" <?php if ($user['state'] == "Negeri Sembilan") {echo 'selected';}?>>Negeri Sembilan</option>
+                        <option value="Pahang" <?php if ($user['state'] == "Pahang") {echo 'selected';}?>>Pahang</option>
+                        <option value="Perak" <?php if ($user['state'] == "Perak") {echo 'selected';}?>>Perak</option>
+                        <option value="Perlis" <?php if ($user['state'] == "Perlis") {echo 'selected';}?>>Perlis</option>
+                        <option value="Pulau Pinang" <?php if ($user['state'] == "Pulau Pinang") {echo 'selected';}?>>Pulau Pinang</option>
+                        <option value="Sabah" <?php if ($user['state'] == "Sabah") {echo 'selected';}?>>Sabah</option>
+                        <option value="Sarawak" <?php if ($user['state'] == "Sarawak") {echo 'selected';}?>>Sarawak</option>
+                        <option value="Selangor" <?php if ($user['state'] == "Selangor") {echo 'selected';}?>>Selangor</option>
+                        <option value="Terengganu" <?php if ($user['state'] == "Terengganu") {echo 'selected';}?>>Terengganu</option>
+                        <option value="Wilayah Persekutuan" <?php if ($user['state'] == "Wilayah Persekutuan") {echo 'selected';}?>>Wilayah Persekutuan</option>
+                    </select>
                 </div>
                 <button type="submit" class="btn btn-primary pull-right" style="margin-top:2.5%;">Edit Profile</button>
             </form>
@@ -54,6 +83,7 @@
                 <thead>
                     <tr>
                         <th>No.</th>
+                        <th>Order ID</th>
                         <th>Products</th>
                         <th>Total Price</th>
                     </tr>
@@ -66,6 +96,7 @@
                             ?>
                         <tr>
                         <td><?= $i ?></td>
+                        <td><?= "#" . $row['order_id'] ?></td>
                         <td>
                             <ul class="no-bullet">
                                 <?php
@@ -88,6 +119,7 @@
                 <tfoot>
                     <tr>
                         <th>No.</th>
+                        <th>Order ID</th>
                         <th>Products</th>
                         <th>Total Price</th>
                     </tr>

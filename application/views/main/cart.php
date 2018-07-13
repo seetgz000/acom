@@ -42,8 +42,8 @@
                                             </div>
                                         </form>
                                     </td>
-                                    <td class="text-right">RM<?= $row['price'] ?></td>
-                                    <td class="text-right">RM<?= $row['total'] ?></td>
+                                    <td class="text-right">RM<?= number_format($row['price'], 2) ?></td>
+                                    <td class="text-right">RM<?= number_format($row['total'], 2) ?></td>
                                 </tr>
                                 <?php
                             }
@@ -51,25 +51,25 @@
                         ?>
                         <tr>
                             <td colspan="5" class="text-right">Subtotal</td>
-                            <td class="text-right">RM<?= $subtotal ?></td>
+                            <td class="text-right">RM<?= number_format($subtotal, 2) ?></td>
                         </tr>
                         <tr>
                             <td colspan="5" class="text-right">Discount</td>
                             <?php
                             if (isset($discount)) {
                                 ?>
-                                <td class="text-right">-(<?= $discount_percentage ?>%) RM<?= $discount ?></td>
+                                <td class="text-right">-(<?= $discount_percentage ?>%) RM<?= number_format($discount, 2) ?></td>
                                 <?php
                             } else {
                                 ?>
-                                <td class="text-right">-(0%) RM0</td>
+                                <td class="text-right">-(0%) RM0.00</td>
                                 <?php
                             }
                             ?>
                         </tr>
                         <tr>
                             <td colspan="5" class="text-right">Total</td>
-                            <td class="text-right">RM<?= $total ?></td>
+                            <td class="text-right">RM<?= number_format($total, 2) ?></td>
                         </tr>
                     </tbody>
                 </table>
@@ -140,6 +140,33 @@
                                 <input type="text" name="contact" placeholder="Contact Number" class="form-control" value="<?= $user['contact'] ?>"/>
                                 <label>Shipping Address</label>
                                 <textarea name="address" placeholder="Address" class="form-control" rows="5"/><?= $user['address'] ?></textarea>
+                                <label>City</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="city" placeholder="City" value="<?= $user['city'] ?>" required>
+                                </div>
+                                <label>Post Code</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="postcode" placeholder="Post Code" value="<?= $user['postcode'] ?>" required>
+                                </div>
+                                <label>Region / State</label>
+                                <select name="state" class="form-control" required>
+                                    <option value=""> --- Please Select --- </option>
+                                    <option value="Johor" <?php if ($user['state'] == "Johor") {echo 'selected';}?>>Johor</option>
+                                    <option value="Kedah" <?php if ($user['state'] == "Kedah") {echo 'selected';}?>>Kedah</option>
+                                    <option value="Kelantan" <?php if ($user['state'] == "Kelantan") {echo 'selected';}?>>Kelantan</option>
+                                    <option value="Labuan" <?php if ($user['state'] == "Labuan") {echo 'selected';}?>>Labuan</option>
+                                    <option value="Melaka" <?php if ($user['state'] == "Melaka") {echo 'selected';}?>>Melaka</option>
+                                    <option value="Negeri Sembilan" <?php if ($user['state'] == "Negeri Sembilan") {echo 'selected';}?>>Negeri Sembilan</option>
+                                    <option value="Pahang" <?php if ($user['state'] == "Pahang") {echo 'selected';}?>>Pahang</option>
+                                    <option value="Perak" <?php if ($user['state'] == "Perak") {echo 'selected';}?>>Perak</option>
+                                    <option value="Perlis" <?php if ($user['state'] == "Perlis") {echo 'selected';}?>>Perlis</option>
+                                    <option value="Pulau Pinang" <?php if ($user['state'] == "Pulau Pinang") {echo 'selected';}?>>Pulau Pinang</option>
+                                    <option value="Sabah" <?php if ($user['state'] == "Sabah") {echo 'selected';}?>>Sabah</option>
+                                    <option value="Sarawak" <?php if ($user['state'] == "Sarawak") {echo 'selected';}?>>Sarawak</option>
+                                    <option value="Selangor" <?php if ($user['state'] == "Selangor") {echo 'selected';}?>>Selangor</option>
+                                    <option value="Terengganu" <?php if ($user['state'] == "Terengganu") {echo 'selected';}?>>Terengganu</option>
+                                    <option value="Wilayah Persekutuan" <?php if ($user['state'] == "Wilayah Persekutuan") {echo 'selected';}?>>Wilayah Persekutuan</option>
+                                </select>
                                 <br/>
                                 <button type="submit" class="btn btn-primary pull-right">Proceed to Payment</button>
                             </form>
