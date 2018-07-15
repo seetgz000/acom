@@ -670,7 +670,95 @@ class Main extends CI_Controller {
                 $this->page_data['error'] = $error_message;
                 $this->session->set_flashdata('checkout_error', $error_message);
             } else {
+                
                 $user_id = $this->session->userdata('user_id');
+
+                if ($this->session->has_userdata('promotion')) {
+                    $promotion_id = $this->session->userdata('promotion')['promotion_id'];
+                } else {
+                    $promotion_id = 0;
+                }
+
+                $cart = $this->session->userdata('cart');
+
+                $total = $cart[0]['total'];
+
+                if ($this->session->has_userdata('promotion')) {
+                    $promotion = $this->session->userdata('promotion');
+                    $total = $total * ((100 - $promotion['discount']) / 100);
+                } else {
+                    $total = $total;
+                }
+
+                if ($input['payment'] == "Manual bank transfer") {
+                    if ($total < 150) {
+                        if ($input['state'] == "Labuan" || $input['state'] == "Sabah" || $input['state'] == "Sarawak") {
+                            $shipping = 12;
+                        } else {
+                            $shipping = 8;
+                        }
+                    } else {
+                        $shipping = 0;
+                    }
+                } else {
+                    $shipping = 0;
+                }
+
+                $data = array(
+                    'user_id' => $user_id,
+                    'order_status_id' => 1,
+                    'receiver' => $input['name'],
+                    'contact' => $input['contact'],
+                    'address' => $input['address'],
+                    'city' => $input['city'],
+                    'postcode' => $input['postcode'],
+                    'state' => $input['state'],
+                    'promotion_id' => $promotion_id,
+                    'payment_method' => $input['payment'],
+                    'shipping' => $shipping
+                );
+
+                $order_id = $this->Order_model->add_order($data);
+
+                $this->Order_model->add_order_items($order_id);
+
+                $this->session->unset_userdata('promotion');
+                $this->session->unset_userdata('cart');
+
+                redirect('main/payment/' . $order_id, 'refresh');
+            }
+        }
+
+        redirect('main/cart', 'refresh');
+    }
+    public function guestCheckout() {
+        if ($_POST) {
+            $input = $this->input->post();
+            $error = false;
+
+            $required = array(
+                "name",
+                "contact",
+                "address",
+                "city",
+                "postcode",
+                "state",
+                "payment"
+            );
+
+            foreach ($required as $field) {
+                if (empty($_POST[$field])) {
+                    $error = true;
+                    $error_message = "Please do not leave any fields empty";
+                }
+            }
+
+            if ($error) {
+                $this->page_data['error'] = $error_message;
+                $this->session->set_flashdata('checkout_error', $error_message);
+            } else {
+
+                $user_id = 0;
 
                 if ($this->session->has_userdata('promotion')) {
                     $promotion_id = $this->session->userdata('promotion')['promotion_id'];
@@ -835,10 +923,21 @@ class Main extends CI_Controller {
         $order[0]['total'] = $order[0]['total'] + $order[0]['shipping'];
             
         $this->page_data['order'] = $order[0];
-        
-        $this->load->view('main/header', $this->page_data);
-        $this->load->view('main/payment');
-        $this->load->view('main/footer');
+
+        if($order[0]['user_id'] != 0) {
+            if ($order[0]['user_id'] != $this->session->userdata('user_id')){
+                redirect('main', "refresh");
+            } else {
+                $this->load->view('main/header', $this->page_data);
+                $this->load->view('main/payment');
+                $this->load->view('main/footer');
+            }
+        }else {
+            
+            $this->load->view('main/header', $this->page_data);
+            $this->load->view('main/payment');
+            $this->load->view('main/footer');
+        }
     }
 
 }

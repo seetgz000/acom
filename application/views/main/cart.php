@@ -178,6 +178,56 @@
                         <br>
                         <a data-toggle="modal" data-target="#login-modal" class="btn btn-primary" style="margin-top:1%">Login</a>
                         <a data-toggle="modal" data-target="#register-modal" class="btn btn-primary" style="margin-top:1%">Register</a>
+                        <hr>
+                        <form id="checkout-form" method="POST" action="<?= base_url() ?>main/guestCheckout">
+
+                        <p class="panel-title">or proceed with guest account</p>
+                        <br>
+                        <p style="color:red;">* Please remember you cannot check your purchase history without account and please write down your order id after checkout</p>
+                        <br>
+                        <br>
+
+                            <label>Please select the perferred payment method to use on this payment</label><br>
+                            <input type="radio" name="payment" required value="Manual bank transfer"> Manual Bank Transfer / Cash Deposit<br>
+                            <input type="radio" name="payment" required value="Cash on delivery"> Cash on delivery (only for Subang Jaya, Sunway, Sungai Buloh)<br>
+
+
+                            <label>Name</label>
+                            <input type="text" name="name" placeholder="Name" class="form-control"/>
+                            <label>Contact Number</label>
+                            <input type="text" name="contact" placeholder="Contact Number" class="form-control"/>
+                            <label>Shipping Address</label>
+                            <textarea name="address" placeholder="Address" class="form-control" rows="5"/></textarea>
+                            <label>City</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="city" placeholder="City" required>
+                            </div>
+                            <label>Post Code</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="postcode" placeholder="Post Code" required>
+                            </div>
+                            <label>Region / State</label>
+                            <select name="state" class="form-control" required>
+                                <option value=""> --- Please Select --- </option>
+                                <option value="Johor">Johor</option>
+                                <option value="Kedah">Kedah</option>
+                                <option value="Kelantan">Kelantan</option>
+                                <option value="Labuan">Labuan</option>
+                                <option value="Melaka">Melaka</option>
+                                <option value="Negeri Sembilan">Negeri Sembilan</option>
+                                <option value="Pahang">Pahang</option>
+                                <option value="Perak">Perak</option>
+                                <option value="Perlis">Perlis</option>
+                                <option value="Pulau Pinang">Pulau Pinang</option>
+                                <option value="Sabah">Sabah</option>
+                                <option value="Sarawak">Sarawak</option>
+                                <option value="Selangor">Selangor</option>
+                                <option value="Terengganu">Terengganu</option>
+                                <option value="Wilayah Persekutuan" >Wilayah Persekutuan</option>
+                            </select>
+                            <br/>
+                            <button type="submit" class="btn btn-primary pull-right">Proceed to Payment</button>
+                        </form>
                         <?php
                     }
                     ?>
