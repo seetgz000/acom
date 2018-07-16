@@ -5716,3 +5716,21 @@ body {
 .term_container p {
     font-size: 1.5rem;
 }
+
+@media(min-width: 768px) {
+    .row-eq-height {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display:         flex;
+    }
+    .new_arrival_index_pic, .discount_index_pic {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+.row-eq-height .product-banner-left {
+    margin-bottom: 5%;
+}

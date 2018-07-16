@@ -15,6 +15,7 @@ class Main extends CI_Controller {
         $this->load->model("Order_model");
         $this->load->model("Admin_model");
         $this->load->model("Collection_model");
+        $this->load->model("IndexPic_model");
 
         $this->page_data = array();
 
@@ -47,6 +48,7 @@ class Main extends CI_Controller {
 
     public function index() {
         $this->page_data['banner'] = $this->Banner_model->get_all();
+        $this->page_data['indexPic'] = $this->IndexPic_model->get_all();
         $this->page_data['latest'] = $this->Product_model->get_latest();
 
         $category = $this->Product_model->get_category_by_product();

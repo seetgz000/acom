@@ -7,48 +7,6 @@
                     <img src="<?= site_url().$row['url']; ?>">
                 <?php } ?>
             </div>
-
-            <!-- Slider2 Caption 2 -->
-            <div id="htmlcaption5" class="nivo-html-caption">
-                <div class="slider-progress"></div>
-                <div class="container">
-                    <div class="slider4-cap-wrapper4 cap-wrapper">
-                        <div class="captext-pos1">
-                            <div class="slider3-btext wow fadeInDown" data-wow-duration=".9s" data-wow-delay="0.8s">
-                                <h2>Lueur trend.</h2>
-                            </div>
-                            <div class="slider3-stext wow fadeInDown" data-wow-duration=".9s" data-wow-delay="0.8s">
-                                <h4>lookbook ecomerce theme</h4>
-                            </div>
-                            <div class="slider3-btn1 wow fadeInDown" data-wow-duration=".9s" data-wow-delay="0.8s">
-                                <a class="btn-trans" href="shop.html">Shop Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Slider2 Caption 1 -->
-            <div id="htmlcaption6" class="nivo-html-caption">
-                <div class="slider-progress"></div>
-                <div class="container">
-                    <div class="slider2-cap-wrapper2 cap-wrapper">
-                        <div class="captext-pos2 slider-capstyle3">
-                            <div class="slider3-toptext wow fadeInRight" data-wow-duration=".5s" data-wow-delay="0.8s">
-                                <h4>Fashion lookbook 2016</h4>
-                            </div>
-                            <div class="slider3-btext2 wow fadeInRight" data-wow-duration=".9s" data-wow-delay="0.8s">
-                                <h2>Hipster Fashion</h2>
-                            </div>
-                            <div class="slider3-btext2 wow fadeInRight" data-wow-duration=".5s" data-wow-delay="0.8s">
-                                <h2> Trend 2016.</h2>
-                            </div>
-                            <div class="slider3-btn slider3-btn2 wow fadeInRight" data-wow-duration=".9s" data-wow-delay="0.8s">
-                                <a class="btn-nontrans" href="shop.html">Shop now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
         <!--slider area are end-->
 
@@ -56,32 +14,32 @@
 
         <div class="product-banner-area">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <div class="product-banner-left">
-                            <a href="<?= site_url("Main/new_arrival"); ?>">
-                                <div class="pbanner-image hvreff-defm20 posr">
+                <div class="row row-eq-height">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="product-banner-left" style="height:100%;">
+                            <a href="<?= site_url($indexPic[0]['link']); ?>">
+                                <div class="pbanner-image hvreff-defm20 posr" style="height:100%;">
                                     <div class="product-banner-caption">
-                                        <h1>View New Arrivals</h1>
+                                        <h1><?php echo $indexPic[0]['caption']; ?></h1>
                                     </div>
-                                    <img src="<?= site_url(); ?>images/discount/cms7.jpg" alt="" />
+                                    <img class="new_arrival_index_pic" src="<?= site_url() . $indexPic[0]['thumbnail'] ?>" alt="" />
                                 </div>
                             </a>
                         </div>
 
                     </div>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <div class="product-banner-right">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="product-banner-right" style="height:100%;">
                             <!-- InstaWidget -->
-                            <a href="https://instawidget.net/v/user/shopcherie.co" id="link-6dfd5414179016d8b1267a2c7ed22b84d576835fe0a8da19942e61bc15b98511">@shopcherie.co</a>
-                            <script src="https://instawidget.net/js/instawidget.js?u=6dfd5414179016d8b1267a2c7ed22b84d576835fe0a8da19942e61bc15b98511&width=100%"></script>
-                            <a href="<?= site_url("Main/sales"); ?>">
-                                <div class="img-banner">
-                                    <div class="pbanner-image hvreff-defm10 posr">
+                            <a href="https://instawidget.net/v/user/shopcherie.co" id="link-e700b9d9e2c8459b930edc6c2b25b088b3b740eb712d1b9d2035bd23c563aec1">@shopcherie.co</a>
+                            <script src="https://instawidget.net/js/instawidget.js?u=e700b9d9e2c8459b930edc6c2b25b088b3b740eb712d1b9d2035bd23c563aec1&width=100%"></script>
+                            <a href="<?= site_url($indexPic[1]['link']); ?>">
+                                <div class="img-banner" style="height:40%;">
+                                    <div class="pbanner-image hvreff-defm10 posr" style="height:100%;">
                                         <div class="product-banner-caption">
-                                            <h1>Promotions</h1>
+                                            <h1><?php echo $indexPic[1]['caption']; ?></h1>
                                         </div>
-                                        <img src="<?= site_url(); ?>images/discount/cms9.jpg" alt="" />
+                                        <img class="discount_index_pic" src="<?= site_url() . $indexPic[1]['thumbnail'] ?>" alt="" />
                                     </div>
                                 </div>
                             </a>

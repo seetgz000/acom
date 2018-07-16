@@ -49,7 +49,7 @@
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12 footer-bottom-left">
                 <div class="footer-bottom-text">
-                    <p>Copyright <i class="fa fa-copyright"></i> <a href="https://hastech.company/" target="_blank">Hastech.</a> All Rights Reserved</p>
+                    <p>Copyright <i class="fa fa-copyright"></i> <a href="<?= base_url() ?>" target="_blank">Shop Cherie</a> All Rights Reserved</p>
                 </div>
             </div>
         </div>

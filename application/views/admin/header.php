@@ -114,6 +114,11 @@
                             </a>
                         </li>
                         <li>
+                            <a href="<?= base_url()?>indexPic">
+                                <i class="fa fa-image"></i> <span>Index Picture</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="<?= base_url()?>order">
                                 <i class="fa fa-truck"></i> <span>Orders</span>
                             </a>
