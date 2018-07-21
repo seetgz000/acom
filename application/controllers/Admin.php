@@ -36,13 +36,13 @@ class Admin extends CI_Controller {
                 $error = true;
                 $error_message = "Passwords do not match";
             }
-            
+
             $where = array(
                 'referrer_code' => $input['referrer_code']
             );
-            
+
             $admin = $this->Admin_model->get_where($where);
-            
+
             if(count($admin) > 0){
                 $error = true;
                 $error_message = "This referrer code is already taken by another user";
@@ -130,8 +130,8 @@ class Admin extends CI_Controller {
 
     public function delete($admin_id){
         $this->Admin_model->delete($admin_id);
-        
+
         redirect('admin', 'refresh');
     }
-    
+
 }
