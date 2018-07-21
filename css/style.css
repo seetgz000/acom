@@ -1973,7 +1973,7 @@ nav ul.main-menu {
 
 .img-banner {
     cursor: pointer;
-    margin-bottom: 29px;
+    margin-bottom: 4%;
 }
 .img-banner:hover .hvreff-defm10:before {
     -webkit-transform: scale(1);
@@ -5478,10 +5478,18 @@ p.error {
 /*=================== CUSTOM ========= */
 .product-img,
 .product-hover-img{
-    height : 50vh;
+    height : 40vh;
     width : 100%;
     text-align: center;
 }
+
+@media (min-width: 768px) and (max-width: 1200px) {
+    .product-img,
+    .product-hover-img{
+        height : 30vh;
+    }
+}
+
 .product-img img,
 .product-hover-img img {
     max-height: 100%;
@@ -5733,4 +5741,10 @@ body {
 
 .row-eq-height .product-banner-left {
     margin-bottom: 5%;
+}
+
+.product-wrapper.posr {
+    width: 70%;
+    display: block;
+    margin: auto;
 }

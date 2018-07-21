@@ -253,15 +253,36 @@ class Product extends CI_Controller {
 
                         $config = array(
                             "allowed_types" => "gif|png|jpg|jpeg",
+                            "width" => 820,
                             "upload_path" => "./images/Product/",
                             "path" => "/images/Product/");
 
                         $this->load->library("upload", $config);
-
+                        
                         if ($this->upload->do_upload('image')) {
+
                             $url = $config['path'] . $this->upload->data()['file_name'];
 
+                            // $this->load->library('image_lib');
+
+                            // $config['image_library'] = 'gd2';
+                            // $config['source_image'] = $this->upload->data()['full_path'];
+                            // $config['create_thumb'] = TRUE;
+                            // $config['maintain_ratio'] = TRUE;
+                            // $config['width']         = 820;
+                            // $config['height']       = 1229;
+
+
+                            // $this->image_lib->clear();
+                            // $this->image_lib->initialize($config);
+                            // $this->image_lib->resize();
+                            // if ( ! $this->image_lib->resize())
+                            // {
+                            //     echo $this->image_lib->display_errors();
+                            // }
+
                             $this->Product_model->add_image($url, $product_id);
+
                         } else {
                             die(json_encode(array(
                                 "status" => false,

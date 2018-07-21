@@ -66,7 +66,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td>*Whatsap</td>
-                                                        <td>: 016-2334243 (rachel)</td>
+                                                        <td>: 016-2334243</td>
                                                     </tr>
                                                     <tr>
                                                         <td></td>

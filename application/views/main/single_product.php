@@ -20,7 +20,7 @@
             </div>
             <div class="product-bottom-text posr">
                 <div class="product-bottom-title deft-underline2">
-                    <a href="single-product.html" title="Mirum est notare"><h4><?= $product['product_name']; ?></h4></a>
+                    <a href="<?= site_url('Main/product/'. $product['product_id']); ?>" title="Mirum est notare"><h4><?= $product['product_name']; ?></h4></a>
                 </div>
                 <div class="product-bottom-price">
                     <span><?= $product['price']; ?></span>

@@ -30,16 +30,23 @@
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <div class="product-banner-right" style="height:100%;">
-                            <!-- InstaWidget -->
-                            <a href="https://instawidget.net/v/user/shopcherie.co" id="link-e700b9d9e2c8459b930edc6c2b25b088b3b740eb712d1b9d2035bd23c563aec1">@shopcherie.co</a>
-                            <script src="https://instawidget.net/js/instawidget.js?u=e700b9d9e2c8459b930edc6c2b25b088b3b740eb712d1b9d2035bd23c563aec1&width=100%"></script>
                             <a href="<?= site_url($indexPic[1]['link']); ?>">
-                                <div class="img-banner" style="height:40%;">
+                                <div class="img-banner" style="height:48%;">
                                     <div class="pbanner-image hvreff-defm10 posr" style="height:100%;">
                                         <div class="product-banner-caption">
                                             <h1><?php echo $indexPic[1]['caption']; ?></h1>
                                         </div>
                                         <img class="discount_index_pic" src="<?= site_url() . $indexPic[1]['thumbnail'] ?>" alt="" />
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="<?= site_url($indexPic[2]['link']); ?>">
+                                <div class="img-banner" style="height:48%;">
+                                    <div class="pbanner-image hvreff-defm10 posr" style="height:100%;">
+                                        <div class="product-banner-caption">
+                                            <h1><?php echo $indexPic[2]['caption']; ?></h1>
+                                        </div>
+                                        <img class="discount_index_pic" src="<?= site_url() . $indexPic[2]['thumbnail'] ?>" alt="" />
                                     </div>
                                 </div>
                             </a>
