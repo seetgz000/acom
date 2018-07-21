@@ -5748,3 +5748,11 @@ body {
     display: block;
     margin: auto;
 }
+
+.checkoutRead {
+    display: inline-block!important;
+}
+
+.checkoutRead input {
+    margin-left: 1%!important;
+}

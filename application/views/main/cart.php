@@ -226,6 +226,11 @@
                                 <option value="Wilayah Persekutuan" >Wilayah Persekutuan</option>
                             </select>
                             <br/>
+                            <div class="checkbox checkoutRead">
+                                <label>
+                                    I have read and agree to the <a href="<?= site_url("Main/term"); ?>">Terms & Conditions</a><input type="checkbox" name="read" value="read" required>
+                                </label>
+                            </div>
                             <button type="submit" class="btn btn-primary pull-right">Proceed to Payment</button>
                         </form>
                         <?php
