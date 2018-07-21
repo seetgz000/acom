@@ -32,6 +32,25 @@
                                             <input type="number" class="form-control" required name="price" placeholder="Price" id="form_price" value="<?= $product['price'] ?>" step="any">
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                                            <label>Label</label>
+                                            <select class="form-control" required name="label" id="form_label">
+
+                                                <?php
+                                                foreach ($label as $row) {
+                                                    ?>
+                                                    <option value="<?= $row['label_id'] ?>"
+                                                    <?php if ($product['label'] == $row['label_id']) {
+                                                        ?>
+                                                                selected
+                                                            <?php }
+                                                            ?>
+                                                            ><?= $row['Name'] ?></option>
+                                                            <?php
+                                                        }
+                                                        ?>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
                                             <label>Discount Price</label>
                                             <input type="number" class="form-control" name="discount_price" placeholder="Discount Price" id="form_discount_price" value="<?= $product['discount_price'] ?>" step="any">
                                         </div>
@@ -109,6 +128,7 @@
     function form_submit(form) {
         var data = new FormData(form);
         var url = $(form).attr("action");
+        console.log(data);
         $.ajax({
             url: url,
             data: data,

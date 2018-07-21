@@ -14,6 +14,7 @@ class Product extends CI_Controller {
         $this->load->model("Product_model");
         $this->load->model("Category_model");
         $this->load->model("Collection_model");
+        $this->load->model("Label_model");
         $this->page_data = array();
     }
 
@@ -143,10 +144,13 @@ class Product extends CI_Controller {
         $this->page_data['product'] = $product[0];
 
         $this->page_data['models'] = $this->Product_model->get_product_models_where($where);
-        
+        $this->page_data['label'] = $this->Label_model->get_all();
+
         $this->page_data['collection'] = $this->Product_model->get_product_collection_where($where);
 
         $this->page_data['images'] = $this->Product_model->get_product_images_where($where);
+
+      
 
         $this->load->view('admin/header', $this->page_data);
         $this->load->view('admin/Product/details');
@@ -165,8 +169,10 @@ class Product extends CI_Controller {
         $this->page_data['categories'] = $this->Category_model->get_all();
 
         $this->page_data['product_collection'] = $this->Product_model->get_product_collection_where($where);
-        
+
         $this->page_data['collection'] = $this->Collection_model->get_all();
+
+        $this->page_data['label']= $this->Label_model->get_all();
 
         if ($_POST) {
             $input = $this->input->post();
@@ -192,7 +198,7 @@ class Product extends CI_Controller {
 
 
             $input['thumbnail'] = $thumbnail;
-            
+
             if (!empty($_FILES['thumbnail2']['name'])) {
                 $config = array(
                     "allowed_types" => "gif|png|jpg|jpeg",
@@ -258,7 +264,7 @@ class Product extends CI_Controller {
                             "path" => "/images/Product/");
 
                         $this->load->library("upload", $config);
-                        
+
                         if ($this->upload->do_upload('image')) {
 
                             $url = $config['path'] . $this->upload->data()['file_name'];

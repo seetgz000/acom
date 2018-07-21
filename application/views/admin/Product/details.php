@@ -36,11 +36,22 @@
                                     <td>: <?= $product['category']; ?></td>
                                 </tr>
                                 <tr>
+                                    <th>Label</th>
+                                    <td>: <?php
+                                      foreach($label as $val){
+                                        if($val['label_id'] == $product['label']){
+                                          echo $val['Name'];
+                                          break;
+                                        }
+                                      }
+                                    ?></td>
+                                </tr>
+                                <tr>
                                     <th>Collection</th>
-                                    <td>: 
+                                    <td>:
                                     </td>
-                                        
-                                    
+
+
                                 </tr>
                                 <tr>
                                     <th> </th>

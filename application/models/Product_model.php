@@ -134,9 +134,9 @@ class Product_model extends CI_Model {
                     "collection_id" => $row,
                     "product_id" => $input['product_id']
                 );
-    
+
                 $this->db->insert('collection_product', $data);
-            }   
+            }
         }
     }
 
@@ -174,7 +174,7 @@ class Product_model extends CI_Model {
 
         return $query->result_array();
     }
-    
+
     public function get_product_collection_where($where) {
         $this->db->select('*');
         $this->db->from('collection_product');
@@ -202,7 +202,8 @@ class Product_model extends CI_Model {
             "name",
             "price",
             "weight",
-            "category_id"
+            "category_id",
+            "label"
         );
 
         $error = false;
@@ -228,7 +229,8 @@ class Product_model extends CI_Model {
                 "thumbnail2" => $input['thumbnail2'],
                 "weight" => $input['weight'],
                 "description" => $input['description'],
-                "category_id" => $input['category_id']
+                "category_id" => $input['category_id'],
+                "label" => $input['label']
             );
 
             $where = array(
@@ -257,9 +259,9 @@ class Product_model extends CI_Model {
                     "collection_id" => $row,
                     "product_id" => $product_id
                 );
-    
+
                 $this->db->insert('collection_product', $data);
-            }   
+            }
         }
     }
 
@@ -351,7 +353,7 @@ class Product_model extends CI_Model {
 
         return $query->result_array();
     }
-    
+
     public function get_product_model($where){
         $this->db->select('*, product.name as product_name, category.name as category');
         $this->db->from('product');
@@ -380,5 +382,5 @@ class Product_model extends CI_Model {
 
         return $query->result_array();
     }
-    
+
 }
