@@ -5478,7 +5478,7 @@ p.error {
 /*=================== CUSTOM ========= */
 .product-img,
 .product-hover-img{
-    height : 40vh;
+    height : 40rem;
     width : 100%;
     text-align: center;
 }

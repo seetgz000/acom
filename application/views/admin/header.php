@@ -109,13 +109,8 @@
                             </a>
                         </li>
                         <li>
-                            <a href="<?= base_url()?>banner">
-                                <i class="fa fa-image"></i> <span>Banners</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url()?>indexPic">
-                                <i class="fa fa-image"></i> <span>Index Picture</span>
+                            <a href="<?= base_url()?>indexPage">
+                                <i class="fa fa-image"></i> <span>Index Page</span>
                             </a>
                         </li>
                         <li>
