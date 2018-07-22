@@ -58,7 +58,7 @@
                     <!-- Sidebar user panel -->
 <!--                    <div class="user-panel">
                         <div class="pull-left image">
-                            
+
                         </div>
                         <div class="pull-left info">
                             <p><?= $this->session->userdata['username'] ?></p>
@@ -99,6 +99,11 @@
                             </a>
                         </li>
                         <li>
+                            <a href="<?= base_url()?>label">
+                                <i class="fa fa-image"></i> <span>Label</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="<?= base_url()?>collection">
                                 <i class="fa fa-object-group"></i> <span>Collection</span>
                             </a>
@@ -130,10 +135,10 @@
             <div class="content-wrapper">
                 <!--        <header>
                             <nav class="navbar header noMargin">
-                
+
                             </nav>
                         </header>
-                
+
                         <nav class="sidebar">
 
                             <a href="#visitor_link" data-toggle="collapse"><div class="sideLink">
@@ -142,15 +147,15 @@
                             </a>
                             <div class="collapse hiddenLink" id="visitor_link">
                                 <ul>
-                
+
                                     <li><a href="<?= base_url() ?>visitor/all"><span class="glyphicon sideIcon glyphicon-user"></span><span class="hidden-xs"> All</span></a></li>
-                
+
                                     <li><a href="<?php echo site_url("visitor/assigned"); ?>"><span class="glyphicon sideIcon glyphicon-th-list"></span><span class="hidden-xs"> Under me</span></a></li>
-                
+
                                 </ul>
                             </div>
-             
-                
+
+
                             <a href="<?= base_url() ?>settings/selection-on-card">
                                 <div class ="sideLink">
                                     <span class ="glyphicon glyphicon-cog"></span> <span class="hidden-xs">Settings</span>
@@ -161,7 +166,6 @@
                             <span class ="glyphicon glyphicon-log-out"></span> <span class="hidden-xs">Logout</span>
                         </div>
                     </a>
-        
-        
-                </nav><div class="content">-->
 
+
+                </nav><div class="content">-->
