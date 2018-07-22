@@ -119,6 +119,11 @@
                             </a>
                         </li>
                         <li>
+                            <a href="<?= base_url()?>termAndCondition">
+                                <i class="fa fa-image"></i> <span>Terms And Conditions</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="<?= base_url()?>order">
                                 <i class="fa fa-truck"></i> <span>Orders</span>
                             </a>
