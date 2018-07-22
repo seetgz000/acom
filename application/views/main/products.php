@@ -16,11 +16,11 @@
                                     </div>
                                 </li>
                                 <?php if ($this->router->fetch_method() == 'products') { ?>
-                                    <li>Shop</li>
+                                    <li><a href="<?= site_url("Main/products/"); ?>">Shop</a></li>
 
-                                    <li><?php echo $selected_parent; ?></li>
-                                <?php } elseif ($this->router->fetch_method() == 'collection') { ?>
-                                    <li>Collection</li>
+                                    <?php if (isset($selected_parent)) { ?>
+                                        <li><a href="<?= site_url("Main/products/") . $selected_parent_id; ?>"><?php echo $selected_parent; ?></a></li>
+                                    <?php } ?>
                                 <?php } ?>
                                 <li><?php echo $selected; ?></li>
                             </ul>
@@ -40,7 +40,7 @@
                                 <?php if ($this->router->fetch_method() == 'products') { ?>
                                     <p>Shop</p>
                                 <?php } elseif ($this->router->fetch_method() == 'collection') { ?>
-                                    <p>Collection</p>
+                                    <p><?php echo $selected; ?></p>
                                 <?php } ?>
                             </div>
                             <div class="full-ttlright">

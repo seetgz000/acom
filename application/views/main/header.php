@@ -105,7 +105,7 @@
                                             <div class="mega-menu-area hp1-style1">
                                                 <?php foreach ($category as $row) { ?>
                                                     <ul class="single-mega-item mega-underline1 mega-underline3">
-                                                        <li class="mega-title"><a href="#"><?= $row['name']; ?></a>
+                                                        <li class="mega-title"><a href="<?= site_url("Main/products/") . $row['child'][0]['parent_id']; ?>"><?= $row['name']; ?></a>
                                                         </li>
                                                         <?php foreach ($row['child'] as $child) { ?>
                                                             <li><a href="<?= site_url("Main/products/") . $child['category_id']; ?>"><?= $child['name']; ?></a>

@@ -86,14 +86,8 @@ class Main extends CI_Controller {
         if ($selected == "") {
             $this->page_data['products'] = $this->Product_model->get_all();
             $this->page_data['selected'] = "All Products";
-            $this->page_data['selected_parent'] = "All Products";
+            // $this->page_data['selected_parent'] = "All Products";
         } else {
-            $where = array(
-                'product.category_id' => $selected
-            );
-
-            $this->page_data['products'] = $this->Product_model->get_where($where);
-
             $where = array(
                 'category_id' => $selected
             );
@@ -108,7 +102,25 @@ class Main extends CI_Controller {
 
             $this->page_data['selected'] = $category_details[0]['name'];
             $this->page_data['category_id'] = $category_details[0]['category_id'];
-            $this->page_data['selected_parent'] = $parent_details[0]['name'];
+
+            if ($parent_details) {
+
+                $this->page_data['selected_parent'] = $parent_details[0]['name'];
+                $this->page_data['selected_parent_id'] = $category_details[0]['parent_id']; 
+                
+                $where = array(
+                    'product.category_id' => $selected
+                );
+    
+                $this->page_data['products'] = $this->Product_model->get_where($where);
+            } else {
+                $where = array(
+                    'category.parent_id' => $selected
+                );
+    
+                $this->page_data['products'] = $this->Product_model->get_where($where);
+            }
+
         }
         $this->load->view('main/header', $this->page_data);
         $this->load->view('main/products');
