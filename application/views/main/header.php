@@ -39,6 +39,17 @@
     </head>
 
     <body>
+      <style>
+        .label_new {
+          background-color: <?=$label_data[1]['b_color']?>;
+          color: <?=$label_data[1]['w_color']?>;
+        }
+
+        .label-sale {
+          background-color: <?=$label_data[0]['b_color']?>;
+          color: <?=$label_data[0]['w_color']?>;
+        }
+      </style>
         <!--[if lt IE 8]>
                 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
             <![endif]-->
@@ -73,7 +84,7 @@
                                         <?php
                                         }
                                         ?>
-                                        
+
                                     </ul>
                                 </div>
                             </div>
@@ -117,7 +128,7 @@
                                             </div>
 
                                         </li>
-                                        
+
                                         <li class="<?php  if ($this->router->fetch_method() == 'new_arrival'){ echo 'active' ;} ?>"><a href="<?= site_url("Main/new_arrival"); ?>">New Arrival</a>
                                         </li>
                                         <li class="<?php  if ($this->router->fetch_method() == 'sales'){ echo 'active' ;} ?>"><a href="<?= site_url("Main/sales"); ?>">Sales</a>
@@ -226,8 +237,8 @@
                                     <?php
                                     }
                                     ?>
-                                    </div>   
-                                </div> 
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="mobile-menu-area hp2-mmenu">
@@ -243,7 +254,7 @@
                                                             <?php foreach ($category as $row) { ?>
                                                                 <li><a href="#"><?= $row['name']; ?></a>
                                                                     <ul>
-                                                                    
+
                                                                     <?php foreach ($row['child'] as $child) { ?>
                                                                         <li><a href="<?= site_url("Main/products/") . $child['category_id']; ?>"><?= $child['name']; ?></a>
                                                                         </li>
@@ -265,7 +276,7 @@
                                                             <?php foreach ($category as $row) { ?>
                                                                 <li><a href="#"><?= $row['name']; ?></a>
                                                                     <ul>
-                                                                    
+
                                                                     <?php foreach ($row['child'] as $child) { ?>
                                                                         <li><a href="<?= site_url("Main/products/") . $child['category_id']; ?>"><?= $child['name']; ?></a>
                                                                         </li>

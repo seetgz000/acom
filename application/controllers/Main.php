@@ -16,6 +16,7 @@ class Main extends CI_Controller {
         $this->load->model("Admin_model");
         $this->load->model("Collection_model");
         $this->load->model("IndexPic_model");
+        $this->load->model("Label_model");
 
         $this->page_data = array();
 
@@ -40,10 +41,11 @@ class Main extends CI_Controller {
         );
 
         $this->page_data['collection'] = $this->Collection_model->get_where($where);
+        $this->page_data['label_data'] = $this->Label_model->get_all();
 
 //        die(var_dump($this->session->userdata('cart')));
 
-        
+
     }
 
     public function index() {
@@ -182,7 +184,7 @@ class Main extends CI_Controller {
 
 
         $this->page_data['latest_list'] = $this->Product_model->get_latest_list();
-        
+
         $this->load->view('main/header', $this->page_data);
         $this->load->view('main/new_arrival');
         $this->load->view('main/footer');
@@ -191,22 +193,22 @@ class Main extends CI_Controller {
 
 
         $this->page_data['promotion_list'] = $this->Product_model->get_promotion_list();
-        
+
         $this->load->view('main/header', $this->page_data);
         $this->load->view('main/sales');
         $this->load->view('main/footer');
     }
-    
+
     public function contact() {
 
-        
+
         $this->load->view('main/header', $this->page_data);
         $this->load->view('main/contact');
         $this->load->view('main/footer');
     }
 
     public function shipping_details() {
-        
+
         $this->load->view('main/header', $this->page_data);
         $this->load->view('main/shipping_details');
         $this->load->view('main/footer');
@@ -216,7 +218,7 @@ class Main extends CI_Controller {
 
 
         $this->page_data['promotion_list'] = $this->Product_model->get_promotion_list();
-        
+
         $this->load->view('main/header', $this->page_data);
         $this->load->view('main/term');
         $this->load->view('main/footer');
@@ -224,27 +226,27 @@ class Main extends CI_Controller {
 
     public function sentContact(){
 		$data = $this->input->post();
-		
+
 		$this->load->library('email');
 
-		$config = array();  
-        $config['protocol'] = 'smtp';  
-        $config['smtp_host'] = 'smtp.gmail.com'; 
-        $config['smtp_crypto']  = "ssl"; 
+		$config = array();
+        $config['protocol'] = 'smtp';
+        $config['smtp_host'] = 'smtp.gmail.com';
+        $config['smtp_crypto']  = "ssl";
 		$config['smtp_port'] = 465;
-		$config['smtp_user'] = 'cherie.clo2@gmail.com';  
+		$config['smtp_user'] = 'cherie.clo2@gmail.com';
         $config['smtp_pass'] = 'tshrcex08';
-        $config['charset'] = 'iso-8859-1'; 
-        $config['wordwrap'] = TRUE; 
+        $config['charset'] = 'iso-8859-1';
+        $config['wordwrap'] = TRUE;
         $config['mailtype'] = 'html';
         $config['newline'] = "\r\n";
         $config['crlf'] = "\r\n";
 
-		$this->email->initialize($config);  
-        
+		$this->email->initialize($config);
+
         $message ="Customer Name: " . $data['contact_name'] . "<br>".
                 "Customer Email: " . $data['contact_email'] . "<br>".
-                "Customer Phone Number: " . $data['contact_number'] . "<br>". 
+                "Customer Phone Number: " . $data['contact_number'] . "<br>".
                 "Message: <p>" . $data['contact_message'] . "</p>";
 
 		$this->email->from('cherie.clo2@gmail.com','Shop Cherie');
@@ -368,8 +370,8 @@ class Main extends CI_Controller {
 
                 if ($product_row['discount_price'] > 0) {
                     $product_price = $product_row['discount_price'];
-                 } else { 
-                     $product_price = $product_row['price']; 
+                 } else {
+                     $product_price = $product_row['price'];
                 }
 
                 $product_total = ($product_price * $product_row['quantity']);
@@ -382,7 +384,7 @@ class Main extends CI_Controller {
             }
 
             $order[$i]['products'] = $products;
-            
+
             if (!empty($order[$i]['discount'])) {
                 $order[$i]['total'] = $total * ((100 - $order[$i]['discount']) / 100);
             } else {
@@ -684,7 +686,7 @@ class Main extends CI_Controller {
                 $this->page_data['error'] = $error_message;
                 $this->session->set_flashdata('checkout_error', $error_message);
             } else {
-                
+
                 $user_id = $this->session->userdata('user_id');
 
                 if ($this->session->has_userdata('promotion')) {
@@ -903,11 +905,11 @@ class Main extends CI_Controller {
 
             $product_count = 0;
             foreach ($products as $product_row) {
-                
+
                 if ($product_row['discount_price'] > 0) {
                     $product_price = $product_row['discount_price'];
-                 } else { 
-                     $product_price = $product_row['price']; 
+                 } else {
+                     $product_price = $product_row['price'];
                 }
 
                 $product_total = ($product_price * $product_row['quantity']);
@@ -923,8 +925,8 @@ class Main extends CI_Controller {
 
             $this->page_data['subtotal'] = $total;
 
-            
-            
+
+
             if (!empty($order[$i]['discount'])) {
                 $order[$i]['total'] = $total * ((100 - $order[$i]['discount']) / 100);
                 $this->page_data['discount'] = $total * ($order[$i]['discount'] / 100 );
@@ -935,7 +937,7 @@ class Main extends CI_Controller {
         }
 
         $order[0]['total'] = $order[0]['total'] + $order[0]['shipping'];
-            
+
         $this->page_data['order'] = $order[0];
 
         if($order[0]['user_id'] != 0) {
@@ -947,7 +949,7 @@ class Main extends CI_Controller {
                 $this->load->view('main/footer');
             }
         }else {
-            
+
             $this->load->view('main/header', $this->page_data);
             $this->load->view('main/payment');
             $this->load->view('main/footer');
