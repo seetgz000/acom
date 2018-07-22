@@ -56,7 +56,7 @@
                                                 <div class="single-product">
                                                     <div class="product-wrapper posr">
                                                         <div class="product-label">
-                                                            <div class="label-sale"><?=$label_data[0]['Value']?></div>
+                                                            <div class="label-sale"><?=$label_data[2]['Value']?></div>
                                                         </div>
                                                         <div class="priduct-img-wrapper posr">
                                                             <div class="product-img">

@@ -1,4 +1,4 @@
-;<?php
+<?php
 
 class Product_model extends CI_Model {
 
@@ -299,8 +299,7 @@ class Product_model extends CI_Model {
         $this->db->select('*');
         $this->db->from('product');
         $this->db->where('deleted = 0');
-        $this->db->order_by('product_id DESC');
-        $this->db->limit('9');
+        $this->db->where('label = 2');
 
         $query = $this->db->get();
 
@@ -350,8 +349,8 @@ class Product_model extends CI_Model {
         $this->db->from('product');
         $this->db->join('category', 'product.category_id = category.category_id', 'left');
         $this->db->where('product.deleted = 0');
-        $this->db->where('product.discount_price != 0');
-        $this->db->limit('9');
+        $this->db->where('product.label = 3');
+
 
         $query = $this->db->get();
 

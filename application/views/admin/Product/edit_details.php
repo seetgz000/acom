@@ -148,6 +148,9 @@
                     $(".user_form_alert").removeClass("hidden");
                 }
             },
+            error: function(x,j,err){
+              console.log(err.Message);
+            },
 
             dataType: "JSON"
         });

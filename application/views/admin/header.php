@@ -138,39 +138,4 @@
                 <!-- /.sidebar -->
             </aside>
             <div class="content-wrapper">
-                <!--        <header>
-                            <nav class="navbar header noMargin">
-
-                            </nav>
-                        </header>
-
-                        <nav class="sidebar">
-
-                            <a href="#visitor_link" data-toggle="collapse"><div class="sideLink">
-                                    <span class="glyphicon glyphicon-tent"></span><span class="hidden-xs"> Visitors  <span class="glyphicon glyphicon-menu-down menu-toggle"></span></span>
-                                </div>
-                            </a>
-                            <div class="collapse hiddenLink" id="visitor_link">
-                                <ul>
-
-                                    <li><a href="<?= base_url() ?>visitor/all"><span class="glyphicon sideIcon glyphicon-user"></span><span class="hidden-xs"> All</span></a></li>
-
-                                    <li><a href="<?php echo site_url("visitor/assigned"); ?>"><span class="glyphicon sideIcon glyphicon-th-list"></span><span class="hidden-xs"> Under me</span></a></li>
-
-                                </ul>
-                            </div>
-
-
-                            <a href="<?= base_url() ?>settings/selection-on-card">
-                                <div class ="sideLink">
-                                    <span class ="glyphicon glyphicon-cog"></span> <span class="hidden-xs">Settings</span>
-                                </div>
-                            </a>
-                            <a href="<?= base_url() ?>access/logout">
-                        <div class ="sideLink">
-                            <span class ="glyphicon glyphicon-log-out"></span> <span class="hidden-xs">Logout</span>
-                        </div>
-                    </a>
-
-
-                </nav><div class="content">-->
+                
