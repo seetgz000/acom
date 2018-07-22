@@ -269,24 +269,20 @@ class Product extends CI_Controller {
 
                             $url = $config['path'] . $this->upload->data()['file_name'];
 
-                            // $this->load->library('image_lib');
+                            $this->load->library('image_lib');
 
-                            // $config['image_library'] = 'gd2';
-                            // $config['source_image'] = $this->upload->data()['full_path'];
-                            // $config['create_thumb'] = TRUE;
-                            // $config['maintain_ratio'] = TRUE;
-                            // $config['width']         = 820;
-                            // $config['height']       = 1229;
+                            $config['image_library'] = 'GD2';
+                            $config['source_image'] = $this->upload->data()['full_path'];
+                            $config['maintain_ratio'] = TRUE;
+                            $config['width']         = 820;
+                            $config['height']       = 1229;
 
 
-                            // $this->image_lib->clear();
-                            // $this->image_lib->initialize($config);
-                            // $this->image_lib->resize();
-                            // if ( ! $this->image_lib->resize())
-                            // {
-                            //     echo $this->image_lib->display_errors();
-                            // }
+                            $this->image_lib->clear();
+                            $this->image_lib->initialize($config);
 
+                            $this->image_lib->resize();
+                            // If cannot work might be file permission
                             $this->Product_model->add_image($url, $product_id);
 
                         } else {
