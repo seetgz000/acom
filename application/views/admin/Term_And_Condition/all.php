@@ -23,21 +23,20 @@
                             <tr>
                                 <th>No.</th>
                                 <th>Header</th>
-								<th>Description</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             $i = 1;
-                            foreach ($term_and_condition as $term_and_condition) {
+                            
+                            foreach ($term_and_condition as $row) {
                                 ?>
                                 <tr>
                                     <td><?= $i ?></td>
-                                    <td><?= $term_and_condition['term_and_condition_header'] ?></td>
-									<td><?= $term_and_condition['term_and_condition_description'] ?></td>
-                                    <td><button class="btn btn-danger delete-button" data-id="<?= $term_and_condition['term_and_condition_id'] ?>"><i class="fa fa-trash"></i> Delete</button>
-                                        <a href="<?= base_url() ?>TermAndCondition/edit/<?= $term_and_condition['term_and_condition_id'] ?>"<button class="btn btn-warning update-button"><i class="fa fa-pencil"></i> Edit</button></a></td>
+                                    <td><?= $row['term_and_condition_header'] ?></td>
+                                    <td><button class="btn btn-danger delete-button" data-id="<?= $row['term_and_condition_id'] ?>"><i class="fa fa-trash"></i> Delete</button>
+                                        <a href="<?= base_url() ?>TermAndCondition/edit/<?= $row['term_and_condition_id'] ?>"<button class="btn btn-warning update-button"><i class="fa fa-pencil"></i> Edit</button></a></td>
                                 </tr>
                                 <?php
                                 $i++;
@@ -48,7 +47,6 @@
                             <tr>
                                 <th>No.</th>
 								<th>Header</th>
-                                <th>Description</th>
                                 <th></th>
                             </tr>
                         </tfoot>

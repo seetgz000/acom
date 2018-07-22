@@ -248,16 +248,16 @@ a.btn-def-white:hover{
   color: #fff;
   content: "";
   display: block;
-  font-size: 14px;
+  font-size: 80%;
   font-weight: 600;
-  height: 65px;
-  line-height: 65px;
+  height: 70px;
+  line-height: 70px;
   position: absolute;
   right: -14px;
   text-align: center;
   text-transform: uppercase;
   top: -16px;
-  width: 65px;
+  width: 70px;
   z-index: 99;
 }
 

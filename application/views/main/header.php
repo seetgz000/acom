@@ -39,13 +39,17 @@
     </head>
     <body>
       <style>
+        .label-bestSale {
+            background-color: <?=$label_data[0]['b_color']?>;
+          color: <?=$label_data[0]['w_color']?>;
+        }
         .label_new {
           background-color: <?=$label_data[1]['b_color']?>;
           color: <?=$label_data[1]['w_color']?>;
         }
 
         .label-sale {
-          background-color: <?=$label_data[0]['b_color']?>;
+          background-color: <?=$label_data[2]['b_color']?>;
           color: <?=$label_data[0]['w_color']?>;
         }
       </style>

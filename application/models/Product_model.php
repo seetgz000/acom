@@ -305,6 +305,16 @@ class Product_model extends CI_Model {
 
         return $query->result_array();
     }
+    public function get_best_list() {
+        $this->db->select('*');
+        $this->db->from('product');
+        $this->db->where('deleted = 0');
+        $this->db->where('label = 1');
+
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
 
     public function get_category_by_product() {
         $this->db->select('category_id');

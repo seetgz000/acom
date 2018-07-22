@@ -1,8 +1,8 @@
 <?php
   $label_data_class=array(
-    1=>'label-sale',
+    1=>'label-bestSale',
     2=>'label_new',
-    3=>'',
+    3=>'label-sale',
     4=>''
   );
 ?>
