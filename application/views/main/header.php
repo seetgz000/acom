@@ -214,9 +214,11 @@
                                                 </span>
                                             </div>
 
-                                            <div class="cart-checkout-btn btn-def-checkout">
-                                                <a href="<?= site_url("main/cart"); ?>">Checkout <i class="checkout-dir-icon zmdi zmdi-chevron-right "></i></a>
-                                            </div>
+                                            <a href="<?= site_url("main/cart"); ?>">
+                                                <div class="cart-checkout-btn btn-def-checkout">
+                                                    Checkout <i class="checkout-dir-icon zmdi zmdi-chevron-right "></i>
+                                                </div>
+                                            </a>
                                         </div>
 
                                         <!-- Cart box end-->

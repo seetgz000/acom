@@ -1,8 +1,22 @@
 <!-- Breadcrumb Start-->
-<ul class="breadcrumb">
-    <li><a href="<?= base_url() ?>main"><i class="fa fa-home"></i></a></li>
-    <li><a href="<?= base_url() ?>main/cart">Shopping Cart</a></li>
-</ul>
+<div class="breadcrumbs-wrapper breadcumbs-bg1">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="breadcrumbs breadcrumbs-style1 sep1 posr">
+                    <ul>
+                        <li>
+                            <div class="breadcrumbs-icon1">
+                                <a href="<?= site_url("Main"); ?>" title="Return to home"><i class="fa fa-home"></i></a>
+                            </div>
+                        </li>
+                        <li>Shopping Cart</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container-fluid">
     <div class="row" id="refresh-box">
         <!--Middle Part Start-->

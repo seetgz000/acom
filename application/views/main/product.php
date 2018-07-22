@@ -11,7 +11,9 @@
                                         <a href="<?= site_url("Main"); ?>" target="_blank" title="Return to home"><i class="fa fa-home"></i></a>
                                     </div>
                                 </li>
-                                <li><?= $product['name']; ?></li>
+                                 <li><a href="<?= site_url("Main/products/"); ?>">Shop</a></li>
+                                <li><a href="<?= site_url("Main/products/") . $product['category_id']; ?>"><?= $product['name']; ?></a></li>
+                                <li><?= $product['product_name']; ?></li>
                             </ul>
                         </div>
                     </div>

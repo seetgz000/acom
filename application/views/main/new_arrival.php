@@ -15,7 +15,7 @@
                                         <a href="<?= site_url("Main"); ?>" title="Return to home"><i class="fa fa-home"></i></a>
                                     </div>
                                 </li>
-                                <li>Shop</li>
+                                <li><a href="<?= site_url("Main/products/"); ?>">Shop</a></li>
                                 <li>New Arrival</li>
                             </ul>
                         </div>
@@ -220,6 +220,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+        </div>
         </div>
         </div>
         </div>
