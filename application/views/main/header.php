@@ -37,7 +37,6 @@
         <!-- modernizr css -->
         <script src="<?= site_url(); ?>js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
-
     <body>
       <style>
         .label_new {

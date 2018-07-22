@@ -42,7 +42,7 @@
                         <div class="clearfix"></div>
                         <div class="mainshop-area">
                             <div class="mainshop-top">
-                                
+
                             </div>
                         </div>
                         <div class="clearfix"></div>
@@ -56,7 +56,7 @@
                                                 <div class="single-product">
                                                     <div class="product-wrapper posr">
                                                         <div class="product-label">
-                                                            <div class="label_new">New</div>
+                                                            <div class="label_new"><?=$label_data[1]['Value']?></div>
                                                         </div>
                                                         <div class="priduct-img-wrapper posr">
                                                             <div class="product-img">
@@ -103,14 +103,14 @@
                                                                         <div class="portfolio-thumbnil-area-2">
                                                                             <div class="tab-content active-portfolio-area-2">
 
-                                                                                <?php 
+                                                                                <?php
                                                                                     $where = array(
                                                                                         'product_id' => $row['product_id']
                                                                                     );
                                                                                     $images = $this->Product_model->get_product_images_where($where);
-                                                                                    $i = 0; foreach($images as $image){ 
+                                                                                    $i = 0; foreach($images as $image){
                                                                                     ?>
-                                                                                    
+
                                                                                 <div role="tabpanel" class="tab-pane <?= $i==0?'active':''; ?>" id="tab-<?= $row['product_id'].'-'.$i; ?>">
                                                                                     <div class="tab-single-image">
                                                                                         <img src="<?= site_url().$image['url']; ?>" alt="" />
@@ -136,10 +136,10 @@
                                                                         <h1><?= $row['name']; ?></h1>
                                                                         <div class="price-box-3">
                                                                             <?php if ($row['discount_price'] > 0) { ?>
-                                                                                <div class="s-price-box"> <span class="new-price"><?= $row['discount_price']; ?></span> 
+                                                                                <div class="s-price-box"> <span class="new-price"><?= $row['discount_price']; ?></span>
                                                                                 <span class="old-price"><?= $row['price']; ?></span> </div>
                                                                             <?php } else { ?>
-                                                                                <div class="s-price-box"> <span class="new-price"><?= $row['price']; ?></span> 
+                                                                                <div class="s-price-box"> <span class="new-price"><?= $row['price']; ?></span>
                                                                             <?php } ?>
                                                                         </div>
                                                                         <hr/>
@@ -149,7 +149,7 @@
                                                                                     <label for="skillc<?= $row['product_id'] ?>"><span class="italic">Size</span>
                                                                                     </label>
                                                                                     <select id="skillc<?= $row['product_id'] ?>" name="model_id" class="form-control" style="margin-bottom:5%; width:62%; height:34px;">
-                                                                                        <?php 
+                                                                                        <?php
                                                                                         $models = $this->Product_model->get_product_models_where($where);
                                                                                         foreach($models as $modelRow){ ?>
                                                                                         <option value="<?= $modelRow['model_id']; ?>"><?= $modelRow['model']; ?></option>
@@ -177,14 +177,14 @@
                                                 <!-- END Modal -->
                                             </div>
                                             <?php } ?>
-                                           
+
                                         </div>
                                     </div>
                                 </div>
-                          
+
                             </div>
                         </div>
-                        <!--Pagination 
+                        <!--Pagination
                         <div class="pagination-wrapper">
                             <div class="row">
                                 <div class="col-md-4 col-sm-4 col-xs-12">
@@ -226,7 +226,6 @@
         </div>
         </div>
         </div>
-      
     </div>
 
     <!--Main shop area end-->

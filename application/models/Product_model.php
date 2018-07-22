@@ -1,9 +1,10 @@
-<?php
+;<?php
 
 class Product_model extends CI_Model {
 
     function __construct() {
         parent ::__construct();
+        $this->load->model("Label_model");
     }
 
     public function get_all() {
@@ -19,11 +20,14 @@ class Product_model extends CI_Model {
 
     public function to_html($product){
         $data = array(
-            "product" => $product
+            "product" => $product,
+            "label_data" => $this->Label_model->get_all()
         );
 
         $this->load->view("main/single_product",$data);
     }
+
+
     public function add($input) {
         $required = array(
             "name",
