@@ -150,7 +150,7 @@ class Product extends CI_Controller {
 
         $this->page_data['images'] = $this->Product_model->get_product_images_where($where);
 
-      
+
 
         $this->load->view('admin/header', $this->page_data);
         $this->load->view('admin/Product/details');
