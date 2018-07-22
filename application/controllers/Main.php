@@ -181,7 +181,7 @@ class Main extends CI_Controller {
 
 
         $this->page_data['promotion_list'] = $this->Product_model->get_promotion_list();
-
+        
         $this->load->view('main/header', $this->page_data);
         $this->load->view('main/sales');
         $this->load->view('main/footer');

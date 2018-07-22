@@ -7,7 +7,6 @@ class Label extends CI_Controller{
       parent::__construct();
       $this->load->model("Label_model");
       $this->page_data = array();
-
   }
 
   function index(){
