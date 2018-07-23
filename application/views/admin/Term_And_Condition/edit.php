@@ -17,20 +17,37 @@
                                 <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
                                     <label>Term And Condition</label>
                                 </div>
-                                <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                                <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12" id='EditArea'>
+
+
+                                      <label>header</label>
+
                                     <input type="text" class="form-control tas-head" required name="term_and_condition_header" placeholder="Body" id="tas-head" value="<?= $term_and_condition[0]['term_and_condition_header'] ?>">
+                                    <br>
+                                        <label>description</label>
+
+
                                     <?php
                                       foreach ($term_and_condition as $key=>$var) {
                                     ?>
-                                    <br />
-                                    <input type="text" class="form-control tas-des" required name="term_and_condition_description" data-id="<?=$var['term_and_condition_id']?>" placeholder="Body" id="form_name" value="<?= $var['term_and_condition_description'] ?>">
+                                    <br class='tas-des' data-id="<?=$var['term_and_condition_id']?>" />
+                                    <br class='tas-des' data-id="<?=$var['term_and_condition_id']?>" />
+                                    <input type="text" class="form-control tas-des" required name="term_and_condition_description" data-id="<?=$var['term_and_condition_id']?>" data-type='up' placeholder="Body"  value="<?= $var['term_and_condition_description'] ?>">
+                                    <a class="btn btn-danger btn-delete-des" data-target="<?=$var['term_and_condition_id']?>">delete</a>
                                     <?php
                                       }
                                     ?>
 									               </div>
+                                 <br>
+
                             </div>
                             <br/>
-                            <input type="submit" class="btn btn-flat btn-info pull-right" value="edit">
+                            <a class="btn btn-success pull-right" id="btn-add-des">
+                              add
+                            </a>
+                            <hr>
+                            <br/>
+                            <input type="submit" class="btn btn-flat btn-info pull-right" value="save">
                         </form>
                     </div>
 
@@ -43,15 +60,16 @@
     function form_submit(form) {
         var data = [];
 
-        $('.tas-des').each(function(){
+        $('input.tas-des').each(function(){
           data.push({
             'header':$('#tas-head').val(),
             'des':$(this).val(),
-            'id':$(this).attr('data-id')
+            'id':$(this).attr('data-id'),
+            'type':$(this).attr('data-type')
           })
         })
         var url = $(form).attr("action");
-        
+
 
         $.post(url,
          {
@@ -68,6 +86,7 @@
          });
     }
     $(document).ready(function () {
+
         var collection_form = document.getElementById("collection_form");
         collection_form.addEventListener("submit", function (e) {
             e.preventDefault();
@@ -81,4 +100,22 @@
             });
         }
     });
+    let id=-1;
+    $('#EditArea').on('click','.btn-delete-des',function(){
+      let elm=$(this);
+      if(confirm("Are you sure?")){
+        $('.tas-des[data-id='+elm.attr('data-target')+']').addClass('hidden').attr('data-type','del');
+        elm.addClass('hidden');
+      }
+    });
+
+    $('#btn-add-des').click(function(){
+      $('#EditArea').append('<br class=\'tas-des\' data-id="'+id+'" />\
+                              <br class=\'tas-des\' data-id="'+id+'" />\
+      <input type="text" class="form-control tas-des" required name="term_and_condition_description" data-id="'+id+'" data-type=\'new\' placeholder="Body"  value="">\
+      <a class="btn btn-danger btn-delete-des" data-target="'+id+'">delete</a>');
+      id--;
+    });
+
+
 </script>
