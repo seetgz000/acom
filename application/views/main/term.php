@@ -53,6 +53,7 @@
                                                 <p>* We only accept manual banking service / COD at the moment. For more information, kindly refer to SHIPPING (link the url to shipping page)</p>
                                                 <p>* All orders will be automatically cancelled after 1 day of non-payment.</p>
                                                 <p>* Backorder items will take approximately 2 -3 weeks to deliver so kindly ensure that you are agreeable to the waiting time for backorders before placing orders.</p>
+                                                <p>* We apologise in advance if there shall be any backorders that are delayed/cancelled due to unforeseen circumstances.</p>
                                             </div>
                                             <div class="term_container">
                                                 <h3>PRODUCTS</h3>

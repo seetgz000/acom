@@ -124,6 +124,11 @@
                             </a>
                         </li>
                         <li>
+                            <a href="<?= base_url()?>shippingDetails">
+                                <i class="fa fa-ship"></i> <span>Shipping Details</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="<?= base_url()?>order">
                                 <i class="fa fa-truck"></i> <span>Orders</span>
                             </a>

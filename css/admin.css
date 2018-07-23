@@ -390,3 +390,16 @@ a:link{
 .no-bullet {
     list-style: none;
 }
+
+.shipping_details_container {
+    padding: 5rem 0;
+}
+
+.shipping_table th, .shipping_table td {
+    padding: 15px 0!important;
+    border-top: 1px solid #000!important;
+}
+
+.cod_container {
+    padding: 5rem 0;
+}

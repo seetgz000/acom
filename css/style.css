@@ -5675,7 +5675,7 @@ body {
 }
 
 .shipping_details_container {
-    padding: 5rem 0;
+    padding-top: 5rem;
 }
 
 .shipping_table th, .shipping_table td {

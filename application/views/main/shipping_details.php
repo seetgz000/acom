@@ -65,7 +65,7 @@
                                                     </tbody>
                                                 </table>
                                             </div>
-                                            <div class="container-fluid">
+                                            <div class="cod_container">
                                                 <p>* Please email a copy of payment slip with your order number/ID attached to cherio.clo@hotmail.com</p>
                                                 <p>* Your purchased products will not be delivered until we have received confimation. </p>
                                                 <p>* Tracking number will be provided by email once they are shipped out.</p>
@@ -73,9 +73,9 @@
                                             </div>
                                             <div class="cod_container">
                                                 <p>Cash On Delivery:</p>
-                                                <p>Cash On Delivery (COD) is also available at Subang Jaya, Sunway, Desa Park City and Sungai Buloh.<br/><br/>
-                                                Subang Jaya & Sunway: 016-2334243<br/><br/>
-                                                Desa Park City & Sungai Buloh : 012-9774480</p>
+                                                <p>Cash On Delivery (COD) is also available at Subang Jaya, Sunway, Desa Park City and Sungai Buloh.</p>
+                                                <p>Subang Jaya & Sunway: 016-2334243</p>
+                                                <p>Desa Park City & Sungai Buloh : 012-9774480</p>
                                             </div>
                                            
                                         </div>

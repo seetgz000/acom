@@ -18,7 +18,9 @@
                                     <label>Term And Condition</label>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
-                                    <input type="text" class="form-control tas-head" required name="term_and_condition_header" placeholder="Body" id="tas-head" value="<?= $term_and_condition[0]['term_and_condition_header'] ?>">
+                                    Header<input type="text" class="form-control tas-head" required name="term_and_condition_header" placeholder="Body" id="tas-head" value="<?= $term_and_condition[0]['term_and_condition_header'] ?>">
+                                    <br/>
+                                    Description
                                     <?php
                                       foreach ($term_and_condition as $key=>$var) {
                                     ?>
@@ -27,7 +29,7 @@
                                     <?php
                                       }
                                     ?>
-									               </div>
+                                </div>
                             </div>
                             <br/>
                             <input type="submit" class="btn btn-flat btn-info pull-right" value="edit">
