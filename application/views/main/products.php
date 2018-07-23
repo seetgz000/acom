@@ -1,5 +1,4 @@
 
-
     <div class="hair-main-wrapper">
         <div class="page-banner1">
             <img src="images/banner/hair.jpg" alt="" />
@@ -65,11 +64,12 @@
                                             <div class="col-md-4 col-sm-6 col-xs-12">
                                                 <div class="single-product">
                                                     <div class="product-wrapper posr">
-                                                        <?php if ($row['discount_price'] != 0) { ?>
-                                                            <div class="product-label">
-                                                                <div class="label-sale">Sale</div>
-                                                            </div>
-                                                        <?php } ?>
+                                                    <?php if($row['label']!=4){ ?>
+                                                        <div class="label_new" 
+                                                        style="background-color: <?=$label_data[$row['label']-1]['b_color']?>; color: <?=$label_data[$row['label']-1]['w_color']?>;">
+                                                            <?=$label_data[$row['label']-1]['Value']?>
+                                                        </div>
+                                                    <?php } ?>
                                                         <div class="priduct-img-wrapper posr">
                                                             <div class="product-img">
                                                                 <a href="<?= site_url('Main/product/'.$row['product_id']); ?>"><img src="<?= site_url().$row['thumbnail']; ?>" alt="" />

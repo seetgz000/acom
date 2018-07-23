@@ -1,17 +1,13 @@
-<?php
-  $label_data_class=array(
-    1=>'label-bestSale',
-    2=>'label_new',
-    3=>'label-sale',
-    4=>''
-  );
-?>
+
 <div class="col-md-4">
     <div class="single-product single-featured-product">
         <div class="product-wrapper posr">
             <div class="product-label">
               <?php if($product['label']!=4){ ?>
-                <div class="<?=$label_data_class[$product['label']]?>"><?=$label_data[$product['label']-1]['Value']?></div>
+                <div class="label_new" 
+                style="background-color: <?=$label_data[$product['label']-1]['b_color']?>; color: <?=$label_data[$product['label']-1]['w_color']?>;">
+                    <?=$label_data[$product['label']-1]['Value']?>
+                </div>
               <?php } ?>
             </div>
             <div class="priduct-img-wrapper posr">

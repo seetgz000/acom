@@ -38,21 +38,6 @@
         <script src="<?= site_url(); ?>js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
-      <style>
-        .label-bestSale {
-            background-color: <?=$label_data[0]['b_color']?>;
-          color: <?=$label_data[0]['w_color']?>;
-        }
-        .label_new {
-          background-color: <?=$label_data[1]['b_color']?>;
-          color: <?=$label_data[1]['w_color']?>;
-        }
-
-        .label-sale {
-          background-color: <?=$label_data[2]['b_color']?>;
-          color: <?=$label_data[0]['w_color']?>;
-        }
-      </style>
         <!--[if lt IE 8]>
                 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
             <![endif]-->

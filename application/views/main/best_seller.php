@@ -56,7 +56,10 @@
                                                 <div class="single-product">
                                                     <div class="product-wrapper posr">
                                                         <div class="product-label">
-                                                            <div class="label-bestSale"><?=$label_data[0]['Value']?></div>
+                                                            <div class="label-bestSale"
+                                                            style="background-color: <?=$label_data[0]['b_color']?>; color: <?=$label_data[0]['w_color']?>;">
+                                                                <?=$label_data[0]['Value']?>
+                                                            </div>
                                                         </div>
                                                         <div class="priduct-img-wrapper posr">
                                                             <div class="product-img">
