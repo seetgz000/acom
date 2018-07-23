@@ -28,25 +28,34 @@
                         </thead>
                         <tbody>
                             <?php
-                            $i = 1;
-                            
+                            $i = 0;
+                            $text='';
+                            $first=true;
                             foreach ($term_and_condition as $row) {
+                              // $i++
+                              if($text!=$row['term_and_condition_header']){
+                                $text=$row['term_and_condition_header'];
+                                $first=true;
+                                $i++;
+
                                 ?>
                                 <tr>
-                                    <td><?= $i ?></td>
-                                    <td><?= $row['term_and_condition_header'] ?></td>
+                                    <td><?=($first)?$i:''?></td>
+                                    <td><?= ($first)?$row['term_and_condition_header']:'' ?></td>
                                     <td><button class="btn btn-danger delete-button" data-id="<?= $row['term_and_condition_id'] ?>"><i class="fa fa-trash"></i> Delete</button>
                                         <a href="<?= base_url() ?>TermAndCondition/edit/<?= $row['term_and_condition_id'] ?>"<button class="btn btn-warning update-button"><i class="fa fa-pencil"></i> Edit</button></a></td>
                                 </tr>
                                 <?php
-                                $i++;
+                              }else{
+                                $first=false;
+                              }
                             }
-                            ?> 
+                            ?>
                         </tbody>
                         <tfoot>
                             <tr>
                                 <th>No.</th>
-								<th>Header</th>
+								                <th>Header</th>
                                 <th></th>
                             </tr>
                         </tfoot>
