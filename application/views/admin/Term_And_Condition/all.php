@@ -23,32 +23,39 @@
                             <tr>
                                 <th>No.</th>
                                 <th>Header</th>
-								<th>Description</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $i = 1;
-                            foreach ($term_and_condition as $term_and_condition) {
+                            $i = 0;
+                            $text='';
+                            $first=true;
+                            foreach ($term_and_condition as $row) {
+                              // $i++
+                              if($text!=$row['term_and_condition_header']){
+                                $text=$row['term_and_condition_header'];
+                                $first=true;
+                                $i++;
+
                                 ?>
                                 <tr>
-                                    <td><?= $i ?></td>
-                                    <td><?= $term_and_condition['term_and_condition_header'] ?></td>
-									<td><?= $term_and_condition['term_and_condition_description'] ?></td>
-                                    <td><button class="btn btn-danger delete-button" data-id="<?= $term_and_condition['term_and_condition_id'] ?>"><i class="fa fa-trash"></i> Delete</button>
-                                        <a href="<?= base_url() ?>TermAndCondition/edit/<?= $term_and_condition['term_and_condition_id'] ?>"<button class="btn btn-warning update-button"><i class="fa fa-pencil"></i> Edit</button></a></td>
+                                    <td><?=($first)?$i:''?></td>
+                                    <td><?= ($first)?$row['term_and_condition_header']:'' ?></td>
+                                    <td><button class="btn btn-danger delete-button" data-id="<?= $row['term_and_condition_id'] ?>"><i class="fa fa-trash"></i> Delete</button>
+                                        <a href="<?= base_url() ?>TermAndCondition/edit/<?= $row['term_and_condition_id'] ?>"<button class="btn btn-warning update-button"><i class="fa fa-pencil"></i> Edit</button></a></td>
                                 </tr>
                                 <?php
-                                $i++;
+                              }else{
+                                $first=false;
+                              }
                             }
-                            ?> 
+                            ?>
                         </tbody>
                         <tfoot>
                             <tr>
                                 <th>No.</th>
-								<th>Header</th>
-                                <th>Description</th>
+								                <th>Header</th>
                                 <th></th>
                             </tr>
                         </tfoot>

@@ -33,7 +33,7 @@
         });
 
         $('#data-table').DataTable();
-        
+
     });
 </script>
 </body>

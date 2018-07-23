@@ -24,22 +24,26 @@ class TermAndCondition extends CI_Controller {
         $this->load->view('admin/footer');
     }
     public function edit($term_and_condition_id) {
-        $where = array(
-            'term_and_condition_id' => $term_and_condition_id
-        );
-        $term_and_condition = $this->Term_And_Condition_model->get_where($where);
-        $this->page_data['term_and_condition'] = $term_and_condition[0];
-        $this->page_data['term_and_condition_id'] = $term_and_condition_id;
         if ($_POST) {
             $input = $this->input->post();
-            $where = array(
-                'term_and_condition_id' => $term_and_condition_id
-            );
-            $this->Term_And_Condition_model->update_where($where, $input);
+
+            $this->Term_And_Condition_model->update_all($input['data']);
             die(json_encode(array(
                 "status" => true
             )));
         }
+        $where = array(
+            'term_and_condition_id' => $term_and_condition_id
+        );
+        $term_and_condition = $this->Term_And_Condition_model->get_where($where);
+        $result_header = $term_and_condition[0]['term_and_condition_header'];
+        $term_and_condition = $this->Term_And_Condition_model->get_where(array(
+          'term_and_condition_header'=>$result_header
+        ));
+
+        $this->page_data['term_and_condition'] = $term_and_condition;
+        $this->page_data['term_and_condition_id'] = $term_and_condition_id;
+
         $this->load->view('admin/header', $this->page_data);
         $this->load->view('admin/Term_And_Condition/edit');
         $this->load->view('admin/footer');
@@ -70,13 +74,13 @@ class TermAndCondition extends CI_Controller {
         $where = array(
             "term_and_condition_id" => $term_and_condition_id
         );
-        
+
         $data = array(
             "deleted" => 1
         );
-        
+
         $this->Term_And_Condition_model->update_where($where, $data);
-        
+
         redirect('TermAndCondition', 'refresh');
     }
 }
