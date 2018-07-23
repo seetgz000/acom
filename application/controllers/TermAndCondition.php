@@ -74,7 +74,13 @@ class TermAndCondition extends CI_Controller {
     }
     public function delete($term_and_condition_id) {
         $where = array(
-            "term_and_condition_id" => $term_and_condition_id
+            'term_and_condition_id' => $term_and_condition_id
+
+        );
+        $term_and_condition = $this->Term_And_Condition_model->get_where($where);
+        $result_header = $term_and_condition[0]['term_and_condition_header'];
+        $where = array(
+            "term_and_condition_header" => $result_header
         );
 
         $data = array(

@@ -18,12 +18,34 @@ class Label_model extends CI_Model {
     public function update_all($arr){
 
       foreach($arr as $var){
-        $id = $var['id'];
-        $data=array(
-          'Value'=>$var['name']
-        );
-        $this->db->where('label_id', $id);
-        $this->db->update('label', $data);
+        if($var['type']=='del'){
+            $this->db->delete('label',array(
+              'label_id'=>$var['id']
+            ));
+        }else if($var['id']<0){
+            $this->db->insert('label', array(
+              'Name'=>$var['mark'],
+              'Value'=>$var['name'],
+              'w_color'=>'#ffffff',
+              'b_color'=>'#000000'
+            ));
+        }else{
+          $id = $var['id'];
+          if(!in_array($var['id'],array(1,2,3))){
+            $data=array(
+              'Name'=>$var['mark'],
+              'Value'=>$var['name']
+            );
+          }else{
+            $data=array(
+              'Value'=>$var['name']
+            );
+          }
+
+          $this->db->where('label_id', $id);
+          $this->db->update('label', $data);
+        }
+
       }
     }
 }

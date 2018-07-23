@@ -14,6 +14,8 @@
                 <h4 class="whiteTitle" style='display: inline-block;'>Label</h4>
                 <button class='btn btn-info pull-right' id="btn-edit-save" data-type="edit">
                     <i class='glyphicon glyphicon-plus' ></i> Edit</button>
+                <button class='btn btn-info pull-right hidden' id="btn-add" data-type="add">
+                    <i class='glyphicon glyphicon-plus' ></i> Add</button>
             </div>
             <div class='panel-body'>
 
@@ -24,20 +26,28 @@
                                 <th>No.</th>
                                 <th>Label</th>
                                 <th>Name</th>
-
+                                <th></th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="table-body">
                             <?php
                               $i=1;
                               foreach($label_data as $var){
                                 if($var['label_id']<>4){
                                 ?>
-                                <tr>
+                                <tr data-id='<?=$var['label_id']?>'>
                                   <td><?=$i?></td>
-                                  <td><?=$var['Name']?></td>
-                                  <td class="label-name" data-id='<?=$var['label_id']?>'><?=$var['Value']?></td>
-
+                                  <td <?=!in_array($var['label_id'],array(1,2,3))?'class="label-mark"':''?> data-id='<?=$var['label_id']?>' data-type='' ><?=$var['Name']?></td>
+                                  <td class="label-name" data-id='<?=$var['label_id']?>' data-type=''><?=$var['Value']?></td>
+                                  <td>
+                                    <?php
+                                    if(!in_array($var['label_id'],array(1,2,3))){
+                                      ?>
+                                      <button class="btn btn-danger hidden btn-delete" data-target="<?=$var['label_id']?>">Delete</button>
+                                      <?php
+                                    }
+                                    ?>
+                                  </td>
                                 </tr>
                                 <?php
                                 $i++;
@@ -50,6 +60,7 @@
                                 <th>No.</th>
                                 <th>Label</th>
                                 <th>Name</th>
+                                <th></th>
                             </tr>
                         </tfoot>
                     </table>
@@ -67,13 +78,22 @@ $(function(){
       $('.label-name').each(function(i){
         $(this).html('<input type="text" value="'+$(this).html()+'" >');
       });
+
+      $('.label-mark').each(function(i){
+        $(this).html('<input type="text" value="'+$(this).html()+'" >');
+      });
+
+      $('#btn-add').removeClass('hidden');
+      $('.btn-delete').removeClass('hidden');
       $(this).html('save')
     }else{
       let data=[];
       $('.label-name').each(function(i){
         data.push({
           'id':$(this).attr('data-id'),
-          'name':$(this).find('input').val()
+          'type':$(this).attr('data-type'),
+          'name':$(this).find('input').val(),
+          'mark':$(this).closest('tr').find('.label-mark').find('input').val()
         });
       });
 
@@ -89,7 +109,26 @@ $(function(){
        });
     }
   })
+  let newID=0;
+  $('#btn-add').click(function(){
+    newID--;
+    $('#table-body').append('<tr data-id=\''+newID+'\'>\
+      <td></td>\
+      <td class="label-mark" data-id=\''+newID+'\' data-type=\'\' ><input type="text" value="sample"></td>\
+      <td class="label-name" data-id=\''+newID+'\' data-type=\'\'><input type="text" value="sample"></td>\
+      <td>\
+      \
+          <button class="btn btn-danger btn-delete" data-target="'+newID+'">Delete</button>\
+      </td>\
+    </tr>')
+  });
 
-
+  $('#data-table').on('click','.btn-delete',function(){
+    let elm=$(this);
+    if(confirm('Are you sure?')){
+      elm.closest('tr').addClass('hidden');
+      elm.closest('tr').find('.label-name').attr('data-type','del');
+    }
+  })
 })
 </script>

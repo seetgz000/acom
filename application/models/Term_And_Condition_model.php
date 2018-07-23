@@ -6,6 +6,7 @@ class Term_And_Condition_model extends CI_Model {
         $this->db->from('term_and_condition');
         $this->db->where('deleted',0);
         $this->db->group_by('term_and_condition_header');
+        $this->db->order_by('term_and_condition_id', 'ASC');
         $query = $this->db->get();
         return $query->result_array();
     }
