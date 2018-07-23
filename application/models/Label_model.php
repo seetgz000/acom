@@ -22,6 +22,10 @@ class Label_model extends CI_Model {
             $this->db->delete('label',array(
               'label_id'=>$var['id']
             ));
+            $this->db->where('label', $var['id']);
+            $this->db->update('product', array(
+              'label'=>4
+            ));
         }else if($var['id']<0){
             $this->db->insert('label', array(
               'Name'=>$var['mark'],
