@@ -16,7 +16,7 @@
                                     </div>
                                 </li>
                                 <li><a href="<?= site_url("Main/products/"); ?>">Shop</a></li>
-                                <li>Sales</li>
+                                <li>Best Seller</li>
                             </ul>
                         </div>
                     </div>
