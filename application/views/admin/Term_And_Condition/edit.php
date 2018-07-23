@@ -32,7 +32,7 @@
                                     ?>
                                     <br class='tas-des' data-id="<?=$var['term_and_condition_id']?>" />
                                     <br class='tas-des' data-id="<?=$var['term_and_condition_id']?>" />
-                                    <input type="text" class="form-control tas-des" required name="term_and_condition_description" data-id="<?=$var['term_and_condition_id']?>" data-type='up' placeholder="Body"  value="<?= $var['term_and_condition_description'] ?>">
+                                    <input type="text" class="form-control tas-des" required data-id="<?=$var['term_and_condition_id']?>" data-type='up' placeholder="Body"  value="<?= $var['term_and_condition_description'] ?>">
                                     <a class="btn btn-danger btn-delete-des" data-target="<?=$var['term_and_condition_id']?>">delete</a>
                                     <?php
                                       }
@@ -104,7 +104,7 @@
     $('#EditArea').on('click','.btn-delete-des',function(){
       let elm=$(this);
       if(confirm("Are you sure?")){
-        $('.tas-des[data-id='+elm.attr('data-target')+']').addClass('hidden').attr('data-type','del');
+        $('.tas-des[data-id='+elm.attr('data-target')+']').addClass('hidden').attr('data-type','del').attr('type','hidden');
         elm.addClass('hidden');
       }
     });
@@ -112,7 +112,7 @@
     $('#btn-add-des').click(function(){
       $('#EditArea').append('<br class=\'tas-des\' data-id="'+id+'" />\
                               <br class=\'tas-des\' data-id="'+id+'" />\
-      <input type="text" class="form-control tas-des" required name="term_and_condition_description" data-id="'+id+'" data-type=\'new\' placeholder="Body"  value="">\
+      <input type="text" class="form-control tas-des" required data-id="'+id+'" data-type=\'new\' placeholder="Body"  value="">\
       <a class="btn btn-danger btn-delete-des" data-target="'+id+'">delete</a>');
       id--;
     });
