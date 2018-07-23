@@ -39,7 +39,15 @@
                                 <div role="tabpanel" class="tab-pane active" id="productWidgets">
                                     <div class="tab-content-wrapper">
                                         <div class="row">
-                                            <div class="term_container">
+                                            <?php foreach ($term_and_condition as $row) { ?>
+                                                <div class="term_container">
+                                                    <h3><?=$row['term_and_condition_header']?></h3>
+                                                    <?php foreach ($row['description'] as $description) { ?>
+                                                        <p><?= $description['term_and_condition_description']; ?></p>
+                                                    <?php } ?>
+                                                </div>
+                                            <?php } ?>
+                                            <!-- <div class="term_container">
                                                 <h3>ENQUIRIES</h3>
                                                 <p>* For all sales enquiry, kindly email/facebook us at cherie.clo@hotmail.com with your order number/order ID</p>
                                                 <p>* Please allow us up to 48 hours to attend to enquiry emails</p>
@@ -59,7 +67,7 @@
                                                 <h3>PRODUCTS</h3>
                                                 <p>* All actual products cannot be guaranteed that will be exactly the same shown on the monitor, colours of products may also differ slightly from actual product details due to monitor setting of individual’s computer. Studio lighting & editing may also be affected.</p>
                                                 <p>* Please be noted that there will be a difference of 1-2cm in the given measurement due to different measurement methods and batch production.</p>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>

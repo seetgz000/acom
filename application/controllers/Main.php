@@ -17,6 +17,7 @@ class Main extends CI_Controller {
         $this->load->model("Collection_model");
         $this->load->model("IndexPic_model");
         $this->load->model("Label_model");
+        $this->load->model("Term_And_Condition_model");
 
         $this->page_data = array();
 
@@ -224,6 +225,18 @@ class Main extends CI_Controller {
     }
 
     public function term() {
+
+
+        $term_and_condition = $this->Term_And_Condition_model->get_all();
+        $i = 0;
+        foreach ($term_and_condition as $row) {
+            $where = array(
+                'term_and_condition_header' => $row['term_and_condition_header']
+            );
+            $term_and_condition[$i]['description'] = $this->Term_And_Condition_model->get_where($where);
+            $i++;
+        }
+        $this->page_data['term_and_condition'] = $term_and_condition;
 
         $this->load->view('main/header', $this->page_data);
         $this->load->view('main/term');
