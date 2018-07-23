@@ -4,7 +4,8 @@ class Term_And_Condition_model extends CI_Model {
     public function get_all() {
         $this->db->select('*');
         $this->db->from('term_and_condition');
-        $this->db->where('deleted = 0');
+        $this->db->where('deleted',0);
+        $this->db->group_by('term_and_condition_header');
         $query = $this->db->get();
         return $query->result_array();
     }
@@ -47,12 +48,27 @@ class Term_And_Condition_model extends CI_Model {
 
     public function update_all($data){
       foreach ($data as $var) {
-        $up=array(
-          'term_and_condition_header'=>$var['header'],
-          'term_and_condition_description'=>$var['des']
-        );
-        $this->db->where('term_and_condition_id',$var['id']);
-        $this->db->update('term_and_condition', $up);
+        if($var['type']=='up'){
+          $up=array(
+            'term_and_condition_header'=>$var['header'],
+            'term_and_condition_description'=>$var['des']
+          );
+          $this->db->where('term_and_condition_id',$var['id']);
+          $this->db->update('term_and_condition', $up);
+        }else if($var['type']=='del'){
+          $up=array(
+            'deleted'=>1,
+          );
+          $this->db->where('term_and_condition_id',$var['id']);
+          $this->db->update('term_and_condition', $up);
+        }else if($var['type']=='new'){
+          $this->db->insert('term_and_condition', array(
+            'term_and_condition_header'=>$var['header'],
+            'term_and_condition_description'=>$var['des'],
+            'deleted'=>0
+          ));
+        }
+
       }
     }
 }
