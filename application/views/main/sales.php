@@ -57,8 +57,8 @@
                                                     <div class="product-wrapper posr">
                                                         <div class="product-label">
                                                             <div class="label-sale"
-                                                            style="background-color: <?=$label_data[2]['b_color']?>; color: <?=$label_data[2]['w_color']?>;">
-                                                                <?=$label_data[2]['Value']?>
+                                                            style="background-color: <?=$label_data['3']['b_color']?>; color: <?=$label_data['3']['w_color']?>;">
+                                                                <?=$label_data['3']['Value']?>
                                                             </div>
                                                         </div>
                                                         <div class="priduct-img-wrapper posr">

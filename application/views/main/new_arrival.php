@@ -56,9 +56,9 @@
                                                 <div class="single-product">
                                                     <div class="product-wrapper posr">
                                                         <div class="product-label">
-                                                            <div class="label_new" 
-                                                            style="background-color: <?=$label_data[1]['b_color']?>; color: <?=$label_data[1]['w_color']?>;">
-                                                                <?=$label_data[1]['Value']?>
+                                                            <div class="label_new"
+                                                            style="background-color: <?=$label_data['2']['b_color']?>; color: <?=$label_data['2']['w_color']?>;">
+                                                                <?=$label_data['2']['Value']?>
                                                             </div>
                                                         </div>
                                                         <div class="priduct-img-wrapper posr">
