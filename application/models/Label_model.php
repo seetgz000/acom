@@ -10,8 +10,13 @@ class Label_model extends CI_Model {
       $this->db->select('*');
       $this->db->from('label');
       $query = $this->db->get();
+      $arr = $query->result_array();
+      $result = array();
 
-      return $query->result_array();
+      foreach ($arr as $var) {
+        $result[$var['label_id']]=$var;
+      }
+      return $result;
     }
 
 
