@@ -400,6 +400,10 @@ a:link{
     border-top: 1px solid #000!important;
 }
 
+.shipping_table.edit th, .shipping_table.edit td {
+    padding: 15px!important;
+}
+
 .cod_container {
     padding: 5rem 0;
 }
