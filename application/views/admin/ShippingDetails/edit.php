@@ -54,16 +54,16 @@
                                                 foreach($shippingDetails as $key=>$row) {
 
                                                     if($i > 0 ) { ?>
-                                                        <div class="panel panel-default">
+                                                        <div class="panel panel-default" data-p="<?=$key?>">
                                                             <div class="panel-heading">
                                                                 <h4 class="whiteTitle" style="display: inline-block;">Group</h4>
-                                                                <a class="btn btn-danger pull-right btn_delete_group" title="delete group"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                                <a class="btn btn-danger pull-right btn_delete_group" data-p="<?=$key?>" title="delete group"><i class="fa fa-times" aria-hidden="true"></i></a>
                                                             </div>
                                                             <div class="panel-body">
                                                                 <div class="panel-input" data-p="<?=$key?>">
                                                                 <?php foreach ($row as $value) { ?>
                                                                     <input type="text" data-type="up" class="form-control input-data" data-id="<?=$value['shipping_details_id']?>" data-p="<?=$key?>" placeholder="New Lines" value="<?php echo $value['value']; ?>">
-                                                                    <a class="btn btn-danger btn_delete_line" title="delete line"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
+                                                                    <a class="btn btn-danger btn_delete_line" data-id="<?=$value['shipping_details_id']?>" title="delete line"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
                                                                 <?php } ?>
                                                                 </div>
                                                                 <br/>
@@ -150,15 +150,34 @@
       }
     });
 
+    $('#shippingDetails_form').on('click','.btn_delete_group',function(){
+      let elm=$(this);
+      if(confirm("Are you sure?")){
+        $('input.input-data[data-p='+elm.attr('data-p')+']').attr('data-type','del');
+        $('div.panel-default[data-p='+elm.attr('data-p')+']').addClass('hidden');
+        elm.addClass('hidden');
+      }
+    });
+
+    $('#shippingDetails_form').on('click','.btn_delete_line',function(){
+      let elm=$(this);
+      if(confirm("Are you sure?")){
+        $('input.input-data[data-id='+elm.attr('data-id')+']').attr('data-type','del').addClass('hidden');
+        elm.addClass('hidden');
+      }
+    });
+
     $('#btn-add-group').click(function(){
-      $('.shipping_group_container').append('<div class="panel panel-default">\
+      $('.shipping_group_container').append('<div class="panel panel-default" data-p="'+name+'">\
           <div class="panel-heading">\
               <h4 class="whiteTitle" style="display: inline-block;">Group</h4>\
+              <a class="btn btn-danger pull-right btn_delete_group" data-p="'+name+'" title="delete group"><i class="fa fa-times" aria-hidden="true"></i></a>\
           </div>\
           <div class="panel-body">\
               <div class="panel-input" data-p="'+name+'">\
 \
                   <input type="text" data-type="up" data-p="'+name+'" class="form-control input-data" data-id="'+id+'" placeholder="New Lines" value="sample">\
+                  <a class="btn btn-danger btn_delete_line" data-id="'+id+'" title="delete line"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>\
               </div>\
               <br/>\
               <a class="btn btn-success pull-right btn-add-line" data-p="'+name+'">\
@@ -172,7 +191,9 @@
 
     $('#shippingDetails_form').on('click','.btn-add-line',function(){
       let pid=$(this).attr('data-p');
-      $('.panel-input[data-p='+pid+']').append('<input type="text" data-type="up" data-p="'+pid+'" class="form-control input-data" data-id="'+id+'" placeholder="New Lines" value="sample">');
+      $('.panel-input[data-p='+pid+']').append('<input type="text" data-type="up" data-p="'+pid+'" class="form-control input-data" data-id="'+id+'" placeholder="New Lines" value="sample">\
+      <a class="btn btn-danger btn_delete_line" data-id="'+id+'" title="delete line"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>\
+');
       id--;
     });
 

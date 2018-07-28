@@ -36,6 +36,8 @@ class ShippingDetails_model extends CI_Model {
             $this->db->where('shipping_details_id',$var['id']);
             $this->db->update('shipping_details', $up);
           }
+        }else if($var['type']=='del'){
+          $this->db->delete('shipping_details', array('shipping_details_id' => $var['id']));
         }
       }
     }
