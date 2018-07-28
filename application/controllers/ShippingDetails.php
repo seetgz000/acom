@@ -12,14 +12,15 @@ class ShippingDetails extends CI_Controller{
   function index(){
     $shippingDetails = $this->ShippingDetails_model->get_all();
     $i = 0;
+		$shippingResult=array();
       foreach ($shippingDetails as $row) {
           $where = array(
               'name' => $row['name']
           );
-          $shippingDetails[$i]['value'] = $this->ShippingDetails_model->get_where($where);
+          $shippingResult[$row['name']] = $this->ShippingDetails_model->get_where($where);
           $i++;
       }
-      $this->page_data['shippingDetails'] = $shippingDetails;
+      $this->page_data['shippingDetails'] = $shippingResult;
 
 
     $this->load->view('admin/header', $this->page_data);
@@ -30,15 +31,14 @@ class ShippingDetails extends CI_Controller{
     $shippingDetails = $this->ShippingDetails_model->get_all();
     $i = 0;
 		$shippingResult=array();
-    foreach ($shippingDetails as $row) {
-      $where = array(
-            'name' => $row['name']
-      );
-      $shippingResult[$i] = $this->ShippingDetails_model->get_where($where);
-      $i++;
-    }
-    $this->page_data['shippingDetails'] = $shippingDetails;
-
+      foreach ($shippingDetails as $row) {
+          $where = array(
+              'name' => $row['name']
+          );
+          $shippingResult[$row['name']] = $this->ShippingDetails_model->get_where($where);
+          $i++;
+      }
+      $this->page_data['shippingDetails'] = $shippingResult;
 
     $this->load->view('admin/header', $this->page_data);
     $this->load->view('admin/shippingDetails/all');
@@ -60,10 +60,10 @@ class ShippingDetails extends CI_Controller{
           $where = array(
               'name' => $row['name']
           );
-          $shippingDetails[$row['name']] = $this->ShippingDetails_model->get_where($where);
+          $shippingResult[$row['name']] = $this->ShippingDetails_model->get_where($where);
           $i++;
       }
-      $this->page_data['shippingDetails'] = $shippingDetails;
+      $this->page_data['shippingDetails'] = $shippingResult;
 
 
     $this->load->view('admin/header', $this->page_data);
