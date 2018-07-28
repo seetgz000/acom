@@ -5,8 +5,8 @@
             <div class="product-label">
               <?php if($product['label']!=4){ ?>
                 <div class="label_new" 
-                style="background-color: <?=$label_data[$product['label']-1]['b_color']?>; color: <?=$label_data[$product['label']-1]['w_color']?>;">
-                    <?=$label_data[$product['label']-1]['Value']?>
+                style="background-color: <?=$label_data[$product['label']]['b_color']?>; color: <?=$label_data[$product['label']]['w_color']?>;">
+                    <?=$label_data[$product['label']]['Value']?>
                 </div>
               <?php } ?>
             </div>
