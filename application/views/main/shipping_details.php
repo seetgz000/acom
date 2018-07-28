@@ -39,44 +39,42 @@
                                 <div role="tabpanel" class="tab-pane active" id="productWidgets">
                                     <div class="tab-content-wrapper">
                                         <div class="row">
-                                            <div class="shipping_details_container">
-                                                <p>All deliveries will be made via Pos Laju. All shipping fees will be calculated automatically upon check out based on weight and shipping venue.
-                                                Please refer to the following rates for your kind reference:</p>
-                                                <table class="table shipping_table">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td></td>
-                                                            <td>Estimated Delivery Time</td>
-                                                            <td>Standard Shipping fee</td>
-                                                            <td>Purchase Above MYR 150</td>
-                                                        </tr>
-                                                        <tr>        
-                                                            <td>West Malaysia</td>
-                                                            <td>2-3 working days</td>
-                                                            <td>MYR 8</td>
-                                                            <td>Free Shipping</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>East Malaysia</td>
-                                                            <td>4-5 working days</td>
-                                                            <td>MYR 12</td>
-                                                            <td>Free Shipping</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <div class="cod_container">
-                                                <p>* Please email a copy of payment slip with your order number/ID attached to cherio.clo@hotmail.com</p>
-                                                <p>* Your purchased products will not be delivered until we have received confimation. </p>
-                                                <p>* Tracking number will be provided by email once they are shipped out.</p>
-                                                <p>* All shipping fees will be calculated automatically upon check out</p>
-                                            </div>
-                                            <div class="cod_container">
-                                                <p>Cash On Delivery:</p>
-                                                <p>Cash On Delivery (COD) is also available at Subang Jaya, Sunway, Desa Park City and Sungai Buloh.</p>
-                                                <p>Subang Jaya & Sunway: 016-2334243</p>
-                                                <p>Desa Park City & Sungai Buloh : 012-9774480</p>
-                                            </div>
+                                        <div class="shipping_details_container">
+                                            <p><?php echo $shippingDetails[0][0]['value']; ?></p>
+                                            <table class="table shipping_table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td><?php echo $shippingDetails[0][8]['value']; ?></td>
+                                                        <td><?php echo $shippingDetails[0][9]['value']; ?></td>
+                                                        <td><?php echo $shippingDetails[0][1]['value']; ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><?php echo $shippingDetails[0][6]['value']; ?></td>
+                                                        <td><?php echo $shippingDetails[0][2]['value']; ?></td>
+                                                        <td><?php echo $shippingDetails[0][3]['value']; ?></td>
+                                                        <td><?php echo $shippingDetails[0][10]['value']; ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><?php echo $shippingDetails[0][7]['value']; ?></td>
+                                                        <td><?php echo $shippingDetails[0][4]['value']; ?></td>
+                                                        <td><?php echo $shippingDetails[0][5]['value']; ?></td>
+                                                        <td><?php echo $shippingDetails[0][11]['value']; ?></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <?php foreach($shippingDetails as $key=>$row) {
+                                            if($key > 0 ) { ?>
+                                                <div class="cod_container">
+                                                    <?php foreach ($row as $value) { ?>
+                                                        <p><?php echo $value['value'] ?></p>
+                                                    <?php } ?>
+                                                </div>
+                                        <?php }
+                                            }
+                                        ?>
                                            
                                         </div>
                                     </div>

@@ -57,11 +57,13 @@
                                                         <div class="panel panel-default">
                                                             <div class="panel-heading">
                                                                 <h4 class="whiteTitle" style="display: inline-block;">Group</h4>
+                                                                <a class="btn btn-danger pull-right btn_delete_group" title="delete group"><i class="fa fa-times" aria-hidden="true"></i></a>
                                                             </div>
                                                             <div class="panel-body">
                                                                 <div class="panel-input" data-p="<?=$key?>">
                                                                 <?php foreach ($row as $value) { ?>
                                                                     <input type="text" data-type="up" class="form-control input-data" data-id="<?=$value['shipping_details_id']?>" data-p="<?=$key?>" placeholder="New Lines" value="<?php echo $value['value']; ?>">
+                                                                    <a class="btn btn-danger btn_delete_line" title="delete line"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
                                                                 <?php } ?>
                                                                 </div>
                                                                 <br/>

@@ -18,6 +18,7 @@ class Main extends CI_Controller {
         $this->load->model("IndexPic_model");
         $this->load->model("Label_model");
         $this->load->model("Term_And_Condition_model");
+        $this->load->model("ShippingDetails_model");
 
         $this->page_data = array();
 
@@ -218,6 +219,17 @@ class Main extends CI_Controller {
     }
 
     public function shipping_details() {
+        $shippingDetails = $this->ShippingDetails_model->get_all();
+        $i = 0;
+            $shippingResult=array();
+        foreach ($shippingDetails as $row) {
+            $where = array(
+                'name' => $row['name']
+            );
+            $shippingResult[$row['name']] = $this->ShippingDetails_model->get_where($where);
+            $i++;
+        }
+        $this->page_data['shippingDetails'] = $shippingResult;
 
         $this->load->view('main/header', $this->page_data);
         $this->load->view('main/shipping_details');

@@ -407,3 +407,9 @@ a:link{
 .cod_container {
     padding: 5rem 0;
 }
+
+.panel-input .form-control.input-data {
+    width: 90%;
+    margin-bottom: 1%;
+    display: inline-block;
+}
