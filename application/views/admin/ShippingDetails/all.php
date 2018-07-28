@@ -16,35 +16,35 @@
                     <a class='pull-right' href="<?= base_url() ?>shippingDetails/edit"><button class="btn btn-warning update-button"><i class="fa fa-pencil"></i> Edit</button></a>
                     <div class="row">
                         <div class="shipping_details_container">
-                            <p><?php echo $shippingDetails[0]['value'][0]['value']; ?></p>
+                            <p><?php echo $shippingDetails[0][0]['value']; ?></p>
                             <table class="table shipping_table">
                                 <tbody>
                                     <tr>
                                         <td></td>
-                                        <td><?php echo $shippingDetails[8]['value'][0]['value']; ?></td>
-                                        <td><?php echo $shippingDetails[9]['value'][0]['value']; ?></td>
-                                        <td><?php echo $shippingDetails[1]['value'][0]['value']; ?></td>
-                                    </tr>
-                                    <tr>        
-                                        <td><?php echo $shippingDetails[6]['value'][0]['value']; ?></td>
-                                        <td><?php echo $shippingDetails[2]['value'][0]['value']; ?></td>
-                                        <td><?php echo $shippingDetails[3]['value'][0]['value']; ?></td>
-                                        <td><?php echo $shippingDetails[10]['value'][0]['value']; ?></td>
+                                        <td><?php echo $shippingDetails[0][8]['value']; ?></td>
+                                        <td><?php echo $shippingDetails[0][9]['value']; ?></td>
+                                        <td><?php echo $shippingDetails[0][1]['value']; ?></td>
                                     </tr>
                                     <tr>
-                                        <td><?php echo $shippingDetails[7]['value'][0]['value']; ?></td>
-                                        <td><?php echo $shippingDetails[4]['value'][0]['value']; ?></td>
-                                        <td><?php echo $shippingDetails[5]['value'][0]['value']; ?></td>
-                                        <td><?php echo $shippingDetails[11]['value'][0]['value']; ?></td>
+                                        <td><?php echo $shippingDetails[0][6]['value']; ?></td>
+                                        <td><?php echo $shippingDetails[0][2]['value']; ?></td>
+                                        <td><?php echo $shippingDetails[0][3]['value']; ?></td>
+                                        <td><?php echo $shippingDetails[0][10]['value']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td><?php echo $shippingDetails[0][7]['value']; ?></td>
+                                        <td><?php echo $shippingDetails[0][4]['value']; ?></td>
+                                        <td><?php echo $shippingDetails[0][5]['value']; ?></td>
+                                        <td><?php echo $shippingDetails[0][11]['value']; ?></td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                        
-                        <?php foreach($shippingDetails as $row) {
-                            if($row['shipping_details_id'] > 12 ) { ?>
+
+                        <?php foreach($shippingDetails as $key=>$row) {
+                            if($key > 0 ) { ?>
                                 <div class="cod_container">
-                                    <?php foreach ($row['value'] as $value) { ?>
+                                    <?php foreach ($row as $value) { ?>
                                         <p><?php echo $value['value'] ?></p>
                                     <?php } ?>
                                 </div>
