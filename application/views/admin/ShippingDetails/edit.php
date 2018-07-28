@@ -20,56 +20,63 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="clearfix"></div>
-                                            <div class="row">
+                                            <div class="row ">
                                                 <div class="shipping_details_container">
-                                                    <input type="text" class="form-control" placeholder="Top desciption" value="<?php echo $shippingDetails[0]['value'][0]['value']; ?>">
+                                                    <input type="text" class="form-control input-data" placeholder="Top desciption" data-type="up" value="<?=$shippingDetails[0][0]['value']?>" data-id='<?=$shippingDetails[0][0]['shipping_details_id']?>' data-p='0'>
                                                     <br/>
                                                     <table class="table shipping_table edit">
                                                         <tbody>
                                                             <tr>
                                                                 <td></td>
-                                                                <td><input type="text" class="form-control" placeholder="Estimated Delivery Time" value="<?php echo $shippingDetails[8]['value'][0]['value']; ?>"></td>
-                                                                <td><input type="text" class="form-control" placeholder="Standard Shipping fee" value="<?php echo  $shippingDetails[9]['value'][0]['value']; ?>"></td>
-                                                                <td><input type="text" class="form-control" placeholder="Purchase Above MYR 150" value="<?php echo  $shippingDetails[1]['value'][0]['value']; ?>"></td>
-                                                            </tr>
-                                                            <tr>        
-                                                                <td><input type="text" class="form-control" placeholder="West Malaysia" value="<?php echo  $shippingDetails[6]['value'][0]['value']; ?>"></td>
-                                                                <td><input type="text" class="form-control" placeholder="2-3 working days" value="<?php echo  $shippingDetails[2]['value'][0]['value']; ?>"></td>
-                                                                <td><input type="text" class="form-control" placeholder="MYR 8" value="<?php echo  $shippingDetails[3]['value'][0]['value']; ?>"></td>
-                                                                <td><input type="text" class="form-control" placeholder="Free Shipping" value="<?php echo  $shippingDetails[10]['value'][0]['value']; ?>"></td>
+                                                                <td><input type="text" class="form-control input-data" placeholder="Estimated Delivery Time" data-type="up" value="<?=$shippingDetails[0][8]['value']?>" data-id='<?=$shippingDetails[0][8]['shipping_details_id']?>' data-p='0'></td>
+                                                                <td><input type="text" class="form-control input-data" placeholder="Standard Shipping fee" data-type="up" value="<?php echo  $shippingDetails[0][9]['value']; ?>" data-id='<?=$shippingDetails[0][9]['shipping_details_id']?>' data-p='0'></td>
+                                                                <td><input type="text" class="form-control input-data" placeholder="Purchase Above MYR 150" data-type="up" value="<?php echo  $shippingDetails[0][1]['value']; ?>" data-id='<?=$shippingDetails[0][1]['shipping_details_id']?>' data-p='0'></td>
                                                             </tr>
                                                             <tr>
-                                                                <td><input type="text" class="form-control" placeholder="East Malaysia" value="<?php echo  $shippingDetails[7]['value'][0]['value']; ?>"></td>
-                                                                <td><input type="text" class="form-control" placeholder="4-5 working days" value="<?php echo  $shippingDetails[4]['value'][0]['value']; ?>"></td>
-                                                                <td><input type="text" class="form-control" placeholder="MYR 12" value="<?php echo  $shippingDetails[5]['value'][0]['value']; ?>"></td>
-                                                                <td><input type="text" class="form-control" placeholder="Free Shipping" value="<?php echo  $shippingDetails[11]['value'][0]['value']; ?>"></td>
+                                                                <td><input type="text" class="form-control input-data" placeholder="West Malaysia" data-type="up" value="<?php echo  $shippingDetails[0][6]['value']; ?>" data-id='<?=$shippingDetails[0][6]['shipping_details_id']?>' data-p='0'></td>
+                                                                <td><input type="text" class="form-control input-data" placeholder="2-3 working days" data-type="up" value="<?php echo  $shippingDetails[0][2]['value']; ?>" data-id='<?=$shippingDetails[0][2]['shipping_details_id']?>' data-p='0'></td>
+                                                                <td><input type="text" class="form-control input-data" placeholder="Free Shipping" data-type="up" value="<?php echo  $shippingDetails[0][10]['value']; ?>" data-id='<?=$shippingDetails[0][10]['shipping_details_id']?>' data-p='0'></td>
+                                                                <td><input type="text" class="form-control input-data" placeholder="MYR 8" data-type="up" value="<?php echo  $shippingDetails[0][3]['value']; ?>" data-id='<?=$shippingDetails[0][3]['shipping_details_id']?>' data-p='0'></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><input type="text" class="form-control input-data" placeholder="East Malaysia" data-type="up" value="<?php echo  $shippingDetails[0][7]['value']; ?>" data-id='<?=$shippingDetails[0][7]['shipping_details_id']?>' data-p='0'></td>
+                                                                <td><input type="text" class="form-control input-data" placeholder="4-5 working days" data-type="up" value="<?php echo  $shippingDetails[0][4]['value']; ?>" data-id='<?=$shippingDetails[0][4]['shipping_details_id']?>' data-p='0'></td>
+                                                                <td><input type="text" class="form-control input-data" placeholder="MYR 12" data-type="up" value="<?php echo  $shippingDetails[0][5]['value']; ?>" data-id='<?=$shippingDetails[0][5]['shipping_details_id']?>' data-p='0'></td>
+                                                                <td><input type="text" class="form-control input-data" placeholder="Free Shipping" data-type="up" value="<?php echo  $shippingDetails[0][11]['value']; ?>" data-id='<?=$shippingDetails[0][11]['shipping_details_id']?>' data-p='0'></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
                                                 </div>
-                                                
-                                                <?php foreach($shippingDetails as $row) {
-                                                    if($row['shipping_details_id'] > 12 ) { ?>
+
+                                                <div class="shipping_group_container">
+                                                <?php
+                                                $i=0;
+                                                foreach($shippingDetails as $key=>$row) {
+
+                                                    if($i > 0 ) { ?>
                                                         <div class="panel panel-default">
                                                             <div class="panel-heading">
                                                                 <h4 class="whiteTitle" style="display: inline-block;">Group</h4>
                                                             </div>
                                                             <div class="panel-body">
-                                                                <?php foreach ($row['value'] as $value) { ?>
-                                                                    <input type="text" class="form-control" placeholder="New Lines" value="<?php echo $value['value']; ?>">
+                                                                <div class="panel-input" data-p="<?=$key?>">
+                                                                <?php foreach ($row as $value) { ?>
+                                                                    <input type="text" data-type="up" class="form-control input-data" data-id="<?=$value['shipping_details_id']?>" data-p="<?=$key?>" placeholder="New Lines" value="<?php echo $value['value']; ?>">
                                                                 <?php } ?>
+                                                                </div>
                                                                 <br/>
-                                                                <a class="btn btn-success pull-right" id="btn-add-line">
+                                                                <a class="btn btn-success pull-right btn-add-line" data-p="<?=$key?>">
                                                                 add new line
                                                                 </a>
                                                             </div>
                                                         </div>
                                                 <?php }
+                                                $i++;
                                                     }
-                                                ?>
-                                                <br/>
-                                                <a class="btn btn-warning pull-right" id="btn-add-group">add new group</a>
+                                                  ?>
+                                              </div>
                                             </div>
+                                            <a class="btn btn-warning pull-right" id="btn-add-group">add new group</a>
                                         </div>
                                     </div>
                                     <hr>
@@ -90,11 +97,11 @@
     function form_submit(form) {
         var data = [];
 
-        $('input.tas-des').each(function(){
+        $('input.input-data').each(function(){
           data.push({
-            'header':$('#tas-head').val(),
-            'des':$(this).val(),
             'id':$(this).attr('data-id'),
+            'name':$(this).attr('data-p'),
+            'value':$(this).val(),
             'type':$(this).attr('data-type')
           })
         })
@@ -110,7 +117,7 @@
                text: "Successfully updated"
            });
            setTimeout(function () {
-               window.location = "<?php site_url('TermAndCondition'); ?>";
+               window.location = "<?php site_url('shippingDetails/edit'); ?>";
            }, 1500);
 
          });
@@ -130,7 +137,9 @@
             });
         }
     });
+
     let id=-1;
+    let name=-1;
     $('#shippingDetails_form').on('click','.btn-delete-des',function(){
       let elm=$(this);
       if(confirm("Are you sure?")){
@@ -139,11 +148,29 @@
       }
     });
 
-    $('#btn-add-line').click(function(){
-      $('#shippingDetails_form').append('<br class=\'tas-des\' data-id="'+id+'" />\
-                              <br class=\'tas-des\' data-id="'+id+'" />\
-      <input type="text" class="form-control tas-des" required data-id="'+id+'" data-type=\'new\' placeholder="Body"  value="">\
-      <a class="btn btn-danger btn-delete-des" data-target="'+id+'">delete</a>');
+    $('#btn-add-group').click(function(){
+      $('.shipping_group_container').append('<div class="panel panel-default">\
+          <div class="panel-heading">\
+              <h4 class="whiteTitle" style="display: inline-block;">Group</h4>\
+          </div>\
+          <div class="panel-body">\
+              <div class="panel-input" data-p="'+name+'">\
+\
+                  <input type="text" data-type="up" data-p="'+name+'" class="form-control input-data" data-id="'+id+'" placeholder="New Lines" value="sample">\
+              </div>\
+              <br/>\
+              <a class="btn btn-success pull-right btn-add-line" data-p="'+name+'">\
+              add new line\
+              </a>\
+          </div>\
+      </div>');
+      id--;
+      name--;
+    });
+
+    $('#shippingDetails_form').on('click','.btn-add-line',function(){
+      let pid=$(this).attr('data-p');
+      $('.panel-input[data-p='+pid+']').append('<input type="text" data-type="up" data-p="'+pid+'" class="form-control input-data" data-id="'+id+'" placeholder="New Lines" value="sample">');
       id--;
     });
 

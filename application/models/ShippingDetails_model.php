@@ -19,13 +19,24 @@ class ShippingDetails_model extends CI_Model {
       return $query->result_array();
   }
     public function update_all($arr){
+      $this->db->select_max('name');
+      $max_g_id = $this->db->get('shipping_details')->result_array()[0]['name'];
+
       foreach($arr as $var){
-        $id = $var['id'];
-        $data=array(
-          'Value'=>$var['name']
-        );
-        $this->db->where('shipping_details_id', $id);
-        $this->db->update('shipping_details', $data);
+        if($var['type']=='up'){
+          if($var['id']<0){
+            $this->db->insert('shipping_details', array(
+              'name'=>($max_g_id+$var['name']*-1),
+              'value'=>$var['value']
+            ));
+          }else{
+            $up=array(
+              'value'=>$var['value']
+            );
+            $this->db->where('shipping_details_id',$var['id']);
+            $this->db->update('shipping_details', $up);
+          }
+        }
       }
     }
 }
