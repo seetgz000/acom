@@ -115,12 +115,12 @@
              data:data
          },
          function(data,status){
-           $("body").loadingModal({
-               text: "Successfully updated"
-           });
-           setTimeout(function () {
-               window.location = "<?php site_url('shippingDetails/edit'); ?>";
-           }, 1500);
+           // $("body").loadingModal({
+           //     text: "Successfully updated"
+           // });
+           // setTimeout(function () {
+           //     window.location = "<?php site_url('shippingDetails/edit'); ?>";
+           // }, 1500);
 
          });
     }

@@ -49,9 +49,9 @@ class ShippingDetails extends CI_Controller{
 				$input = $this->input->post();
 
 				$this->ShippingDetails_model->update_all($input['data']);
-				die(json_encode(array(
-						"status" => true
-				)));
+				// die(json_encode(array(
+				// 		"status" => true
+				// )));
 		}
     $shippingDetails = $this->ShippingDetails_model->get_all();
     $i = 0;
