@@ -35,8 +35,8 @@
                                                             <tr>
                                                                 <td><input type="text" class="form-control input-data" placeholder="West Malaysia" data-type="up" value="<?php echo  $shippingDetails[0][6]['value']; ?>" data-id='<?=$shippingDetails[0][6]['shipping_details_id']?>' data-p='0'></td>
                                                                 <td><input type="text" class="form-control input-data" placeholder="2-3 working days" data-type="up" value="<?php echo  $shippingDetails[0][2]['value']; ?>" data-id='<?=$shippingDetails[0][2]['shipping_details_id']?>' data-p='0'></td>
-                                                                <td><input type="text" class="form-control input-data" placeholder="Free Shipping" data-type="up" value="<?php echo  $shippingDetails[0][10]['value']; ?>" data-id='<?=$shippingDetails[0][10]['shipping_details_id']?>' data-p='0'></td>
                                                                 <td><input type="text" class="form-control input-data" placeholder="MYR 8" data-type="up" value="<?php echo  $shippingDetails[0][3]['value']; ?>" data-id='<?=$shippingDetails[0][3]['shipping_details_id']?>' data-p='0'></td>
+                                                                <td><input type="text" class="form-control input-data" placeholder="Free Shipping" data-type="up" value="<?php echo  $shippingDetails[0][10]['value']; ?>" data-id='<?=$shippingDetails[0][10]['shipping_details_id']?>' data-p='0'></td>
                                                             </tr>
                                                             <tr>
                                                                 <td><input type="text" class="form-control input-data" placeholder="East Malaysia" data-type="up" value="<?php echo  $shippingDetails[0][7]['value']; ?>" data-id='<?=$shippingDetails[0][7]['shipping_details_id']?>' data-p='0'></td>
@@ -119,7 +119,7 @@
                text: "Successfully updated"
            });
            setTimeout(function () {
-               window.location = "<?php site_url('shippingDetails/edit'); ?>";
+               window.location = "<?= site_url('shippingDetails'); ?>";
            }, 1500);
 
          });
