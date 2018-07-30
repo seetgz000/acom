@@ -24,7 +24,7 @@ class ShippingDetails extends CI_Controller{
 
 
     $this->load->view('admin/header', $this->page_data);
-    $this->load->view('admin/shippingDetails/all');
+    $this->load->view('admin/ShippingDetails/all');
     $this->load->view('admin/footer');
   }
   function all(){
@@ -41,7 +41,7 @@ class ShippingDetails extends CI_Controller{
       $this->page_data['shippingDetails'] = $shippingResult;
 
     $this->load->view('admin/header', $this->page_data);
-    $this->load->view('admin/shippingDetails/all');
+    $this->load->view('admin/ShippingDetails/all');
     $this->load->view('admin/footer');
   }
   function edit(){
@@ -67,7 +67,7 @@ class ShippingDetails extends CI_Controller{
 
 
     $this->load->view('admin/header', $this->page_data);
-    $this->load->view('admin/shippingDetails/edit');
+    $this->load->view('admin/ShippingDetails/edit');
     $this->load->view('admin/footer');
   }
 
